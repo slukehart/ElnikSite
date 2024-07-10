@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from 'tailwindcss/plugin'
 
+import tailwindcss_textshadow from "tailwindcss-textshadow";
+
 export default {
   content: [],
   theme: {
@@ -11,11 +13,11 @@ export default {
     },
   },
   plugins: [
+    tailwindcss_textshadow,
     plugin(function({ addComponents }) {
       addComponents({
         '.btn': {
           padding: '.5rem 1rem',
-          borderRadius: '.25rem',
           fontWeight: '600',
         },
         '.btn-blue': {
@@ -33,6 +35,7 @@ export default {
           },
         },
       })
-    })
+    }),
+
   ]
 }

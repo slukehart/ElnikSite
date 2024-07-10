@@ -10,14 +10,18 @@ async function getProducts(): Promise<{ message: Products[] | string; status: nu
         const productsCollection = await db.collection("products").get();
         const products: Products[] = [];
 
+
         productsCollection.forEach(doc => {
             const data = doc.data();
+            console.log("dtat", data);
             products.push({
                 id: doc.id,
                 name: data.name,
                 description: data.description,
                 shortDescription: data.shortDescription,
-                img: data.img
+                img: data.img,
+                brochure: data.brochure,
+                brochureImage: data.brochureImage,
             });
         });
 

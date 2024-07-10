@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { processDetector } from "@opentelemetry/resources";
 import type { GetProducts } from "../types";
 
 export const useProductStore = defineStore("ProductStore", () => {

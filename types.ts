@@ -8,7 +8,9 @@ export type Products = {
     name: string,
     description: string,
     shortDescription: string,
-    img: string
+    img: string,
+    brochure: string,
+    brochureImage: string
 }
 
 export interface BlogPost {

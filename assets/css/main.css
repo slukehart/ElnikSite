@@ -1,9 +1,35 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap') format('woff');
+    font-family: 'FranklinGothic';
+    src: local("TCFranklinGothicStd-BkCd"),
+    url('assets/franklin-gothic/ITCFranklinGothicStd-BkCd.ttf') format('truetype');
+
+}
+@font-face {
+    font-family: 'ITCFranklinGothicStd-Demi';
+    src: local("ITCFranklinGothicStd-Demi"),
+    url('assets/franklin-gothic/ITCFranklinGothicStd-Demi.ttf') format('truetype');
 
 }
 
-h1 h2 h3 h6 p{
-    font-family: 'Roboto', sans-serif;
+html{
+    font-family: "FranklinGothic";
 }
+h1 h2 {
+    font-family: 'ITCFranklinGothicStd-Demi';
+}
+
+.btn-product {
+    padding: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border: solid black 1px;
+    color:  #1f2937;
+}
+
+.btn-product:hover {
+    background-color: #2d7ad7;
+    color: black;
+}
+

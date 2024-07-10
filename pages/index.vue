@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-color-div flex flex-col first-neg-margin">
-    <div class="flex-shrink-0">
+  <div class="bg-color-div flex flex-col">
+    <div class="">
       <GeneralLayout
         :about="about"
         :hero="hero"
@@ -17,21 +17,22 @@
           :class="{ active: index === currentIndex }"
         >
           <img :src="slide.image" :alt="slide.title" />
-          <div
-            class="z-10 caption tracking-normal pt-48 ml-10 pr-40 mb-20 w-1/3"
-          >
-            <div class="space-y-8 slide-up">
-              <h1 class="text-5xl text-neutral-950">{{ slide.title }}</h1>
-              <p
-                :class="
-                  index % 2 === 1 || index === 0
-                    ? 'text-stone-300'
-                    : 'text-neutral-950'
-                "
-              >
+          <div class="z-10 caption tracking-normal w-1/2 h-full content-center">
+            <!--            :class="-->
+            <!--            index % 2 === 1 || index === 0-->
+            <!--            ? 'text-stone-300'-->
+            <!--            : 'text-neutral-950'-->
+            <!--            "-->
+            <div class="space-y-2 slide-up">
+              <h1 class="text-5xl text-slate-50 font-bold text-shadow-xl">
+                {{ slide.title }}
+              </h1>
+              <h4 class="text-shadow-xl text-slate-50 w-">
                 {{ slide.description }}
-              </p>
-              <button class="mt-4 btn">Learn More</button>
+              </h4>
+              <NuxtLink :to="slide.redirect">
+                <button class="mt-4 btn">LEARN MORE</button>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -43,48 +44,63 @@
       class="w-auto h-full items-center flex justify-center p-10"
     >
       <div class="flex flex-col justify-center items-center">
-        <div class="flex flex-col w-3/4 items-center space-y-4">
-          <h3 class="font-bold text-4xl text-center">
-            Global Leaders in Debind & Sinter Equipment.
-          </h3>
-          <p class="text-center">
+        <div class="flex flex-col w-full items-center">
+          <h2
+            class="font-bold text-4xl w-full text-center"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            GLOBAL LEADERS IN DEBIND & SINTER EQUIPMENT.
+          </h2>
+          <p class="text-center w-3/4">
             We manufacture the most advanced MIM/AM Debind + Sinter Furnaces and
             1st Stage Debind Ovens in the world. Our expertise is working with
             premium metals, alloys and compsites, translating into a wide range
             of top-notch solutions.
           </p>
           <NuxtLink to="About">
-            <button class="h-auto mt-6 btn-product text-sm">About Us</button>
-          </NuxtLink>
+            <button class="mt-4">
+              <p class="border-b-black border-b-2 uppercase" style="font-family: ITCFranklinGothicStd-Demi">about us</p>
+            </button>          </NuxtLink>
         </div>
-        <div class="grid grid-cols-2 gap-44 mt-12">
+        <div class="grid grid-cols-2 gap-12 mt-12">
           <div class="flex flex-col">
-            <img
-              style="width: 300px"
-              src="/images/1668507240009.jpeg"
-              alt="Elnik Systems Conference"
-              class="rounded-xl"
-            />
-            <p class="text-lg font-bold mt-4">Our solutions are grade a</p>
+            <NuxtLink to="/About" class="w-full" target="_blank">
+              <img
+                src="/images/elnik_leadership.jpg"
+                alt="Elnik Systems Conference"
+                class="w-full"
+              />
+            </NuxtLink>
+
+            <p class="text-lg font-bold mt-4">
+              A FAMILY OWNED BUSINESS, LEADING THE INDUSTRY WITH OVER 55 YEARS
+              OF EXPERIENCE
+            </p>
           </div>
           <div class="flex flex-col">
-            <img
-              style="width: 300px"
-              src="/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg"
-              alt="Elnik Systems At Work"
-              class="rounded-xl"
-            />
-            <p class="text-lg font-bold mt-4">Our solutions are grade a</p>
+            <NuxtLink to="https://dshtech.com/" class="w-full" target="_blank">
+              <img
+                src="/images/elnik_development_furnace.jpg"
+                alt="Elnik Systems At Work"
+                class="w-full"
+                style="height: 380.22px"
+              />
+            </NuxtLink>
+            <p class="text-lg font-bold mt-4">
+              HASSLE FREE SERVICE AND MAINTENANCE NO MATTER THE PRODUCT, NO
+              MATTER THE LOCATION
+            </p>
           </div>
         </div>
       </div>
     </div>
     <div ref="products" id="products" class="bg-slate-200">
-      <div
-        class="h-12 flex justify-center items-center content-center mb-8 mt-4"
-      >
-        <h2 class="text-4xl font-semibold text-slate-50">
-          OUR FAVORITE PRODUCTS
+      <div class="h-12 flex justify-center items-center content-center mt-4">
+        <h2
+          class="text-5xl font-bold text-slate-50 text-shadow-xl"
+          style="font-family: ITCFranklinGothicStd-Demi"
+        >
+          PRODUCTS IN DEMAND
         </h2>
       </div>
       <div class="flex flex-col justify-between items-center">
@@ -93,47 +109,56 @@
           <div
             v-for="(product, index) in productImages"
             :key="index"
-            class="flex flex-col w-full justify-center items-center bg-neutral-100 rounded-lg shadow-md p-4 mb-4"
+            class="flex flex-col w-full justify-center items-center backdrop-blur shadow-md mb-4"
           >
             <img
               :src="product['img']"
-              style="width: 125px"
+              style="width: 300px"
               :alt="product['name']"
-              class="rounded-lg"
             />
-            <div class="flex flex-col justify-items-start mt-4">
-              <h6 class="text-lg font-bold">{{ product["name"] }}</h6>
-              <p class="min-h-20 max-w-60 mt-2 text-sm text-gray-600">
-                {{ product["shortDescription"] }}
+            <div class="flex flex-col justify-items-start">
+              <h6 class="text-lg font-bold text-slate-50 uppercase" style="font-family: ITCFranklinGothicStd-Demi">
+                {{ product["name"] }}
+              </h6>
+              <p class="max-w-60 text-sm text-slate-50">
+                {{ product["shortDescription"] }}...
               </p>
             </div>
             <button
-              class="h-auto mt-4 btn-product w-3/4 text-sm bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              class="h-auto mt-4 btn-product-main w-3/4 text-sm hover:bg-blue-600 text-white font-bold py-2 px-6 mb-6"
               @click="goToProduct(index)"
             >
-              Learn More
+              <p class=" uppercase" style="font-family: ITCFranklinGothicStd-Demi">view product</p>
             </button>
           </div>
         </div>
         <!--        <button @click="next"><svg class="bg-zinc-950 rounded-xl mr-2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M4 12h12.25L11 6.75l.66-.75l6.5 6.5l-6.5 6.5l-.66-.75L16.25 13H4z"/></svg></button>-->
       </div>
     </div>
-    <div ref="blogSlider" id="blog" class="p-10">
-      <div class="h-12 flex justify-center items-center content-center mb-8">
-        <h2 class="text-4xl font-semibold text-zinc-950">OUR LATEST NEWS</h2>
+    <div ref="blogSlider" id="blog" class="p-4">
+      <div class="h-12 flex justify-center items-center content-center">
+        <h2
+          class="text-5xl font-semibold text-slate-950"
+          style="font-family: ITCFranklinGothicStd-Demi"
+        >
+          OUR LATEST NEWS
+        </h2>
       </div>
       <div class="flex flex-row justify-around items-center">
         <button @click="prev">
           <svg
-            class="bg-zinc-950 rounded-xl ml-2"
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
             viewBox="0 0 24 24"
           >
             <path
-              fill="white"
-              d="M19 13H6.75L12 18.25l-.66.75l-6.5-6.5l6.5-6.5l.66.75L6.75 12H19z"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m15 4l-8 8l8 8"
             />
           </svg>
         </button>
@@ -141,17 +166,21 @@
           <div
             v-for="(post, index) in paginatedColumns"
             :key="index"
-            class="flex flex-col w-full justify-center items-center bg-neutral-100 rounded-lg shadow-md p-4 mb-4"
+            class="flex flex-col w-full justify-center items-center bg-gray-200 p-4 mb-4"
           >
             <img
               :src="post.image"
               style="width: 125px"
               :alt="post.title"
-              class="rounded-lg"
             />
             <div class="flex flex-col justify-items-start mt-4">
-              <h6 class="text-lg font-bold">{{ post.title }}</h6>
-              <p class="min-h-8 max-w-60 mt-2 text-sm text-gray-900">
+              <h6
+                class="text-lg font-bold text-slate-950 uppercase flex"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
+                {{ post.title }}
+              </h6>
+              <p class="min-h-8 max-w-60 text-sm text-slate-950">
                 {{ post.description }}
               </p>
               <p class="text-gray-500 text-sm mb-4">
@@ -160,31 +189,34 @@
               </p>
             </div>
             <button
-              class="h-auto mt-4 btn-product w-3/4 text-sm bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
               @click="goToBlog(index)"
             >
-              Learn More
+              <p class="border-b-black border-b-2 uppercase" style="font-family: ITCFranklinGothicStd-Demi">learn more</p>
             </button>
           </div>
         </div>
         <button @click="next">
           <svg
-            class="bg-zinc-950 rounded-xl mr-2"
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
             viewBox="0 0 24 24"
           >
             <path
-              fill="white"
-              d="M4 12h12.25L11 6.75l.66-.75l6.5 6.5l-6.5 6.5l-.66-.75L16.25 13H4z"
+              fill="none"
+              stroke="black"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m8 4l8 8l-8 8"
             />
           </svg>
         </button>
       </div>
     </div>
     <div id="contact">
-      <ContactUs />
+
+      <ContactUs/>
     </div>
     <div id="footer" class="flex justify-center">
       <FooterComponent />
@@ -202,13 +234,11 @@ import type { Products } from "../types";
 
 import type { BlogPost } from "../types";
 import { testBlogData } from "../objects/testObjects";
-import { getElementById } from "domutils";
 
 const posts = ref<BlogPost[]>(testBlogData);
 
 const { getProducts } = useProductStore();
 const productList = await getProducts();
-console.log("producty ", productList);
 
 const hero = ref<HTMLElement | null | undefined>(
   document.getElementById("hero"),
@@ -223,24 +253,28 @@ const blogSlider = ref<HTMLElement | null | undefined>(null);
 
 const slides = ref([
   {
-    title: "Stinking bishop manchego cauliflower cheese",
-    description: "This is the first slide",
+    title: "INNOVATION. QUALITY. EXPERIENCE. EXCELLENCE.",
+    description: "LEADING THROUGH ACTION AND SELFLESS SERVICE",
     image: "/images/elnik_systems.jpeg",
+    redirect: "/Contact",
   },
   {
-    title: "Stinking bishop manchego cauliflower cheese",
-    description: "This is the first slide",
-    image: "/images/production-line-of-plastic-industry.webp",
+    title: "SPEARHEADING INNOVATION & ADVANCEMENT.",
+    description: "FOR THE FUTURE OF TOMORROW",
+    image: "/images/1668507240009.jpeg",
+    redirect: "/blog/",
   },
   {
-    title: "Stinking bishop manchego cauliflower cheese",
-    description: "This is the first slide",
+    title: "PUTTING MINDS & IDEAS TOGETHER.",
+    description: "TO CREATE INDUSTRY LEADING SOLUTIONS.",
     image: "/images/Main-Picture-toward-top-min.jpg",
+    redirect: "/About",
   },
   {
-    title: "Stinking bishop manchego cauliflower cheese",
-    description: "This is the first slide",
-    image: "/images/farmer-checking-agricultural-machinery-parts.webp",
+    title: "HAND CRAFTED EXCELLENCE. AMERICAN MADE.",
+    description: "HAND BUILT PRODUCTS, CUSTOMIZED TO YOUR NEEDS",
+    image: "/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg",
+    redirect: "/ProductPage",
   },
 ]);
 
@@ -299,7 +333,7 @@ const goToProduct = async (index: number) => {
 };
 
 const goToBlog = async (index: number) => {
-    await navigateTo({ path: `/blog/` });
+  await navigateTo({ path: `/blog/` });
 };
 
 onMounted(() => {
@@ -312,13 +346,13 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
+<style>
 .first-neg-margin > :nth-child(2) {
   margin-top: 0; /* Adjust the value to match the space-y value */
 }
 
 .bg-color-div > :nth-child(odd) {
-  background-color: #e2e8f0;
+  background-color: #d1d5db;
 }
 
 .hero-slider {
@@ -350,8 +384,8 @@ img {
 }
 
 #products {
-  background-image: url("/images/laser-cutting-close-up.webp");
-  object-fit: fill;
+  background-image: url("/images/furnace_close_up.png");
+  object-fit: cover;
 }
 
 .caption {
@@ -380,12 +414,15 @@ img {
   position: absolute;
   bottom: 20px;
   left: 20px;
+  width: 25%;
 }
 
 .slide:nth-child(even) .caption {
   position: absolute;
   bottom: 20px;
   right: 20px;
+  text-align: right;
+  width: 480px;
 }
 
 .slide.active .caption {
@@ -415,32 +452,30 @@ img {
 
 .btn {
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
   font-weight: 600;
   text-align: center;
   display: inline-block;
   transition: background-color 0.3s ease;
-  background-color: #2d7ad7;
   color: #f8fafc;
-}
-
-.btn-product {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-align: center;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-  background-color: #2d7ad7;
-  color: #f8fafc;
+  border: solid white 1px;
 }
 
 .btn:hover {
-  background-color: #99a4b9; /* Darker shade for hover */
+  background-color: #2d7ad7;
 }
 
-.btn-product:hover {
-  background-color: #99a4b9; /* Darker shade for hover */
+.btn-product-main {
+  padding: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  border: solid #f2f2f2 1px;
+  color: #f2f2f2;
+}
+
+.btn-product-main:hover {
+  background-color: #2d7ad7;
 }
 
 .p-editor .p-inputtext {
@@ -452,5 +487,9 @@ img {
   --p-inputtext-focus-border-color: none;
   box-shadow: none;
   border: none;
+}
+
+#contact{
+  background-image: url('public/images/contact_background.jpg');
 }
 </style>

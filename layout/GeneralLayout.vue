@@ -20,7 +20,6 @@ const props = defineProps({
     required: false,
   }
 });
-console.log(props.blogSlider)
 
 
 </script>

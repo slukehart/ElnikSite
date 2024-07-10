@@ -1,111 +1,107 @@
 <template>
-  <header class="h-32">
+  <header class="h-auto">
     <nav
-      class="mx-auto flex max-w-7xl content-center items-center justify-center p-6 lg:px-6"
+      class="flex content-center items-center justify-center"
       aria-label="Global"
     >
-      <div class="flex pb-5 w-full lg:ml-8">
-        <div class="flex flex-col content-center flex-wrap w-full">
+      <div class="flex w-full lg:ml-8">
+        <div class="flex flex-col content-center flex-wrap w-full space-x-4">
           <div class="flex lg:flex-1 justify-center">
             <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Your Company</span>
-              <img class="h-12 w-auto" src="/images/logo-10.png" alt="Elnik" />
+              <img class="h-20 w-auto" src="/images/ELNIK_SHADOW_LOGO_1_Edit.png" alt="Elnik" />
             </a>
           </div>
-          <PopoverGroup class="hidden lg:flex lg:gap-x-5 mt-2.5">
-            <!--        <Popover class="relative">-->
-            <!--          <PopoverButton-->
-            <!--            class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-stone-300"-->
-            <!--          >-->
-            <!--            Product-->
-            <!--            <ChevronDownIcon-->
-            <!--              class="h-5 w-5 flex-none text-gray-400"-->
-            <!--              aria-hidden="true"-->
-            <!--            />-->
-            <!--          </PopoverButton>-->
-
-            <!--          <transition-->
-            <!--            enter-active-class="transition ease-out duration-200"-->
-            <!--            enter-from-class="opacity-0 translate-y-1"-->
-            <!--            enter-to-class="opacity-100 translate-y-0"-->
-            <!--            leave-active-class="transition ease-in duration-150"-->
-            <!--            leave-from-class="opacity-100 translate-y-0"-->
-            <!--            leave-to-class="opacity-0 translate-y-1"-->
-            <!--          >-->
-            <!--            <PopoverPanel-->
-            <!--              class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"-->
-            <!--            >-->
-            <!--              <div class="p-4">-->
-            <!--                <div-->
-            <!--                  v-for="item in products"-->
-            <!--                  :key="item.name"-->
-            <!--                  class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"-->
-            <!--                >-->
-            <!--                  <div-->
-            <!--                    class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"-->
-            <!--                  >-->
-            <!--                    <component-->
-            <!--                      :is="item.icon"-->
-            <!--                      class="h-6 w-6 text-gray-600 group-hover:text-indigo-600"-->
-            <!--                      aria-hidden="true"-->
-            <!--                    />-->
-            <!--                  </div>-->
-            <!--                  <div class="flex-auto">-->
-            <!--                    <a-->
-            <!--                      :href="item.href"-->
-            <!--                      class="block font-semibold text-gray-900"-->
-            <!--                    >-->
-            <!--                      {{ item.name }}-->
-            <!--                      <span class="absolute inset-0" />-->
-            <!--                    </a>-->
-            <!--                    <p class="mt-1 text-gray-600">{{ item.description }}</p>-->
-            <!--                  </div>-->
-            <!--                </div>-->
-            <!--              </div>-->
-            <!--              <div-->
-            <!--                class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50"-->
-            <!--              >-->
-            <!--                <a-->
-            <!--                  v-for="item in callsToAction"-->
-            <!--                  :key="item.name"-->
-            <!--                  :href="item.href"-->
-            <!--                  class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"-->
-            <!--                >-->
-            <!--                  <component-->
-            <!--                    :is="item.icon"-->
-            <!--                    class="h-5 w-5 flex-none text-gray-400"-->
-            <!--                    aria-hidden="true"-->
-            <!--                  />-->
-            <!--                  {{ item.name }}-->
-            <!--                </a>-->
-            <!--              </div>-->
-            <!--            </PopoverPanel>-->
-            <!--          </transition>-->
-            <!--        </Popover>-->
+          <PopoverGroup class="hidden lg:flex lg:gap-x-5">
             <a
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
             >
-              <NuxtLink to="/">HOME</NuxtLink>
+              <NuxtLink to="/"> <p class="hover:font-bold">HOME</p></NuxtLink>
             </a>
 
-            <a v-if="useRoute().path === '/'"
+            <a
+              v-if="useRoute().path === '/'"
               href="#"
-
               @click.prevent="scrollToSection(props.about)"
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
               >ABOUT</a
             >
-            <NuxtLink v-else
-                      to="About"
-                      class="hover-line text-sm font-semibold leading-6 text-stone-300"
-            >ABOUT</NuxtLink
-            >
-            <a
-              href="#"
-              @click.prevent="scrollToSection(props.products)"
+            <NuxtLink
+              v-else
+              to="About"
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
-              >PRODUCTS</a
-            >
+              >ABOUT
+            </NuxtLink>
+            <div class="relative" @mouseover="showCard = true">
+              <a
+                href="#"
+                @click.prevent="scrollToSection(props.products)"
+                class="hover-line text-sm font-semibold leading-6 text-stone-300 relative z-10"
+              >
+                PRODUCTS
+              </a>
+
+              <!-- Hoverable card -->
+              <div
+                v-if="showCard"
+                @mouseleave="showCard = false"
+                class="absolute top-full left-0 w-auto bg-white shadow-lg overflow-hidden mt-4 z-10"
+              >
+                <!-- Card content -->
+                <div
+                  class="p-6 flex flex-row space-x-4 items-center justify-center"
+                >
+                  <NuxtLink to="/ProductPage" class="cursor-pointer hover:text-stone-300">
+                    <div
+                      class="flex flex-row items-center space-x-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m5.23 2.25l.43-1.11A1 1 0 0 1 6.59.5h.82a1 1 0 0 1 .93.64l.43 1.11l1.46.84l1.18-.18a1 1 0 0 1 1 .49l.4.7a1 1 0 0 1-.08 1.13l-.73.93v1.68l.75.93a1 1 0 0 1 .08 1.13l-.4.7a1 1 0 0 1-1 .49l-1.18-.18l-1.46.84l-.43 1.11a1 1 0 0 1-.93.64h-.84a1 1 0 0 1-.93-.64l-.43-1.11l-1.46-.84l-1.18.18a1 1 0 0 1-1-.49l-.4-.7a1 1 0 0 1 .08-1.13L2 7.84V6.16l-.75-.93a1 1 0 0 1-.08-1.13l.4-.7a1 1 0 0 1 1-.49l1.18.18ZM5 7a2 2 0 1 0 2-2a2 2 0 0 0-2 2Z"
+                        />
+                      </svg>
+                      <h3
+                        class="text-md font-semibold text-gray-800 hover:text-stone-300"
+                      >
+                        PRODUCTS
+                      </h3>
+                    </div>
+                  </NuxtLink>
+                  <div class="border-t-2 h-full border-slate-950"></div>
+                  <NuxtLink to="/Brochures" class="cursor-pointer hover:text-stone-300">
+                    <div
+                      class="flex flex-row items-center space-x-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6 15.325q.35-.175.725-.25T7.5 15H8V4h-.5q-.625 0-1.062.438T6 5.5zM10 15h8V4h-8zm-4 .325V4zM7.5 22q-1.45 0-2.475-1.025T4 18.5v-13q0-1.45 1.025-2.475T7.5 2H18q.825 0 1.413.587T20 4v12.525q0 .2-.162.363t-.588.362q-.35.175-.55.5t-.2.75t.2.763t.55.487t.55.413t.2.562v.25q0 .425-.288.725T19 22zm0-2h9.325q-.15-.35-.237-.712T16.5 18.5q0-.4.075-.775t.25-.725H7.5q-.65 0-1.075.438T6 18.5q0 .65.425 1.075T7.5 20"
+                        />
+                      </svg>
+                      <h3
+                        class="text-md font-semibold text-gray-800 hover:text-stone-300"
+                      >
+                        BROCHURES
+                      </h3>
+                    </div>
+                  </NuxtLink>
+                </div>
+                <!-- Divider -->
+              </div>
+            </div>
 
             <a
               href="#"
@@ -118,25 +114,34 @@
               >CAREERS</a
             >
 
-            <a v-if="useRoute().path === '/'"
+            <a
+              v-if="useRoute().path === '/'"
               href="#"
               @click.prevent="scrollToSection(props?.blogSlider)"
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
-            >BLOG</a
+              >BLOG</a
             >
-            <NuxtLink v-else
+            <NuxtLink
+              v-else
               to="blog/"
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
-            >BLOG</NuxtLink
+              >BLOG
+            </NuxtLink>
+
+            <NuxtLink
+              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              to="/Contact"
+              >CONTACT
+            </NuxtLink>
+            <a
+              href="https://dshtech.com/"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              >DSH TECHNOLOGIES</a
             >
-
-
-              <NuxtLink class="hover-line text-sm font-semibold leading-6 text-stone-300" to="/Contact">CONTACT</NuxtLink>
-
           </PopoverGroup>
         </div>
 
-        <div class="hidden lg:flex lg:flex-1 justify-end">
+        <div class="hidden w-full lg:flex lg:flex-1 justify-end">
           <div class="flex flex-col justify-center items-center">
             <svg
               class="mr-2"
@@ -150,7 +155,10 @@
                 d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6"
               />
             </svg>
-            <a href="#" style="width: 50px" class="flex justify-center text-xs font-semibold leading-6 text-stone-300"
+            <a
+              href="#"
+              style="width: 100px"
+              class="flex justify-center text-xs font-semibold leading-6 text-stone-300"
               >Log in <span aria-hidden="true">&rarr;</span></a
             >
           </div>
@@ -292,11 +300,11 @@ import {
   PlayCircleIcon,
 } from "@heroicons/vue/20/solid";
 
-import { useScroll } from "@vueuse/core";
 import type { PropType } from "vue";
-import {useRoute} from "vue-router";
+import { useRoute } from "vue-router";
 
-console.log(useRoute())
+const showCard = ref(false);
+
 const props = defineProps({
   about: {
     type: Object as PropType<HTMLElement | null | undefined>,
@@ -307,13 +315,13 @@ const props = defineProps({
     required: false,
   },
   products: {
-    type: Object as PropType<HTMLElement  | null | undefined>,
+    type: Object as PropType<HTMLElement | null | undefined>,
     required: false,
   },
   blogSlider: {
     type: Object as PropType<HTMLElement | null | undefined>,
     required: false,
-  }
+  },
 });
 
 const scrollToSection = (id: HTMLElement | null | undefined) => {

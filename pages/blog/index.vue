@@ -16,22 +16,22 @@ const selectPost = (postSelect: BlogPost) => {
 </script>
 
 <template>
-  <div class="flex flex-col space-y-16">
+  <div class="flex flex-col space-y-8">
     <div class="flex-shrink-0">
       <GeneralLayout />
     </div>
-    <div class="flex flex-col items-center space-y-8">
+    <div class="flex flex-col items-center ">
       <div class="flex justify-center">
-        <h1 class="text-4xl font-bold">Our Latest Updates</h1>
+        <h1 class="text-4xl font-bold uppercase" style="font-family: ITCFranklinGothicStd-Demi">OUR LATEST UPDATES</h1>
       </div>
       <div class="flex justify-center w-full">
         <div class="grid grid-cols-2 gap-8 w-full max-w-6xl">
-          <div id="blog-post-view" class=" bg-white rounded-lg shadow-md p-6 overflow-auto overflow-y-scroll">
+          <div id="blog-post-view" class=" bg-white p-6 overflow-auto overflow-y-scroll">
             <div v-if="selectedPost" class="max-h-8">
-              <h2 class="text-3xl font-bold text-gray-800 mb-4">
+              <h2 class="text-3xl font-bold text-gray-800 mb-4 uppercase" style="font-family: ITCFranklinGothicStd-Demi">
                 {{ selectedPost.title }}
               </h2>
-              <img :src="selectedPost.image" alt="Image" class="w-32 h-32 object-cover rounded-lg" />
+              <img :src="selectedPost.image" alt="Image" class="w-32 h-32 object-cover" />
 
               <p class="text-gray-600 mb-4">{{ selectedPost.description }}</p>
               <p class="text-gray-500 text-sm mb-4">
@@ -51,14 +51,14 @@ const selectPost = (postSelect: BlogPost) => {
               <div
                   v-for="post in posts"
                   :key="post.id"
-                  class="flex flex-row mb-8 p-6 bg-white rounded-lg shadow-md cursor-pointer"
+                  class="flex flex-row mb-8 p-6 bg-white cursor-pointer"
                   @click="selectPost(post)"
               >
                 <div class="mr-4">
-                  <img :src="post.image" alt="Image" class="w-32 h-32 object-cover rounded-lg" />
+                  <img :src="post.image" alt="Image" class="w-32 h-32 object-cover" />
                 </div>
                 <div>
-                  <h2 class="text-2xl font-bold text-gray-800 mb-2">
+                  <h2 class="text-2xl font-bold text-gray-800 mb-2 uppercase" style="font-family: ITCFranklinGothicStd-Demi">
                     {{ post.title }}
                   </h2>
                   <p class="text-gray-500 text-sm mb-4">
