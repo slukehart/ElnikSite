@@ -108,11 +108,11 @@
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
               >APPLICATIONS</a
             >
-            <a
-              href="#"
+            <NuxtLink
+              to="/Careers"
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
-              >CAREERS</a
-            >
+            >CAREERS
+            </NuxtLink>
 
             <a
               v-if="useRoute().path === '/'"

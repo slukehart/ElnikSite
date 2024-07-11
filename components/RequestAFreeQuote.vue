@@ -270,7 +270,7 @@ shown, here's the revised code: vue Copy code
     >
       <div class="mt-6">
         <div
-          class="font-bold text-5xl mb-6 text-center text-gray-800"
+          class="font-bold text-5xl mb-6 text-center text-slate-950"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           REQUEST A FREE QUOTE

@@ -299,7 +299,7 @@ const blogSlider = ref<HTMLElement | null | undefined>(null);
 const slides = ref([
   {
     title: "INNOVATION. QUALITY. EXPERIENCE. EXCELLENCE.",
-    description: "LEADING THROUGH ACTION AND SELFLESS SERVICE",
+    description: "LEADING THROUGH ACTION <br> AND SELFLESS SERVICE",
     image: "/images/elnik_systems.jpeg",
     redirect: "/Contact",
   },

@@ -19,7 +19,7 @@ const route = ref(useRoute().path);
       <div class="px-4 py-6">
         <h2
           class="font-bold text-5xl text-center mb-4"
-          :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+          :class="route === '/' ? 'text-slate-50' : 'text-slate-950'"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           SEND US A MESSAGE
