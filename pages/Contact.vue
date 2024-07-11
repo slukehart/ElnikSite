@@ -16,7 +16,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
         quote request, or simply want to learn about the applications of MIM,
         please feel free to contact us!
       </h5>
-      <h6 class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text">
+      <h6 style="font-family: ITCFranklinGothicStd-Demi" class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text" >
         Innovation. Quality. Experience. Excellence.
       </h6>
 

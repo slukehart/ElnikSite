@@ -10,7 +10,7 @@ const events = ref([
     date: "1969",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik Instruments was established as a wholly owned subsidiary of W.H. Joens & Co. in Germany marketing temperature controllers, recorders and programmers for industrial furnaces, vacuum furnaces plus a variety of plastic extrusion and injection molding machinery.",
@@ -20,7 +20,7 @@ const events = ref([
     date: "1982",
     image: "event2.jpg",
     name: "Event 2",
-    color: "bg-green-500",
+    color: "bg-gray-300",
     icon: "icon-class-2",
     description:
       "Elnik Instruments entered the vacuum furnace industry with focused efforts on vacuum furnace systems for Raytheon Company, Waltham MA.",
@@ -30,7 +30,7 @@ const events = ref([
     date: "1986",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik Systems was formed to meet growing demand for custom vacuum furnaces primarily for the military industry.",
@@ -40,7 +40,7 @@ const events = ref([
     date: "1995",
     image: "event4.jpg",
     name: "Event 4",
-    color: "bg-green-500",
+    color: "bg-gray-300",
     icon: "icon-class-2",
     description:
       'Elnik developed a "one-step" debind and sinter partial pressure furnace to meet the needs of the growing MIM market. The MIM 3000 furnace provides a very cost-effective alternative to the two-furnace technology being used at the time.',
@@ -50,7 +50,7 @@ const events = ref([
     date: "1999",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik Systems moves into a new state-of-the-art facility housing DSH Technologies, an Elnik affiliate, in Cedar Grove, NJ. Elnik began to standardize its MIM furnace line and continues to manufacture the most advanced MIM furnaces and debinding ovens in the world for one-step debinding and sintering processes.",
@@ -60,7 +60,7 @@ const events = ref([
     date: "2004",
     image: "event4.jpg",
     name: "Event 4",
-    color: "bg-green-500",
+    color: "bg-gray-300",
     icon: "icon-class-2",
     description:
       "Elnik continues pushing innovation of its furnace capabilities, introducing AccuTemp™ Temperature control allowing each temperature zone inside its furnace to be controlled within +/- 1º of its set point. Elnik Developed a Catalytic Debind Oven to be used to process BASF Catamold and Other POM based Feedstocks",
@@ -70,7 +70,7 @@ const events = ref([
     date: "2005",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik added automatic cleaning features of its Vacuum Pump and Binder Traps significantly reducing the manual maintenance time required of its systems.",
@@ -80,7 +80,7 @@ const events = ref([
     date: "2006",
     image: "event4.jpg",
     name: "Event 4",
-    color: "bg-green-500",
+    color: "bg-gray-300",
     icon: "icon-class-2",
     description:
       "Elnik introduces a full line of graphite MIM furnaces called the GraphMIM 2000 to its line for lower cost MIM processing of iron materials. This system contains all the same innovative functions as its MIM3000 series furnace.",
@@ -90,7 +90,7 @@ const events = ref([
     date: "2012",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik Develops a Metal and Ceramic debinding oven made for POM based metal and ceramic Feedstocks. This system has enhanced controllability of temperature, Nitric Acid flow and gas flow.",
@@ -100,7 +100,7 @@ const events = ref([
     date: "2015",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik developed a laboratory furnace for the MIM industry, MIM3001L. Having all the same processing characteristics as its larger production furnace syblings, this LAB furnace allows for an easy scale up from R+D to Production processing without having to reinvent the wheel. This furnace is also sized and functional for the Additive Manufacturing world involved with binder based 3D printing.",
@@ -110,7 +110,7 @@ const events = ref([
     date: "2017",
     image: "event1.jpg",
     name: "Elnik Opens",
-    color: "bg-blue-500",
+    color: "bg-gray-300",
     icon: "icon-class-1",
     description:
       "Elnik Systems establishes its first European based service and parts facility, Elnik Systems, GmbH. Located in Waldachtal, Germany, this facility will contain spare parts and a service technician.",
@@ -131,13 +131,13 @@ const events = ref([
         class="flex flex-col lg:justify-start md:items-center sm:items-center lg:mt-10 lg:w-full"
       >
         <h1
-          class="text-5xl text-shadow-md font-bold"
+          class="text-5xl text-shadow-md font-bold md:mt-10 md:text-center sm:mt-10 sm:text-center"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           OUR PEOPLE MAKE ALL THE DIFFERENCE
         </h1>
         <h5
-          class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center sm:text-center"
+          class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center sm:text-center pl-10 pr-10"
         >
           Elnik’s success is driven by the dedicated hands that help craft our
           equipment, the energetic service team helping customers, the detailed
@@ -182,7 +182,7 @@ const events = ref([
         >
           <div class="bg-white p-4 lg:w-1/3 md:w-1/2 sm:w-1/2">
             <div class="flex justify-between items-center mb-2">
-              <h3 class="text-lg font-semibold">{{ event.status }}</h3>
+              <h3 class="text-lg font-semibold uppercase" style="font-family: ITCFranklinGothicStd-Demi">{{ event.status }}</h3>
               <span class="text-gray-500">{{ event.date }}</span>
             </div>
             <div v-if="event.image" class="mb-2">

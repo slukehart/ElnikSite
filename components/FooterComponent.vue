@@ -1,13 +1,28 @@
 <script setup lang="ts">
+
+import type { PropType } from "vue";
+import { useRoute } from "vue-router";
+
+const props = defineProps({
+
+  hero: {
+    type: Object as PropType<HTMLElement | null | undefined>,
+    required: false,
+  },
+});
+
+import scrollToTopComposable from "../composables/scrollToTopComposable";
+
+const {scrollToSection} = scrollToTopComposable()
 </script>
 
 <template>
   <div class="footer h-auto bg-gray-700 w-full">
     <div class="flex flex-row justify-center align-middle">
-      <div class="flex lg:flex-row items-center">
+      <div class="flex lg:flex-row items-center w-full">
         <div class="flex justify-center items-center w-1/3 lg:p-6">
           <nav
-            class="grid lg:grid-cols-3 lg:grid-rows-3 lg:gap-4 md:grid-cols-2 md:grid-rows-3 md:gap-2 text-center"
+            class="grid lg:grid-cols-3 lg:grid-rows-3 md:grid-cols-2 md:grid-rows-3 md:gap-2 text-center"
           >
             <NuxtLink><a class="text-sm">HOME</a></NuxtLink>
             <NuxtLink><a class="text-sm">ABOUT</a></NuxtLink>
@@ -15,7 +30,7 @@
             <NuxtLink><a class="text-sm">APPLICATION</a></NuxtLink>
             <NuxtLink><a class="text-sm">CAREERS</a></NuxtLink>
             <NuxtLink><a class="text-sm">BLOG</a></NuxtLink>
-            <NuxtLink><a class="text-sm"></a></NuxtLink>
+            <NuxtLink><a class="text-sm">DSH TECHNOLOGIES</a></NuxtLink>
 
             <NuxtLink><a class="text-sm">CONTACT</a></NuxtLink>
             <NuxtLink><a class="text-sm"></a></NuxtLink>
@@ -25,7 +40,19 @@
         <div class="border-l-2 h-3/4 border-zinc-900 mt-6"></div>
         <div class="flex flex-col justify-between items-center w-1/3">
           <div id="footer-logo" class="flex justify-center px-6 py-4">
-            <img class="w-auto" src="/images/logo-10.png" alt="Elnik" />
+            <a
+              v-if="useRoute().path === '/'"
+              href="#"
+              @click.prevent="scrollToSection(props?.hero)"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+            > <img class="w-3/4" src="/images/logo-10.png" alt="Elnik" /></a
+            >
+            <NuxtLink
+              v-else
+              to="/"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+            > <img class="w-3/4" src="/images/logo-10.png" alt="Elnik" />
+            </NuxtLink>
           </div>
         </div>
         <div class="border-l-2 h-3/4 border-zinc-900 mt-6"></div>
@@ -36,7 +63,7 @@
             <!--            </button>-->
             <button
               id="contact-button"
-              class=" uppercase"
+              class=" w-full uppercase"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
               <p class="border-b-2 border-b-black uppercase">Contact Us</p>

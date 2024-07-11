@@ -1,6 +1,6 @@
 <template>
   <header class="h-auto">
-    <nav
+    <div
       class="flex content-center items-center justify-center"
       aria-label="Global"
     >
@@ -44,7 +44,7 @@
               <div
                 v-if="showCard"
                 @mouseleave="showCard = false"
-                class="absolute top-full left-0 w-auto bg-white shadow-lg overflow-hidden mt-4 z-10"
+                class="absolute top-full left-0 w-auto bg-white shadow-lg overflow-hidden z-10"
               >
                 <!-- Card content -->
                 <div
@@ -123,7 +123,7 @@
             >
             <NuxtLink
               v-else
-              to="blog/"
+              to="/blog"
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
               >BLOG
             </NuxtLink>
@@ -174,7 +174,7 @@
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
       </div>
-    </nav>
+    </div>
     <Dialog
       class="lg:hidden"
       @close="mobileMenuOpen = false"
@@ -295,13 +295,15 @@ import {
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
 import {
-  ChevronDownIcon,
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/vue/20/solid";
 
 import type { PropType } from "vue";
 import { useRoute } from "vue-router";
+import scrollToTopComposable from "../composables/scrollToTopComposable";
+
+const {scrollToSection} = scrollToTopComposable()
 
 const showCard = ref(false);
 
@@ -324,12 +326,7 @@ const props = defineProps({
   },
 });
 
-const scrollToSection = (id: HTMLElement | null | undefined) => {
-  console.log(id);
-  if (id) {
-    id.scrollIntoView({ behavior: "smooth" });
-  }
-};
+
 
 const products = [
   {
@@ -373,8 +370,7 @@ const mobileMenuOpen = ref(false);
 
 <style scoped>
 header {
-  background-image: url("public/images/Untitled design-7.png");
-  background-size: 100%; /* Ensure the entire background image is visible */
+  background-image: url("../public/images/Untitled-design-7.png");
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: center; /* Center the image within the header */
 }

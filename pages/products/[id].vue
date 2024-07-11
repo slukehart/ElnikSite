@@ -64,10 +64,13 @@ import GeneralLayout from "../../layout/GeneralLayout.vue";
         <h2 class="text-4xl font-bold text-gray-800 uppercase" style="font-family: ITCFranklinGothicStd-Demi">{{ product?.name }}</h2>
         <p class="text-sm text-gray-600">{{ product?.description }}</p>
         <div>
-          <button class="mt-10">
-            <p class="border-b-black border-b-2 uppercase">get a quote</p>
+          <NuxtLink to="/Contact">
+            <button class="mt-10">
+              <p class="border-b-black border-b-2 uppercase">get a quote</p>
 
-          </button>
+            </button>
+          </NuxtLink>
+
         </div>
       </div>
 

@@ -29,11 +29,11 @@ const goToProduct = async (index: number) => {
         <h5 class="text-2xl lg:w-3/4 md:w-1/2 sm:w-3/4 md:text-center sm:text-center">
           A combination of Innovation, Integrity and Quality combine to provide you with the best Debind and Sinter processing equipment available in the marketplace today.
         </h5>
-        <h6 class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text">
+        <h6 style="font-family: ITCFranklinGothicStd-Demi" class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text" >
           Innovation. Quality. Experience. Excellence.
         </h6>
         <div class="flex justify-center">
-          <NuxtLink to="/Brochures">
+          <NuxtLink to="/ProductPage">
             <button class=" mb-4">
               <p
                 class="border-b-black border-b-2 uppercase"
@@ -49,13 +49,12 @@ const goToProduct = async (index: number) => {
 
       <div id="product-hero-img" class="flex justify-end lg:w-1/2">
         <img
-          class="h-full w-full"
           src="public/images/Main-Picture-toward-top-min.jpg"
         />
       </div>
     </div>
     <div class="flex flex-col justify-between items-center">
-      <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 w-auto mb-4">
+      <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 mb-4">
         <div
           v-for="(product, index) in productImages"
           :key="index"
@@ -64,11 +63,11 @@ const goToProduct = async (index: number) => {
           <a
             :href="product.brochure"
             target="_blank"
-            :alt="product['name']"
+            :alt="product.name"
             class="rounded-lg"
-          > <img :src="product.brochureImage" :alt="product.name" height="96" width="96">
+          > <img :src="product.brochureImage" :alt="product.name">
           <div class="flex flex-col justify-items-start mt-4">
-            <h6 class="text-lg font-bold uppercase"  style="font-family: ITCFranklinGothicStd-Demi">{{ product["name"] }}</h6>
+            <h6 class="text-lg font-bold uppercase"  style="font-family: ITCFranklinGothicStd-Demi">{{ product.name }}</h6>
             <p class="min-h-20 max-w-60 text-sm text-gray-600">
               {{ product["shortDescription"] }}...
             </p>

@@ -8,16 +8,34 @@
         :blogSlider="blogSlider"
       />
     </div>
-    <div ref="hero" id="hero" class="flex-grow">
-      <div class="hero-slider flex flex-row">
+    <div ref="hero" id="hero">
+      <div class="hero-slider flex flex-row h-screen">
+        <button @click="prevSlide" class="z-10 absolute left-0 top-[45%]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m15 4l-8 8l8 8"
+            />
+          </svg>
+        </button>
         <div
           class="slide"
           v-for="(slide, index) in slides"
           :key="index"
           :class="{ active: index === currentIndex }"
         >
+
           <img :src="slide.image" :alt="slide.title" />
-          <div class="z-10 caption tracking-normal w-1/2 h-full content-center">
+          <div class="caption tracking-normal w-1/2 content-center h-full">
             <!--            :class="-->
             <!--            index % 2 === 1 || index === 0-->
             <!--            ? 'text-stone-300'-->
@@ -27,8 +45,7 @@
               <h1 class="text-5xl text-slate-50 font-bold text-shadow-xl">
                 {{ slide.title }}
               </h1>
-              <h4 class="text-shadow-xl text-slate-50 w-">
-                {{ slide.description }}
+              <h4 class="text-shadow-xl text-slate-50" v-html="slide.description">
               </h4>
               <NuxtLink :to="slide.redirect">
                 <button class="mt-4 btn">LEARN MORE</button>
@@ -36,6 +53,23 @@
             </div>
           </div>
         </div>
+        <button @click="nextSlide" class="z-10 flex flex-wrap	content-center absolute left-[96%] top-[45%]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m8 4l8 8l-8 8"
+            />
+          </svg>
+        </button>
       </div>
     </div>
     <div
@@ -59,8 +93,14 @@
           </p>
           <NuxtLink to="About">
             <button class="mt-4">
-              <p class="border-b-black border-b-2 uppercase" style="font-family: ITCFranklinGothicStd-Demi">about us</p>
-            </button>          </NuxtLink>
+              <p
+                class="border-b-black border-b-2 uppercase"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
+                about us
+              </p>
+            </button>
+          </NuxtLink>
         </div>
         <div class="grid grid-cols-2 gap-12 mt-12">
           <div class="flex flex-col">
@@ -68,7 +108,7 @@
               <img
                 src="/images/elnik_leadership.jpg"
                 alt="Elnik Systems Conference"
-                class="w-full"
+                class="w-full lg:h-[380.22px] md:h-auto sm:h-full"
               />
             </NuxtLink>
 
@@ -82,8 +122,7 @@
               <img
                 src="/images/elnik_development_furnace.jpg"
                 alt="Elnik Systems At Work"
-                class="w-full"
-                style="height: 380.22px"
+                class="w-full about-pic lg:h-[380.22px] md:h-[268.81px] sm:h-[180.05px]"
               />
             </NuxtLink>
             <p class="text-lg font-bold mt-4">
@@ -117,7 +156,10 @@
               :alt="product['name']"
             />
             <div class="flex flex-col justify-items-start">
-              <h6 class="text-lg font-bold text-slate-50 uppercase" style="font-family: ITCFranklinGothicStd-Demi">
+              <h6
+                class="text-lg font-bold text-slate-50 uppercase"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
                 {{ product["name"] }}
               </h6>
               <p class="max-w-60 text-sm text-slate-50">
@@ -125,10 +167,15 @@
               </p>
             </div>
             <button
-              class="h-auto mt-4 btn-product-main w-3/4 text-sm hover:bg-blue-600 text-white font-bold py-2 px-6 mb-6"
+              class="h-auto mt-4 btn-product-main w-3/4 text-sm text-white font-bold py-2 px-6 mb-6"
               @click="goToProduct(index)"
             >
-              <p class=" uppercase" style="font-family: ITCFranklinGothicStd-Demi">view product</p>
+              <p
+                class="uppercase"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
+                view product
+              </p>
             </button>
           </div>
         </div>
@@ -168,11 +215,7 @@
             :key="index"
             class="flex flex-col w-full justify-center items-center bg-gray-200 p-4 mb-4"
           >
-            <img
-              :src="post.image"
-              style="width: 125px"
-              :alt="post.title"
-            />
+            <img :src="post.image" style="width: 125px" :alt="post.title" />
             <div class="flex flex-col justify-items-start mt-4">
               <h6
                 class="text-lg font-bold text-slate-950 uppercase flex"
@@ -188,10 +231,13 @@
                 {{ new Date(post.date).toLocaleDateString() }}
               </p>
             </div>
-            <button
-              @click="goToBlog(index)"
-            >
-              <p class="border-b-black border-b-2 uppercase" style="font-family: ITCFranklinGothicStd-Demi">learn more</p>
+            <button @click="goToBlog(index)">
+              <p
+                class="border-b-black border-b-2 uppercase"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
+                learn more
+              </p>
             </button>
           </div>
         </div>
@@ -215,11 +261,10 @@
       </div>
     </div>
     <div id="contact">
-
-      <ContactUs/>
+      <ContactUs />
     </div>
     <div id="footer" class="flex justify-center">
-      <FooterComponent />
+      <FooterComponent :hero/>
     </div>
   </div>
 </template>
@@ -272,7 +317,7 @@ const slides = ref([
   },
   {
     title: "HAND CRAFTED EXCELLENCE. AMERICAN MADE.",
-    description: "HAND BUILT PRODUCTS, CUSTOMIZED TO YOUR NEEDS",
+    description: "HAND BUILT PRODUCTS, <br> CUSTOMIZED TO YOUR NEEDS",
     image: "/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg",
     redirect: "/ProductPage",
   },
@@ -280,10 +325,12 @@ const slides = ref([
 
 const productImages = ref<Products[] | undefined>();
 productImages.value = productList?.message;
-
+const currentSlideIndex = ref(0);
+const currentSlide = ref(0);
 const currentIndex = ref(0);
 const currentPage = ref(0);
 const itemsPerPage = ref(3);
+const slidesPerPage = ref(1);
 const paginatedColumns = computed(() => {
   const start = currentPage.value * itemsPerPage.value;
 
@@ -294,7 +341,7 @@ let intervalId: ReturnType<typeof setInterval> | null = null;
 const startSlideShow = () => {
   intervalId = setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % slides.value.length;
-  }, 5500); // Change slide every 3 seconds
+  }, 5500); // Change slide every 5.5 seconds
 };
 
 const stopSlideShow = () => {
@@ -303,6 +350,23 @@ const stopSlideShow = () => {
     intervalId = null;
   }
 };
+
+
+const resetSlideShow = () => {
+  stopSlideShow();
+  startSlideShow();
+};
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % slides.value.length;
+  resetSlideShow();
+};
+
+const prevSlide = () => {
+  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length;
+  resetSlideShow();
+};
+
 
 function next() {
   if (
@@ -322,7 +386,6 @@ function prev() {
     if (productImages && productImages.value?.length)
       currentPage.value =
         Math.ceil(productImages.value?.length / itemsPerPage.value) - 1;
-    console.log(currentPage.value);
   }
 }
 
@@ -346,7 +409,7 @@ onUnmounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .first-neg-margin > :nth-child(2) {
   margin-top: 0; /* Adjust the value to match the space-y value */
 }
@@ -357,7 +420,6 @@ onUnmounted(() => {
 
 .hero-slider {
   width: 100%;
-  position: relative;
   overflow: hidden;
   height: 550px;
 }
@@ -369,7 +431,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
 .slide.active {
@@ -406,7 +468,7 @@ img {
 }
 
 .slide.active .caption {
-  animation: fade-in 0.5s ease forwards;
+  animation: fade-in 1.5s ease forwards;
   animation-delay: 0.5s; /* Delay the caption animation */
 }
 
@@ -415,6 +477,7 @@ img {
   bottom: 20px;
   left: 20px;
   width: 25%;
+  margin-left: 25px;
 }
 
 .slide:nth-child(even) .caption {
@@ -423,13 +486,30 @@ img {
   right: 20px;
   text-align: right;
   width: 480px;
+  margin-right: 25px;
+
 }
 
-.slide.active .caption {
-  animation:
-    slide-up 1.5s ease forwards,
-    fade-in 1.5s ease forwards;
-  animation-delay: 0.5s; /* Delay the caption animation */
+.hero-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
 }
 
 @keyframes slide-up {
@@ -460,9 +540,11 @@ img {
   border: solid white 1px;
 }
 
-.btn:hover {
-  background-color: #2d7ad7;
+/*.btn:hover {
+ background-color: #2d7ad7;
 }
+
+ */
 
 .btn-product-main {
   padding: 0.5rem;
@@ -474,9 +556,12 @@ img {
   color: #f2f2f2;
 }
 
+/*
 .btn-product-main:hover {
   background-color: #2d7ad7;
 }
+
+ */
 
 .p-editor .p-inputtext {
   --p-inputtext-focus-border-color: none;
@@ -489,7 +574,13 @@ img {
   border: none;
 }
 
-#contact{
-  background-image: url('public/images/contact_background.jpg');
+#contact {
+  background-image: url("public/images/contact_background.jpg");
+}
+
+@media screen and (min-width: 800px) and (max-width: 1023px) {
+  .about-pic {
+    height: 311.58px;
+  }
 }
 </style>

@@ -33,7 +33,7 @@ const goToProduct = async (index: number) => {
         </h6>
         <div class="flex justify-center">
           <NuxtLink to="/Brochures">
-            <button class="btn-product mb-4">
+            <button>
               <p
                 class="border-b-black border-b-2 uppercase"
                 style="font-family: ITCFranklinGothicStd-Demi"
@@ -67,13 +67,13 @@ const goToProduct = async (index: number) => {
           class="rounded-lg"
         />
         <div class="flex flex-col justify-items-start mt-4">
-          <h6 class="text-lg font-bold" style="font-family: ITCFranklinGothicStd-Demi">{{ product["name"] }}</h6>
+          <h6 class="text-lg font-bold uppercase" style="font-family: ITCFranklinGothicStd-Demi">{{ product["name"] }}</h6>
           <p class=" max-w-60 text-sm text-gray-600">
             {{ product["shortDescription"] }}...
           </p>
         </div>
         <button
-          class="h-auto mt-4 btn-product w-full text-sm hover:bg-blue-600 text-white font-bold py-2 px-4"
+          class="h-auto mt-4 btn-product w-full text-sm text-white font-bold py-2 px-4"
           @click="goToProduct(index)"
         >
           LEARN MORE
