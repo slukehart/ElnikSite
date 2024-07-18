@@ -8,13 +8,13 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
       <GeneralLayout />
     </div>
     <div
-      class="w-full lg:flex lg:flex-row md:flex-col sm:block justify-between items-center bg-gray-200"
+      class="w-full h-[500px] justify-center lg:flex lg:flex-row md:flex-col sm:block items-center career-hero"
     >
       <div
-        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 space-y-6"
+        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 space-y-6 backdrop-blur-lg text-slate-50"
       >
         <h1
-          class="text-5xl text-shadow-md font-bold uppercase"
+          class="text-5xl font-bold text-shadow-lg mb-6 mt-6 uppercase"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           careers
@@ -30,17 +30,14 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
         </h5>
         <h6
           style="font-family: ITCFranklinGothicStd-Demi"
-          class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text"
+          class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mb-10 mt-6"
         >
           Innovation. Quality. Experience. Excellence.
         </h6>
       </div>
 
-      <div id="product-hero-img" class="flex justify-end lg:w-1/2">
-        <img class="h-full w-full" src="public/images/elnik_systems.jpeg" />
-      </div>
     </div>
-    <div class="p-20">
+    <div class="p-20 ">
       ELNIK Systems provides equal employment opportunities (EEO) to all
       employees and applicants for employment without regard to race, color,
       religion, gender, sexual orientation, gender identity or expression,
@@ -97,5 +94,11 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
 .career-offer{
   background-image: url("/images/elnik-career-blueprint.jpg");
   background-size: 100%;
+}
+
+.career-hero {
+  background-color: #d9d9d9;
+  background-image: url("/public/images/elnik_hq_1.jpg");
+  background-size: cover;
 }
 </style>

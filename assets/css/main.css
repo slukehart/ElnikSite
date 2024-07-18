@@ -28,6 +28,12 @@ h1 h2 {
     color:  #1f2937;
 }
 
+.hero-div-offer {
+    background-color: #d9d9d9;
+    background-image: url("public/images/grey_gradient_bg.jpg");
+    background-size: cover;
+}
+
 /*.btn-product:hover {*/
 /*    background-color: #2d7ad7;*/
 /*    color: black;*/

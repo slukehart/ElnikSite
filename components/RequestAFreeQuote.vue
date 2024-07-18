@@ -264,7 +264,7 @@ const countries = ref([
 the provided form section to match the style of the second template you've
 shown, here's the revised code: vue Copy code
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen">
+  <div class="flex flex-col items-center justify-center min-h-screen mt-20">
     <div
       class="w-full sm:w-3/4 md:w-3/4 lg:w-3/4 overflow-hidden bg-white backdrop-blur-lg"
     >
@@ -287,7 +287,7 @@ shown, here's the revised code: vue Copy code
                 <select
                   name="binter"
                   id="binter"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                  class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
                 >
                   <option
                     v-for="binter in debinterModels"
@@ -417,7 +417,7 @@ shown, here's the revised code: vue Copy code
                     <select
                       name="state"
                       id="state"
-                      class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                      class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
                     >
                       <option v-for="state in states" :key="state.code">
                         {{ state.name }}
@@ -452,7 +452,7 @@ shown, here's the revised code: vue Copy code
                     <select
                       name="country"
                       id="country"
-                      class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                      class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
                     >
                       <option v-for="country in countries" :key="country.code" >
                         {{ country.name }}

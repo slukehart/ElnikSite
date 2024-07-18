@@ -7,7 +7,7 @@
       <div class="flex w-full lg:ml-8">
         <div class="flex flex-col content-center flex-wrap w-full space-x-4">
           <div class="flex lg:flex-1 justify-center">
-            <a href="#" class="-m-1.5 p-1.5">
+            <a href="#" class="mb-2 p-1.5">
               <img class="h-20 w-auto" src="/images/ELNIK_SHADOW_LOGO_1_Edit.png" alt="Elnik" />
             </a>
           </div>
@@ -15,27 +15,27 @@
             <a
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
             >
-              <NuxtLink to="/"> <p class="hover:font-bold">HOME</p></NuxtLink>
+              <NuxtLink to="/"> <p class="hover:font-bold text-shadow-xl">HOME</p></NuxtLink>
             </a>
 
             <a
               v-if="useRoute().path === '/'"
               href="#"
               @click.prevent="scrollToSection(props.about)"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
               >ABOUT</a
             >
             <NuxtLink
               v-else
-              to="About"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              to="/About"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
               >ABOUT
             </NuxtLink>
             <div class="relative" @mouseover="showCard = true">
               <a
                 href="#"
                 @click.prevent="scrollToSection(props.products)"
-                class="hover-line text-sm font-semibold leading-6 text-stone-300 relative z-10"
+                class="hover-line text-sm font-semibold leading-6 text-stone-300 relative z-10 text-shadow-xl"
               >
                 PRODUCTS
               </a>
@@ -44,7 +44,7 @@
               <div
                 v-if="showCard"
                 @mouseleave="showCard = false"
-                class="absolute top-full left-0 w-auto bg-white shadow-lg overflow-hidden z-10"
+                class="absolute top-full left-0 w-auto bg-white shadow-lg overflow-hidden z-10 text-shadow-md"
               >
                 <!-- Card content -->
                 <div
@@ -105,12 +105,12 @@
 
             <a
               href="#"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
-              >APPLICATIONS</a
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
+              > <p> APPLICATIONS</p></a
             >
             <NuxtLink
               to="/Careers"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
             >CAREERS
             </NuxtLink>
 
@@ -118,31 +118,31 @@
               v-if="useRoute().path === '/'"
               href="#"
               @click.prevent="scrollToSection(props?.blogSlider)"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
               >BLOG</a
             >
             <NuxtLink
               v-else
               to="/blog"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
               >BLOG
             </NuxtLink>
 
             <NuxtLink
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
               to="/Contact"
               >CONTACT
             </NuxtLink>
             <a
               href="https://dshtech.com/"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
               >DSH TECHNOLOGIES</a
             >
           </PopoverGroup>
         </div>
 
         <div class="hidden w-full lg:flex lg:flex-1 justify-end">
-          <div class="flex flex-col justify-center items-center">
+          <div class="flex flex-col justify-end mb-2">
             <svg
               class="mr-2"
               xmlns="http://www.w3.org/2000/svg"
@@ -155,12 +155,6 @@
                 d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6"
               />
             </svg>
-            <a
-              href="#"
-              style="width: 100px"
-              class="flex justify-center text-xs font-semibold leading-6 text-stone-300"
-              >Log in <span aria-hidden="true">&rarr;</span></a
-            >
           </div>
         </div>
       </div>
@@ -370,7 +364,7 @@ const mobileMenuOpen = ref(false);
 
 <style scoped>
 header {
-  background-image: url("../public/images/Untitled-design-7.png");
+  background-image: url("../public/images/elinik_nav_banner.png");
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: center; /* Center the image within the header */
 }

@@ -38,19 +38,19 @@ const {scrollToSection} = scrollToTopComposable()
           </nav>
         </div>
         <div class="border-l-2 h-3/4 border-zinc-900 mt-6"></div>
-        <div class="flex flex-col justify-between items-center w-1/3">
-          <div id="footer-logo" class="flex justify-center px-6 py-4">
+        <div class="flex flex-col justify-center items-center w-1/3">
+          <div id="footer-logo" class="px-6 py-4">
             <a
               v-if="useRoute().path === '/'"
               href="#"
               @click.prevent="scrollToSection(props?.hero)"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 flex justify-center"
             > <img class="w-3/4" src="/images/logo-10.png" alt="Elnik" /></a
             >
             <NuxtLink
               v-else
               to="/"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300"
+              class="hover-line text-sm font-semibold leading-6 text-stone-300 flex justify-center"
             > <img class="w-3/4" src="/images/logo-10.png" alt="Elnik" />
             </NuxtLink>
           </div>
@@ -61,13 +61,15 @@ const {scrollToSection} = scrollToTopComposable()
             <!--            <button class=" uppercase h-12 w-20 flex justify-center" type="submit">-->
             <!--              <p class="border-b-4 uppercase" style="font-family: ITCFranklinGothicStd-Demi">Submit</p>-->
             <!--            </button>-->
-            <button
+            <NuxtLink
               id="contact-button"
               class=" w-full uppercase"
               style="font-family: ITCFranklinGothicStd-Demi"
+              to="/Contact"
+
             >
-              <p class="border-b-2 border-b-black uppercase">Contact Us</p>
-            </button>
+              <p class="border-b-2 border-b-black uppercase text-center">Contact Us</p>
+            </NuxtLink>
             <div>
               <div class="space-y-4"></div>
 

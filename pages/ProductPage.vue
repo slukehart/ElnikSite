@@ -22,20 +22,20 @@ const goToProduct = async (index: number) => {
       <GeneralLayout
       />
     </div>
-    <div class=" w-full lg:flex lg:flex-row md:flex-col sm:block justify-between items-center bg-gray-200">
-      <div class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2  space-y-6">
-        <h1 class="text-5xl text-shadow-md font-bold" style="font-family: ITCFranklinGothicStd-Demi">PRODUCTS</h1>
-        <h5 class="text-2xl lg:w-3/4 md:w-1/2 sm:w-3/4 md:text-center sm:text-center">
+    <div class=" w-full h-[500px] lg:flex lg:flex-row md:flex-col sm:block justify-center items-center hero-product">
+      <div class="flex flex-col lg:justify-center md:items-center sm:items-center lg:w-1/2  space-y-6 backdrop-blur text-slate-50">
+        <h1 class="text-5xl text-shadow-lg font-bold pt-10" style="font-family: ITCFranklinGothicStd-Demi">PRODUCTS</h1>
+        <h5 class="text-2xl text-shadow-lg  lg:w-3/4 md:w-1/2 sm:w-3/4 md:text-center sm:text-center">
           A combination of Innovation, Integrity and Quality combine to provide you with the best Debind and Sinter processing equipment available in the marketplace today.
         </h5>
-        <h6 style="font-family: ITCFranklinGothicStd-Demi" class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text" >
+        <h6 style="font-family: ITCFranklinGothicStd-Demi" class="text-xl text-shadow-lg decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text" >
           Innovation. Quality. Experience. Excellence.
         </h6>
         <div class="flex justify-center">
           <NuxtLink to="/Brochures">
-            <button>
+            <button class="pb-10">
               <p
-                class="border-b-black border-b-2 uppercase"
+                class="border-b-slate-50 border-b-2 uppercase"
                 style="font-family: ITCFranklinGothicStd-Demi"
               >Brochures</p>
             </button>
@@ -46,12 +46,6 @@ const goToProduct = async (index: number) => {
 
       </div>
 
-      <div id="product-hero-img" class="flex justify-end lg:w-1/2">
-        <img
-          class="h-full w-full"
-          src="public/images/elnik_systems.jpeg"
-        />
-      </div>
     </div>
   <div class="flex flex-col justify-between items-center ">
     <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 w-auto mb-4">
@@ -73,10 +67,15 @@ const goToProduct = async (index: number) => {
           </p>
         </div>
         <button
-          class="h-auto mt-4 btn-product w-full text-sm text-white font-bold py-2 px-4"
+          class="mt-6"
           @click="goToProduct(index)"
         >
-          LEARN MORE
+          <p
+            class="border-b-4 border-b-black uppercase"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            learn more
+          </p>
         </button>
       </div>
     </div>
@@ -89,5 +88,10 @@ const goToProduct = async (index: number) => {
 </template>
 
 <style scoped>
+
+.hero-product {
+  background-image: url("/public/images/elnik_product_hero.JPG");
+  background-size: cover;
+}
 
 </style>

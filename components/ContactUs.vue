@@ -14,12 +14,12 @@ const route = ref(useRoute().path);
   <div class="flex flex-col items-center">
     <div
       class="w-full sm:w-3/4 md:w-3/4 lg:w-3/4 overflow-hidden"
-      :class="route === '/' ? 'backdrop-blur-lg' : 'bg-white'"
+      :class="route === '/' ? 'backdrop-blur-lg' : 'bg-white mt-20'"
     >
       <div class="px-4 py-6">
         <h2
           class="font-bold text-5xl text-center mb-4"
-          :class="route === '/' ? 'text-slate-50' : 'text-slate-950'"
+          :class="route === '/' ? 'text-slate-50' : 'text-slate-950np'"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           SEND US A MESSAGE

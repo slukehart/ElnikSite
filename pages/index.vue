@@ -42,13 +42,13 @@
             <!--            : 'text-neutral-950'-->
             <!--            "-->
             <div class="space-y-2 slide-up">
-              <h1 class="text-5xl text-slate-50 font-bold text-shadow-xl">
+              <h1 class="text-5xl text-gray-300 font-bold text-shadow-xl"  style="font-family: ITCFranklinGothicStd-Demi">
                 {{ slide.title }}
               </h1>
-              <h4 class="text-shadow-xl text-slate-50" v-html="slide.description">
+              <h4 class="text-shadow-xl text-gray-300 text-lg" v-html="slide.description">
               </h4>
               <NuxtLink :to="slide.redirect">
-                <button class="mt-4 btn">LEARN MORE</button>
+                <button class="mt-4 btn border-grey-300"><p class="text-gray-300">LEARN MORE</p></button>
               </NuxtLink>
             </div>
           </div>
@@ -120,7 +120,7 @@
           <div class="flex flex-col">
             <NuxtLink to="https://dshtech.com/" class="w-full" target="_blank">
               <img
-                src="/images/elnik_development_furnace.jpg"
+                src="/images/elnik_furnace_work_1.png"
                 alt="Elnik Systems At Work"
                 class="w-full about-pic lg:h-[380.22px] md:h-[268.81px] sm:h-[180.05px]"
               />
@@ -306,7 +306,7 @@ const slides = ref([
   {
     title: "SPEARHEADING INNOVATION & ADVANCEMENT.",
     description: "FOR THE FUTURE OF TOMORROW",
-    image: "/images/1668507240009.jpeg",
+    image: "/images/elnik_photography_1.png",
     redirect: "/blog/",
   },
   {
@@ -322,6 +322,9 @@ const slides = ref([
     redirect: "/ProductPage",
   },
 ]);
+
+
+
 
 const productImages = ref<Products[] | undefined>();
 productImages.value = productList?.message;
@@ -455,11 +458,6 @@ img {
   bottom: 20px;
   right: 20px;
   padding: 10px;
-  font:
-    16px / 1.5 Montserrat,
-    Verdana,
-    Arial,
-    sans-serif;
   opacity: 0;
   transform: translateY(20px);
   transition:
@@ -476,8 +474,9 @@ img {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  width: 25%;
   margin-left: 25px;
+  width: 480px;
+
 }
 
 .slide:nth-child(even) .caption {

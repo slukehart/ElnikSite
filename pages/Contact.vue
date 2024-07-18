@@ -9,19 +9,19 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
     </div>
   </div>
   <div
-    class="w-full lg:flex items-center lg:flex-row md:flex-col sm:block justify-between hero-contact"
+    class="w-full h-[500px] lg:flex items-center lg:flex-row md:flex-col sm:block justify-center hero-contact"
   >
     <div
-      class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 space-y-12"
+      class="flex flex-col lg:items-center md:items-center sm:items-center lg:w-1/2 backdrop-blur-lg text-slate-50"
     >
       <h1
-        class="text-5xl text-shadow-md font-bold"
+        class="text-5xl font-bold text-shadow-lg mb-10 mt-6"
         style="font-family: ITCFranklinGothicStd-Demi"
       >
         CONTACT US
       </h1>
       <h5
-        class="text-2xl lg:w-3/4 md:w-1/4 sm:w-3/4 md:text-center sm:text-center"
+        class="text-2xl lg:w-3/4 md:w-1/4 sm:w-3/4 md:text-center sm:text-center text-shadow-lg"
       >
         If you’d like to know more about Elnik’s products, are interested in a
         quote request, or simply want to learn about the applications of MIM,
@@ -29,18 +29,12 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
       </h5>
       <h6
         style="font-family: ITCFranklinGothicStd-Demi"
-        class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text"
+        class="text-xl decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text text-shadow-lg mb-10 mt-6"
       >
         Innovation. Quality. Experience. Excellence.
       </h6>
     </div>
 
-    <div id="contact-hero-img" class="flex justify-end lg:w-1/2">
-      <img
-        class="h-full w-full"
-        src="/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg"
-      />
-    </div>
   </div>
   <div class="flex lg:flex-row md:flex-col sm:flex-col justify-center">
     <ContactUs class="w-full" />
@@ -106,8 +100,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
 
 <style scoped>
 .hero-contact {
-  background-color: #d9d9d9;
-  background-image: url("public/images/grey_gradient_bg.jpg");
+  background-image: url("/public/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg");
   background-size: cover;
 }
 </style>

@@ -125,44 +125,47 @@ const events = ref([
       <GeneralLayout />
     </div>
     <div
-      class="w-full lg:flex lg:flex-row md:flex-col sm:block justify-between"
+      class="w-full h-[500px] lg:flex lg:flex-row md:flex-col sm:block justify-between hero-about"
     >
       <div
-        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:mt-10 lg:w-full"
+        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:mt-10 lg:w-full text-slate-50"
       >
-        <h1
-          class="text-5xl text-shadow-md font-bold md:mt-10 md:text-center sm:mt-10 sm:text-center"
-          style="font-family: ITCFranklinGothicStd-Demi"
-        >
-          OUR PEOPLE MAKE ALL THE DIFFERENCE
-        </h1>
-        <h5
-          class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center sm:text-center pl-10 pr-10"
-        >
-          Elnik’s success is driven by the dedicated hands that help craft our
-          equipment, the energetic service team helping customers, the detailed
-          engineers designing our state of the art systems, the support and
-          administrative staff running the day to day operations and our leaders
-          developing the vision and missions for our future.
-        </h5>
-        <h6
-          class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mt-10 mb-4"
-          style="font-family: ITCFranklinGothicStd-Demi"
-        >
-          Innovation. Quality. Experience. Excellence.
-        </h6>
-        <div class="flex justify-center">
-          <NuxtLink to="/Contact">
-            <button class=" mb-10">
-              <p
-                class="border-b-black border-b-2 uppercase"
-                style="font-family: ITCFranklinGothicStd-Demi"
-              >
-                contact us
-              </p>
-            </button>
-          </NuxtLink>
+        <div class="w-3/4  backdrop-blur-lg">
+          <h1
+            class="text-5xl text-shadow-lg font-bold md:mt-10 md:text-center sm:mt-10 sm:text-center mb-4"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            OUR PEOPLE MAKE ALL THE DIFFERENCE
+          </h1>
+          <h5
+            class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center sm:text-center pl-10 pr-10"
+          >
+            Elnik’s success is driven by the dedicated hands that help craft our
+            equipment, the energetic service team helping customers, the detailed
+            engineers designing our state of the art systems, the support and
+            administrative staff running the day to day operations and our leaders
+            developing the vision and missions for our future.
+          </h5>
+          <h6
+            class="text-xl text-shadow-lg decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mt-10 mb-4 text-center"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            Innovation. Quality. Experience. Excellence.
+          </h6>
+          <div class="flex justify-center">
+            <NuxtLink to="/Contact">
+              <button class=" mb-10 shadow-xl">
+                <p
+                  class="border-l-white-black border-b-2 uppercase text-shadow-lg"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                >
+                  contact us
+                </p>
+              </button>
+            </NuxtLink>
+          </div>
         </div>
+
       </div>
     </div>
     <div class="relative">
@@ -212,4 +215,9 @@ const events = ref([
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.hero-about {
+  background-image: url("/public/images/elnik_about_furance_hero.jpg");
+  background-size: cover;
+}
+</style>
