@@ -125,7 +125,7 @@ const events = ref([
       <GeneralLayout />
     </div>
     <div
-      class="w-full h-[500px] lg:flex lg:flex-row md:flex-col sm:block justify-between hero-about"
+      class="w-full h-screen lg:flex items-center lg:flex-row md:flex-col sm:block justify-center hero-about"
     >
       <div
         class="flex flex-col lg:justify-start md:items-center sm:items-center lg:mt-10 lg:w-full text-slate-50"
@@ -150,8 +150,7 @@ const events = ref([
             class="text-xl text-shadow-lg decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mt-10 mb-4 text-center"
             style="font-family: ITCFranklinGothicStd-Demi"
           >
-            Innovation. Quality. Experience. Excellence.
-          </h6>
+            Quality. Innovation. Excellence.          </h6>
           <div class="flex justify-center">
             <NuxtLink to="/Contact">
               <button class=" mb-10 shadow-xl">

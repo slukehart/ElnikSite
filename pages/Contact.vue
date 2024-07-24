@@ -9,7 +9,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
     </div>
   </div>
   <div
-    class="w-full h-[500px] lg:flex items-center lg:flex-row md:flex-col sm:block justify-center hero-contact"
+    class="w-full h-screen lg:flex items-center lg:flex-row md:flex-col sm:block justify-center hero-contact"
   >
     <div
       class="flex flex-col lg:items-center md:items-center sm:items-center lg:w-1/2 backdrop-blur-lg text-slate-50"
@@ -31,7 +31,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
         style="font-family: ITCFranklinGothicStd-Demi"
         class="text-xl decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text text-shadow-lg mb-10 mt-6"
       >
-        Innovation. Quality. Experience. Excellence.
+        Quality. Innovation. Excellence.
       </h6>
     </div>
 

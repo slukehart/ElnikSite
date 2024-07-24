@@ -367,6 +367,7 @@ header {
   background-image: url("../public/images/elinik_nav_banner.png");
   background-repeat: no-repeat; /* Prevent the image from repeating */
   background-position: center; /* Center the image within the header */
+  background-size: 100% ;
 }
 
 /* Basic styling for the text */

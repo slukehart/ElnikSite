@@ -22,14 +22,14 @@ const goToProduct = async (index: number) => {
       <GeneralLayout
       />
     </div>
-    <div class=" w-full h-[500px] lg:flex lg:flex-row md:flex-col sm:block justify-center items-center hero-product">
+    <div class=" w-full h-screen lg:flex lg:flex-row md:flex-col sm:block justify-center items-center hero-product">
       <div class="flex flex-col lg:justify-center md:items-center sm:items-center lg:w-1/2  space-y-6 backdrop-blur text-slate-50">
         <h1 class="text-5xl text-shadow-lg font-bold pt-10" style="font-family: ITCFranklinGothicStd-Demi">PRODUCTS</h1>
         <h5 class="text-2xl text-shadow-lg  lg:w-3/4 md:w-1/2 sm:w-3/4 md:text-center sm:text-center">
           A combination of Innovation, Integrity and Quality combine to provide you with the best Debind and Sinter processing equipment available in the marketplace today.
         </h5>
         <h6 style="font-family: ITCFranklinGothicStd-Demi" class="text-xl text-shadow-lg decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text" >
-          Innovation. Quality. Experience. Excellence.
+          Quality. Innovation. Excellence.
         </h6>
         <div class="flex justify-center">
           <NuxtLink to="/Brochures">

@@ -33,7 +33,6 @@
           :key="index"
           :class="{ active: index === currentIndex }"
         >
-
           <img :src="slide.image" :alt="slide.title" />
           <div class="caption tracking-normal w-1/2 content-center h-full">
             <!--            :class="-->
@@ -42,18 +41,28 @@
             <!--            : 'text-neutral-950'-->
             <!--            "-->
             <div class="space-y-2 slide-up">
-              <h1 class="text-5xl text-gray-300 font-bold text-shadow-xl"  style="font-family: ITCFranklinGothicStd-Demi">
+              <h1
+                class="text-5xl text-gray-300 font-bold text-shadow-xl"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
                 {{ slide.title }}
               </h1>
-              <h4 class="text-shadow-xl text-gray-300 text-lg" v-html="slide.description">
-              </h4>
+              <h4
+                class="text-shadow-xl text-gray-300 text-lg"
+                v-html="slide.description"
+              ></h4>
               <NuxtLink :to="slide.redirect">
-                <button class="mt-4 btn border-grey-300"><p class="text-gray-300">LEARN MORE</p></button>
+                <button class="mt-4 btn border-grey-300">
+                  <p class="text-gray-300">LEARN MORE</p>
+                </button>
               </NuxtLink>
             </div>
           </div>
         </div>
-        <button @click="nextSlide" class="z-10 flex flex-wrap	content-center absolute left-[96%] top-[45%]">
+        <button
+          @click="nextSlide"
+          class="z-10 flex flex-wrap content-center absolute left-[96%] top-[45%]"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -116,6 +125,21 @@
               A FAMILY OWNED BUSINESS, LEADING THE INDUSTRY WITH OVER 55 YEARS
               OF EXPERIENCE
             </p>
+            <div class="flex justify-center items-center w-full mt-8">
+              <div class="flex justify-center items-center w-1/2">
+                <button
+                  class="h-auto mt-4 w-3/4 text-sm font-bold py-2 px-6 mb-6"
+                  style="border: 1px black solid"
+                >
+                  <p
+                    class="uppercase text-center text-black"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                  >
+                    Core Values
+                  </p>
+                </button>
+              </div>
+            </div>
           </div>
           <div class="flex flex-col">
             <NuxtLink to="https://dshtech.com/" class="w-full" target="_blank">
@@ -129,31 +153,64 @@
               HASSLE FREE SERVICE AND MAINTENANCE NO MATTER THE PRODUCT, NO
               MATTER THE LOCATION
             </p>
+            <div class="flex justify-center items-center w-full mt-8">
+              <div class="flex justify-center items-center w-1/2">
+                <button
+                  class="h-auto mt-4 w-3/4 text-sm font-bold py-2 px-6 mb-6"
+                  style="border: 1px black solid"
+                >
+                  <p
+                    class="uppercase text-center text-black"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                  >
+                    Our Mission
+                  </p>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div ref="products" id="products" class="bg-slate-200">
-      <div class="h-12 flex justify-center items-center content-center mt-4">
+      <div
+        class="h-12 flex justify-center items-center content-center mt-4 mb-4"
+      >
         <h2
-          class="text-5xl font-bold text-slate-50 text-shadow-xl"
+          class="text-5xl font-semibold text-slate-950"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           PRODUCTS IN DEMAND
         </h2>
       </div>
-      <div class="flex flex-col justify-between items-center">
-        <!--        <button @click="prev"><svg class="bg-zinc-950 rounded-xl ml-2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M19 13H6.75L12 18.25l-.66.75l-6.5-6.5l6.5-6.5l.66.75L6.75 12H19z"/></svg></button>-->
-        <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 w-auto mb-4">
+      <div class="flex flex-row justify-around items-center">
+        <button @click="prevProduct">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m15 4l-8 8l8 8"
+            />
+          </svg>
+        </button>
+        <div class="grid grid-cols-3 gap-x-12 w-3/4">
           <div
-            v-for="(product, index) in productImages"
+            v-for="(product, index) in paginatedProducts"
             :key="index"
-            class="flex flex-col w-full justify-center items-center backdrop-blur shadow-md mb-4"
+            class="flex flex-col w-full justify-center items-center backdrop-blur shadow-md"
           >
             <img
               :src="product['img']"
               style="width: 300px"
-              :alt="product['name']"
+              :alt="product.name"
             />
             <div class="flex flex-col justify-items-start">
               <h6
@@ -179,7 +236,37 @@
             </button>
           </div>
         </div>
-        <!--        <button @click="next"><svg class="bg-zinc-950 rounded-xl mr-2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M4 12h12.25L11 6.75l.66-.75l6.5 6.5l-6.5 6.5l-.66-.75L16.25 13H4z"/></svg></button>-->
+        <button @click="nextProduct">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="black"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m8 4l8 8l-8 8"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="flex justify-center items-center w-full mt-8">
+        <div class="flex justify-center items-center w-1/4">
+          <button
+            class="h-auto mt-4 btn-product-main w-3/4 text-sm text-white font-bold py-2 px-6 mb-6 backdrop-blur-2xl"
+          >
+            <p
+              class="uppercase text-center"
+              style="font-family: ITCFranklinGothicStd-Demi"
+            >
+              view all products
+            </p>
+          </button>
+        </div>
       </div>
     </div>
     <div ref="blogSlider" id="blog" class="p-4">
@@ -259,12 +346,78 @@
           </svg>
         </button>
       </div>
+      <div class="w-full flex flex-row justify-center items-center mt-6">
+        <div class="grid grid-cols-7 grid-rows-1 text-center w-3/4">
+          <div class="flex justify-center items-center w-[175px]">
+            <NuxtLink
+              class="w-full flex justify-center items-center cursor-pointer"
+            >
+              <p
+                class="uppercase"
+                style="
+                  font-family: ITCFranklinGothicStd-Demi;
+                  text-decoration: underline;
+                "
+              >
+                Why Manufacturing is cool
+              </p>
+            </NuxtLink>
+          </div>
+
+          <div class="flex justify-center items-center">
+            <div class="border-l-2 h-full border-zinc-900"></div>
+          </div>
+          <NuxtLink
+            class="w-full flex justify-center items-center cursor-pointer"
+          >
+            <p
+              class="uppercase text-decoration-line"
+              style="
+                font-family: ITCFranklinGothicStd-Demi;
+                text-decoration: underline;
+              "
+            >
+              All about Elnik
+            </p>
+          </NuxtLink>
+
+          <div class="flex justify-center items-center">
+            <div class="border-l-2 h-full border-zinc-900"></div>
+          </div>
+          <NuxtLink class="w-full flex justify-center items-center cursor-pointer">
+            <p
+              class="uppercase text-decoration-line"
+              style="
+                font-family: ITCFranklinGothicStd-Demi;
+                text-decoration: underline;
+              "
+            >
+              Education and Innovation
+            </p>
+          </NuxtLink>
+
+          <div class="flex justify-center items-center">
+            <div class="border-l-2 h-full border-zinc-900"></div>
+          </div>
+          <NuxtLink class="w-full flex justify-center items-center cursor-pointer">
+            <p
+              class="uppercase text-decoration-line"
+              style="
+                font-family: ITCFranklinGothicStd-Demi;
+                text-decoration: underline;
+              "
+            >
+              View All
+            </p>
+          </NuxtLink>
+        </div>
+      </div>
     </div>
     <div id="contact">
       <ContactUs />
     </div>
     <div id="footer" class="flex justify-center">
-      <FooterComponent :hero/>
+      <FooterComponent :hero />
     </div>
   </div>
 </template>
@@ -284,6 +437,8 @@ const posts = ref<BlogPost[]>(testBlogData);
 
 const { getProducts } = useProductStore();
 const productList = await getProducts();
+console.log(productList);
+const heroProducts = ref<Products[] | undefined>(productList?.message);
 
 const hero = ref<HTMLElement | null | undefined>(
   document.getElementById("hero"),
@@ -298,7 +453,7 @@ const blogSlider = ref<HTMLElement | null | undefined>(null);
 
 const slides = ref([
   {
-    title: "INNOVATION. QUALITY. EXPERIENCE. EXCELLENCE.",
+    title: "QUALITY. INNOVATION. EXCELLENCE.",
     description: "LEADING THROUGH ACTION <br> AND SELFLESS SERVICE",
     image: "/images/elnik_systems.jpeg",
     redirect: "/Contact",
@@ -323,21 +478,26 @@ const slides = ref([
   },
 ]);
 
-
-
-
 const productImages = ref<Products[] | undefined>();
 productImages.value = productList?.message;
-const currentSlideIndex = ref(0);
-const currentSlide = ref(0);
+console.log(productList);
 const currentIndex = ref(0);
 const currentPage = ref(0);
 const itemsPerPage = ref(3);
-const slidesPerPage = ref(1);
+const currentProductIndex = ref(0);
+const currentProductPage = ref(0);
+const itemsProductsPerPage = ref(3);
+
 const paginatedColumns = computed(() => {
   const start = currentPage.value * itemsPerPage.value;
 
   return posts.value?.slice(start, start + itemsPerPage.value);
+});
+
+const paginatedProducts = computed(() => {
+  const start = currentProductPage.value * itemsProductsPerPage.value;
+
+  return heroProducts.value?.slice(start, start + itemsProductsPerPage.value);
 });
 let intervalId: ReturnType<typeof setInterval> | null = null;
 
@@ -354,7 +514,6 @@ const stopSlideShow = () => {
   }
 };
 
-
 const resetSlideShow = () => {
   stopSlideShow();
   startSlideShow();
@@ -366,10 +525,10 @@ const nextSlide = () => {
 };
 
 const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + slides.value.length) % slides.value.length;
+  currentIndex.value =
+    (currentIndex.value - 1 + slides.value.length) % slides.value.length;
   resetSlideShow();
 };
-
 
 function next() {
   if (
@@ -392,13 +551,35 @@ function prev() {
   }
 }
 
+function nextProduct() {
+  if (
+    productImages.value &&
+    (currentProductPage.value + 1) * itemsProductsPerPage.value <
+      productImages.value?.length
+  ) {
+    currentProductPage.value++;
+  } else {
+    currentProductPage.value = 0;
+  }
+}
+
+function prevProduct() {
+  if (currentProductPage.value > 0) {
+    currentProductPage.value--;
+  } else {
+    if (productImages && productImages.value?.length)
+      currentProductPage.value =
+        Math.ceil(productImages.value?.length / itemsProductsPerPage.value) - 1;
+  }
+}
+
 const goToProduct = async (index: number) => {
   if (productImages.value && productImages.value[index]) {
     await navigateTo({ path: `/products/${productImages.value[index].id}` });
   }
 };
 
-const goToBlog = async (index: number) => {
+const goToBlog = async () => {
   await navigateTo({ path: `/blog/` });
 };
 
@@ -424,7 +605,6 @@ onUnmounted(() => {
 .hero-slider {
   width: 100%;
   overflow: hidden;
-  height: 550px;
 }
 
 .slide {
@@ -451,6 +631,8 @@ img {
 #products {
   background-image: url("/images/furnace_close_up.png");
   object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .caption {
@@ -476,7 +658,6 @@ img {
   left: 20px;
   margin-left: 25px;
   width: 480px;
-
 }
 
 .slide:nth-child(even) .caption {
@@ -486,7 +667,6 @@ img {
   text-align: right;
   width: 480px;
   margin-right: 25px;
-
 }
 
 .hero-slider {

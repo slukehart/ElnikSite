@@ -8,7 +8,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
       <GeneralLayout />
     </div>
     <div
-      class="w-full h-[500px] justify-center lg:flex lg:flex-row md:flex-col sm:block items-center career-hero"
+      class="w-full h-screen justify-center lg:flex lg:flex-row md:flex-col sm:block items-center career-hero"
     >
       <div
         class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 space-y-6 backdrop-blur-lg text-slate-50"
@@ -32,7 +32,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
           style="font-family: ITCFranklinGothicStd-Demi"
           class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mb-10 mt-6"
         >
-          Innovation. Quality. Experience. Excellence.
+          Quality. Innovation. Excellence.
         </h6>
       </div>
 
