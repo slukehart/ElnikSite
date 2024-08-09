@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@primevue/nuxt-module", "@vueuse/nuxt", "@pinia/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@primevue/nuxt-module", "@vueuse/nuxt", "@pinia/nuxt", '@nuxtjs/device'],
   ssr: false,
   css: ["../assets/css/main.css"],
   plugins: ['../plugins/firebase.ts'],

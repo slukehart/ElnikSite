@@ -1,10 +1,11 @@
 <script setup lang="ts">
-
 import type { PropType } from "vue";
 import { useRoute } from "vue-router";
 
-const props = defineProps({
+const { isMobile, isDesktop, isMacOS } = useDevice();
 
+
+const props = defineProps({
   hero: {
     type: Object as PropType<HTMLElement | null | undefined>,
     required: false,
@@ -13,7 +14,7 @@ const props = defineProps({
 
 import scrollToTopComposable from "../composables/scrollToTopComposable";
 
-const {scrollToSection} = scrollToTopComposable()
+const { scrollToSection } = scrollToTopComposable();
 </script>
 
 <template>
@@ -34,7 +35,6 @@ const {scrollToSection} = scrollToTopComposable()
 
             <NuxtLink><a class="text-sm">CONTACT</a></NuxtLink>
             <NuxtLink><a class="text-sm"></a></NuxtLink>
-
           </nav>
         </div>
         <div class="border-l-2 h-3/4 border-zinc-900 mt-6"></div>
@@ -45,63 +45,64 @@ const {scrollToSection} = scrollToTopComposable()
               href="#"
               @click.prevent="scrollToSection(props?.hero)"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 flex justify-center"
-            > <img class="w-3/4" src="/images/logo-10.png" alt="Elnik" /></a
             >
+              <img class="w-3/4" src="/images/logo-10.png" alt="Elnik"
+            /></a>
             <NuxtLink
               v-else
               to="/"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 flex justify-center"
-            > <img class="w-3/4" src="/images/logo-10.png" alt="Elnik" />
+              ><img class="w-3/4" src="/images/logo-10.png" alt="Elnik" />
             </NuxtLink>
           </div>
         </div>
         <div class="border-l-2 h-3/4 border-zinc-900 mt-6"></div>
+
         <div class="flex flex-col justify-center items-center w-1/3">
           <div class="space-y-4 justify-center items-center">
-            <!--            <button class=" uppercase h-12 w-20 flex justify-center" type="submit">-->
-            <!--              <p class="border-b-4 uppercase" style="font-family: ITCFranklinGothicStd-Demi">Submit</p>-->
-            <!--            </button>-->
-            <NuxtLink
-              id="contact-button"
-              class=" w-full uppercase"
-              style="font-family: ITCFranklinGothicStd-Demi"
-              to="/Contact"
-
-            >
-              <p class="border-b-2 border-b-black uppercase text-center">Contact Us</p>
-            </NuxtLink>
             <div>
               <div class="space-y-4"></div>
+              <div class="grid lg:grid-cols-2 md:grid-cols-1 grid-rows-3 gap-3">
 
-              <div class="space-y-4">
-                <p class="flex flex-row gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
+                  <NuxtLink
+                    id="contact-button"
+                    class="w-full uppercase"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                    to="/Contact"
+                    ><h6 class="text-center mr-8">U.S. Contact</h6></NuxtLink
                   >
-                    <path
-                      fill="currentColor"
-                      d="M19.95 21q-3.125 0-6.175-1.362t-5.55-3.863t-3.862-5.55T3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.238t.325.562l.65 3.5q.05.4-.025.675T9.4 8.45L6.975 10.9q.5.925 1.187 1.787t1.513 1.663q.775.775 1.625 1.438T13.1 17l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.35.1.575.363T21 15.9v4.05q0 .45-.3.75t-.75.3"
-                    />
-                  </svg>
-                  973.239.6066
+                <NuxtLink
+                  id="contact-button"
+                  class="w-full uppercase flex justify-center"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                  to="/Contact"
+                ><h6>German Contact</h6></NuxtLink
+                >
+                  <p class="flex flex-row gap-2">
+                    <b style="font-family: FranklinGothicBold"> p:</b>
+                    +1-973.239.6066
+                  </p>
+                <p class="flex flex-row gap-2 ">
+                  <b style="font-family: FranklinGothicBold"> p:</b>
+                  +49 (0) 74585119990
                 </p>
-                <p class="flex flex-row gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 512 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M128 0C92.7 0 64 28.7 64 64v96h64V64h226.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0zm256 352v96H128v-96zm64 32h32c17.7 0 32-14.3 32-32v-96c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32h32v64c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64zm-16-136a24 24 0 1 1 0 48a24 24 0 1 1 0-48"
-                    />
-                  </svg>
-                  973.239.3272
+                  <p class="flex flex-row gap-2">
+                    <b style="font-family: FranklinGothicBold"> f:</b>
+                    +1-973.239.3272
+                  </p>
+
+
+
+
+                  <p class="flex flex-row gap-2 ">
+                    <b style="font-family: FranklinGothicBold"> e:</b>
+                    elnikgmbh@elnik.com
+                  </p>
+                <p class="flex flex-row gap-2 ">
+                  <b style="font-family: FranklinGothicBold"> e:</b>
+                  elnik@elnik.com
                 </p>
+                  <p></p>
               </div>
             </div>
           </div>
@@ -110,7 +111,9 @@ const {scrollToSection} = scrollToTopComposable()
     </div>
     <div id="social" class="flex flex-row justify-between pr-4 pl-4">
       <div>
-        <p class="text-gray-600 uppercase">© 2024 ELNIK SYSTEMS  |  managed by bomb marketing llc.</p>
+        <p class="text-gray-600 uppercase">
+          © 2024 ELNIK SYSTEMS | managed by bomb marketing llc.
+        </p>
       </div>
       <div class="grid grid-cols-3 gap-2">
         <svg

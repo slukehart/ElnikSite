@@ -177,7 +177,7 @@
         class="h-12 flex justify-center items-center content-center mt-4 mb-4"
       >
         <h2
-          class="text-5xl font-semibold text-slate-950"
+          class="text-5xl font-semibold text-slate-50"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           PRODUCTS IN DEMAND
@@ -193,7 +193,7 @@
           >
             <path
               fill="none"
-              stroke="currentColor"
+              stroke="white"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
@@ -245,7 +245,7 @@
           >
             <path
               fill="none"
-              stroke="black"
+              stroke="white"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
@@ -318,7 +318,7 @@
                 {{ new Date(post.date).toLocaleDateString() }}
               </p>
             </div>
-            <button @click="goToBlog(index)">
+            <button @click="goToBlog()">
               <p
                 class="border-b-black border-b-2 uppercase"
                 style="font-family: ITCFranklinGothicStd-Demi"
@@ -629,7 +629,7 @@ img {
 }
 
 #products {
-  background-image: url("/images/furnace_close_up.png");
+  background-image: url("/images/ELNIK_FURNACE_BACKGROUND.png");
   object-fit: cover;
   background-repeat: no-repeat;
   background-size: 100%;
