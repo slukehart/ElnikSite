@@ -7,8 +7,8 @@
       <div class="flex w-full lg:ml-8">
         <div class="flex flex-col content-center flex-wrap w-full space-x-4">
           <div class="flex lg:flex-1 justify-center">
-            <a href="#" class="mb-2 p-1.5">
-              <img class="h-20 w-auto" src="/images/ELNIK_SHADOW_LOGO_1_Edit.png" alt="Elnik" />
+            <a href="#" class="lg:mb-2 lg:p-1.5">
+              <img class="h-16 lg:h-20 w-auto" src="/images/ELNIK_SHADOW_LOGO_1_Edit.png" alt="Elnik" />
             </a>
           </div>
           <PopoverGroup class="hidden lg:flex lg:gap-x-5">
@@ -103,11 +103,6 @@
               </div>
             </div>
 
-            <a
-              href="#"
-              class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
-              > <p> APPLICATIONS</p></a
-            >
             <NuxtLink
               to="/Careers"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
@@ -143,25 +138,28 @@
 
         <div class="hidden w-full lg:flex lg:flex-1 justify-end">
           <div class="flex flex-col justify-end mb-2">
-            <svg
-              class="mr-2"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="#D6D3D1"
-                d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6"
-              />
-            </svg>
+            <NuxtLink to="/Auth">
+              <svg
+                class="mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#D6D3D1"
+                  d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6"
+                />
+              </svg>
+            </NuxtLink>
+
           </div>
         </div>
       </div>
-      <div class="flex lg:hidden justify-center">
+      <div class="flex lg:hidden justify-center max-h-full">
         <button
           type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-300"
           @click="mobileMenuOpen = true"
         >
           <span class="sr-only">Open main menu</span>
@@ -176,15 +174,14 @@
     >
       <div class="fixed inset-0 z-10" />
       <DialogPanel
-        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 rounded-lg"
+        class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 rounded-lg"
       >
         <div class="flex items-center justify-between">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="#" class="mb-2 p-1.5">
             <span class="sr-only">Your Company</span>
             <img
-              class="h-8 w-auto"
-              src="/images/Untitled_design-5.png"
-              alt=""
+              class="h-20 w-auto"
+            src="/images/ELNIK_SHADOW_LOGO_1_Edit.png" alt="Elnik"
             />
           </a>
           <button
@@ -198,67 +195,68 @@
         </div>
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
-              <!--              <Disclosure as="div" class="-mx-3" v-slot="{ open }">-->
-              <!--&lt;!&ndash;                <DisclosureButton&ndash;&gt;-->
-              <!--&lt;!&ndash;                  class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"&ndash;&gt;-->
-              <!--&lt;!&ndash;                >&ndash;&gt;-->
-              <!--&lt;!&ndash;                  Product&ndash;&gt;-->
-              <!--&lt;!&ndash;                  <ChevronDownIcon&ndash;&gt;-->
-              <!--&lt;!&ndash;                    :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']"&ndash;&gt;-->
-              <!--&lt;!&ndash;                    aria-hidden="true"&ndash;&gt;-->
-              <!--&lt;!&ndash;                  />&ndash;&gt;-->
-              <!--&lt;!&ndash;                </DisclosureButton>&ndash;&gt;-->
-              <!--&lt;!&ndash;                <DisclosurePanel class="mt-2 space-y-2">&ndash;&gt;-->
-              <!--&lt;!&ndash;                  <DisclosureButton&ndash;&gt;-->
-              <!--&lt;!&ndash;                    v-for="item in [...products, ...callsToAction]"&ndash;&gt;-->
-              <!--&lt;!&ndash;                    :key="item.name"&ndash;&gt;-->
-              <!--&lt;!&ndash;                    as="a"&ndash;&gt;-->
-              <!--&lt;!&ndash;                    :href="item.href"&ndash;&gt;-->
-              <!--&lt;!&ndash;                    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"&ndash;&gt;-->
-              <!--&lt;!&ndash;                  >&ndash;&gt;-->
-              <!--&lt;!&ndash;                    {{ item.name }}&ndash;&gt;-->
-              <!--&lt;!&ndash;                  </DisclosureButton>&ndash;&gt;-->
-              <!--&lt;!&ndash;                </DisclosurePanel>&ndash;&gt;-->
-              <!--              </Disclosure>-->
+            <div class="space-y-2 py-6 px-6">
               <a
-                href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Products</a
               >
+                <NuxtLink to="/"> <p class="text-stone-900 uppercase">HOME</p></NuxtLink>
+              </a>
               <a
-                href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Features</a
               >
+                <NuxtLink to="/About"> <p class="text-stone-900 uppercase">about</p></NuxtLink>
+              </a>
+
               <a
-                href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Marketplace</a
               >
+                <NuxtLink to="/ProductPage"> <p class="text-stone-900 uppercase">Products</p></NuxtLink>
+              </a>
+
               <a
-                href="#"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Company</a
+              >
+                <NuxtLink to="/Brochures"> <p class="text-stone-900 uppercase">BROCHURES</p></NuxtLink>
+              </a>
+              <a
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >
+                <NuxtLink to="/Careers"> <p class="text-stone-900 uppercase">CAREERS</p></NuxtLink>
+              </a>
+              <a
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >
+                <NuxtLink to="/blog"> <p class="text-stone-900 uppercase">BLOG</p></NuxtLink>
+              </a>
+              <a
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >
+                <NuxtLink to="/Contact"> <p class="text-stone-900 uppercase">contact</p></NuxtLink>
+              </a>
+              <a
+                href="https://dshtech.com/"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-stone-900 hover:bg-gray-50"
+              >DSH TECHNOLOGIES</a
               >
             </div>
-            <div class="py-6 flex flex-col">
-              <svg
-                class="ml-1.5"
-                xmlns="http://www.w3.org/2000/svg"
-                width="36"
-                height="36"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="text-gray-900"
-                  d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6"
-                />
-              </svg>
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-                >Log in <span aria-hidden="true">&rarr;</span></a
-              >
+            <div class="py-6 px-6">
+              <NuxtLink to="/Auth">
+                <svg
+                  class="mr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#1c1917"
+                    d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 1A2.5 2.5 0 0 0 9 8.5a2.5 2.5 0 0 0 2.5 2.5A2.5 2.5 0 0 0 14 8.5A2.5 2.5 0 0 0 11.5 6"
+                  />
+                </svg>
+              </NuxtLink>
+
             </div>
+
           </div>
         </div>
       </DialogPanel>

@@ -40,9 +40,9 @@
             <!--            ? 'text-stone-300'-->
             <!--            : 'text-neutral-950'-->
             <!--            "-->
-            <div class="space-y-2 slide-up">
+            <div class="max-sm:w-1/2 space-y-2 slide-up">
               <h1
-                class="text-5xl text-gray-300 font-bold text-shadow-xl"
+                class="text-5xl max-sm:text-4xl text-gray-300 font-bold text-shadow-xl"
                 style="font-family: ITCFranklinGothicStd-Demi"
               >
                 {{ slide.title }}
@@ -61,7 +61,7 @@
         </div>
         <button
           @click="nextSlide"
-          class="z-10 flex flex-wrap content-center absolute left-[96%] top-[45%]"
+          class="z-10 flex flex-wrap content-center absolute lg:left-[96%] md:left-[94%] sm:left-[92%] max-sm:left-[92%] top-[45%]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@
             </button>
           </NuxtLink>
         </div>
-        <div class="grid grid-cols-2 gap-12 mt-12">
+        <div class="grid lg:grid-cols-2 gap-12 mt-12">
           <div class="flex flex-col">
             <NuxtLink to="/About" class="w-full" target="_blank">
               <img
@@ -177,7 +177,7 @@
         class="h-12 flex justify-center items-center content-center mt-4 mb-4"
       >
         <h2
-          class="text-5xl font-semibold text-slate-50"
+          class="text-5xl max-sm:text-3xl font-semibold text-slate-50"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           PRODUCTS IN DEMAND
@@ -201,7 +201,7 @@
             />
           </svg>
         </button>
-        <div class="grid grid-cols-3 gap-x-12 w-3/4">
+        <div class="grid lg:grid-cols-3  gap-x-12 w-3/4">
           <div
             v-for="(product, index) in paginatedProducts"
             :key="index"
@@ -272,7 +272,7 @@
     <div ref="blogSlider" id="blog" class="p-4">
       <div class="h-12 flex justify-center items-center content-center">
         <h2
-          class="text-5xl font-semibold text-slate-950"
+          class="text-5xl max-sm:text-3xl font-semibold text-slate-900"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           OUR LATEST NEWS
@@ -296,7 +296,7 @@
             />
           </svg>
         </button>
-        <div class="grid grid-cols-3 grid-rows-1 gap-x-12 w-3/4">
+        <div class="grid lg:grid-cols-3 grid-rows-1 gap-x-12 w-3/4">
           <div
             v-for="(post, index) in paginatedColumns"
             :key="index"
@@ -429,6 +429,9 @@ import type { ReturnType } from "birpc";
 import ContactUs from "../components/ContactUs.vue";
 import { useProductStore } from "../stores/ProductStore";
 import type { Products } from "../types";
+import { useWindowSize } from '@vueuse/core'
+
+const { width, height } = useWindowSize()
 
 import type { BlogPost } from "../types";
 import { testBlogData } from "../objects/testObjects";
@@ -437,7 +440,6 @@ const posts = ref<BlogPost[]>(testBlogData);
 
 const { getProducts } = useProductStore();
 const productList = await getProducts();
-console.log(productList);
 const heroProducts = ref<Products[] | undefined>(productList?.message);
 
 const hero = ref<HTMLElement | null | undefined>(
@@ -480,7 +482,6 @@ const slides = ref([
 
 const productImages = ref<Products[] | undefined>();
 productImages.value = productList?.message;
-console.log(productList);
 const currentIndex = ref(0);
 const currentPage = ref(0);
 const itemsPerPage = ref(3);
@@ -488,17 +489,38 @@ const currentProductIndex = ref(0);
 const currentProductPage = ref(0);
 const itemsProductsPerPage = ref(3);
 
+let countBlog = 0
 const paginatedColumns = computed(() => {
   const start = currentPage.value * itemsPerPage.value;
+   console.log(width)
+
+  if (width.value < 640) {
+    countBlog++;
+    if (posts.value && (posts.value.length === countBlog)) {
+      countBlog = 0
+    }
+    return posts.value ? [posts.value[countBlog]] : [];
+  }
 
   return posts.value?.slice(start, start + itemsPerPage.value);
 });
 
+let count = 0
+
 const paginatedProducts = computed(() => {
   const start = currentProductPage.value * itemsProductsPerPage.value;
 
+  if (width.value < 640) {
+    count++;
+    if (heroProducts.value && (heroProducts.value.length === count)) {
+     count = 0
+    }
+    return heroProducts.value ? [heroProducts.value[count]] : [];
+  }
+
   return heroProducts.value?.slice(start, start + itemsProductsPerPage.value);
 });
+
 let intervalId: ReturnType<typeof setInterval> | null = null;
 
 const startSlideShow = () => {
@@ -669,6 +691,7 @@ img {
   margin-right: 25px;
 }
 
+
 .hero-slider {
   width: 100%;
   overflow: hidden;
@@ -755,6 +778,31 @@ img {
 
 #contact {
   background-image: url("public/images/contact_background.jpg");
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+@media (max-width: 640px) {
+  .slide:nth-child(even) .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin-left: 25px;
+    width: 480px;
+    text-align: left;
+
+  }
+  #products {
+    background-size: cover;
+
+  }
+
+  #contact {
+    background-size: cover;
+
+
+  }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1023px) {

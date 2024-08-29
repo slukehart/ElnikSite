@@ -13,7 +13,6 @@ async function getProducts(): Promise<{ message: Products[] | string; status: nu
 
         productsCollection.forEach(doc => {
             const data = doc.data();
-            console.log("dtat", data);
             products.push({
                 id: doc.id,
                 name: data.name,

@@ -4,9 +4,7 @@ import type { GetProducts } from "../types";
 export const useProductStore = defineStore("ProductStore", () => {
   async function getProducts() {
     try {
-      const product: GetProducts = await $fetch(`/api/getProducts`);
-      console.log("store ", product);
-      return product;
+      return await $fetch(`/api/getProducts`);
     } catch (e) {
       console.error(e);
     }

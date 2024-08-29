@@ -1,63 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@primevue/nuxt-module", "@vueuse/nuxt", "@pinia/nuxt", '@nuxtjs/device'],
+
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/icon",
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
+    '@nuxtjs/device',
+    "nuxt-tiptap-editor",
+  ],
+
+  tiptap: {
+    prefix: 'Tiptap',
+  },
+
   ssr: false,
   css: ["../assets/css/main.css"],
   plugins: ['../plugins/firebase.ts'],
-
-  // primevue: {
-  //   usePrimeVue: true,
-  //   options: {unstyled: true},
-  //
-  //   components: {
-  //     prefix: "",
-  //     name: undefined,
-  //     include: [
-  //       "DataTable",
-  //       "MultiSelect",
-  //       "SubmitButton",
-  //       "Message",
-  //       "Dropdown",
-  //       "RadioButton",
-  //       "InputText",
-  //       "Button",
-  //       "Card",
-  //       "Column",
-  //       "ConfirmDialog",
-  //       "Toast",
-  //       "Dialog",
-  //       "FilterMatchMode",
-  //       "FilterOperator",
-  //       "Password",
-  //       "InlineMessage",
-  //       "Checkbox",
-  //       "Skeleton",
-  //       "Menu",
-  //       "Divider",
-  //       "Chart",
-  //       "Calendar",
-  //       "MeterGroup",
-  //       "InputMask",
-  //       "InputNumber",
-  //       "Tooltip",
-  //       "InputSwitch",
-  //       "FileUpload",
-  //       "InputGroup",
-  //     ],
-  //     exclude: undefined,
-  //   },
-  //   directives: {
-  //     prefix: "",
-  //     name: undefined,
-  //     include: undefined,
-  //     exclude: undefined,
-  //   },
-  //   composables: {
-  //     name: undefined,
-  //     include: undefined,
-  //     exclude: undefined,
-  //   },
-  // },
-
+  compatibilityDate: "2024-08-28",
 });

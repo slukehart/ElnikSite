@@ -20,9 +20,27 @@ const selectPost = (postSelect: BlogPost) => {
     <div class="flex-shrink-0">
       <GeneralLayout />
     </div>
-    <div class="flex flex-col items-center ">
-      <div class="flex justify-center">
-        <h1 class="text-4xl font-bold uppercase" style="font-family: ITCFranklinGothicStd-Demi">OUR LATEST UPDATES</h1>
+    <div class="flex flex-col items-center">
+      <div class="grid grid-cols-3 justify-center flex-row w-full">
+        <div> </div>
+        <h1 class="w-full text-4xl font-bold uppercase text-center" style="font-family: ITCFranklinGothicStd-Demi">OUR LATEST UPDATES</h1>
+
+        <NuxtLink to="/blog/create/createBlog">
+          <button
+            class="flex justify-end h-auto btn-product-main w-full text-sm text-black font-bold px-6 mb-6 backdrop-blur-2xl border-black"
+          >
+            <p
+              class="uppercase text-center"
+              style="font-family: ITCFranklinGothicStd-Demi"
+            >
+              Add a Blog
+            </p>
+          </button>
+        </NuxtLink>
+
+
+
+
       </div>
       <div class="flex justify-center w-full">
         <div class="grid grid-cols-2 gap-8 w-full max-w-6xl">

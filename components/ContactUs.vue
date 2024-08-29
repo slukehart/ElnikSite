@@ -1,20 +1,16 @@
 <script setup lang="ts">
-import InputGroup from "primevue/inputgroup";
-import InputGroupAddon from "primevue/inputgroupaddon";
-import Editor from "primevue/editor";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 
-const inputContactMessage = ref("");
 
 const route = ref(useRoute().path);
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center justify-content-center">
     <div
-      class="w-full sm:w-3/4 md:w-3/4 lg:w-3/4 overflow-hidden"
-      :class="route === '/' ? 'backdrop-blur-lg' : 'bg-white mt-20'"
+      class=" overflow-hidden"
+      :class="route === '/' ? 'backdrop-blur-lg lg:w-1/2' : 'bg-white mt-10 w-full'"
     >
       <div class="px-4 py-6">
         <h2
@@ -41,7 +37,7 @@ const route = ref(useRoute().path);
                   id="subject"
                   autocomplete="subject"
                   :class="{ 'text-white': route === '/' }"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
               </div>
             </div>
             <div class="flex-1">
@@ -59,7 +55,7 @@ const route = ref(useRoute().path);
                   id="subject"
                   autocomplete="subject"
                   :class="{ 'text-white': route === '/' }"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
               </div>
             </div>
           </div>
@@ -79,7 +75,7 @@ const route = ref(useRoute().path);
                   id="subject"
                   autocomplete="subject"
                   :class="{ 'text-white': route === '/' }"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
               </div>
             </div>
             <div class="flex-1">
@@ -102,6 +98,8 @@ const route = ref(useRoute().path);
               </div>
             </div>
           </div>
+          <RequestAFreeQuote class="w-full" />
+
           <div>
             <label
               for="message"
@@ -116,7 +114,7 @@ const route = ref(useRoute().path);
                 name="message"
                 rows="4"
                 :class="{ 'text-white': route === '/' }"
-                class="block w-full border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm focus:outline-none sm:leading-6 shadow-md"
+                class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm focus:outline-none sm:leading-6 shadow-md"
               ></textarea>
             </div>
           </div>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useRoute } from "vue-router";
+
+const route = ref(useRoute().path);
 const selectedCity = ref();
 const selectedState = ref();
 const debinterModels = ref([
@@ -264,215 +267,210 @@ const countries = ref([
 the provided form section to match the style of the second template you've
 shown, here's the revised code: vue Copy code
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen mt-20">
-    <div
-      class="w-full sm:w-3/4 md:w-3/4 lg:w-3/4 overflow-hidden bg-white backdrop-blur-lg"
-    >
-      <div class="mt-6">
-        <div
-          class="font-bold text-5xl mb-6 text-center text-slate-950"
+  <div class="mt-6">
+    <div class="flex flex-col w-full">
+      <div class="space-y-4">
+        <h6
+          :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+          class="font-bold text-md uppercase"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
-          REQUEST A FREE QUOTE
-        </div>
-        <div class="space-y-8">
-          <h4 class="text-xl font-medium leading-6 text-gray-900 pl-4 uppercase" style="font-family: ITCFranklinGothicStd-Demi">
-            <b>Product Information</b>
-          </h4>
+          Model/Type
+        </h6>
+        <form class="w-full">
+          <select
+            name="binter"
+            id="binter"
+            :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+            class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+          >
+            <option
+              v-for="binter in debinterModels"
+              :key="binter.code"
+              class="p-2"
+            >
+              {{ binter.name }}
+            </option>
+          </select>
+        </form>
+      </div>
 
-          <div class="flex flex-col w-full space-y-8 p-4">
-            <div class="space-y-4">
-              <h6 class="font-bold text-md text-gray-800 uppercase" style="font-family: ITCFranklinGothicStd-Demi">Model/Type</h6>
-              <form class="w-full">
-                <select
-                  name="binter"
-                  id="binter"
-                  class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                >
-                  <option
-                    v-for="binter in debinterModels"
-                    :key="binter.code"
-                    class="p-2"
-                  >
-                    {{ binter.name }}
-                  </option>
-                </select>
-              </form>
-            </div>
-
-            <div class="space-y-4">
-              <h6 class="font-bold text-md text-gray-800 uppercase" style="font-family: ITCFranklinGothicStd-Demi">
-                Options (choose all that apply)
-              </h6>
-              <div class="space-y-2">
-                <div class="flex items-center space-x-2">
-                  <input
-                    id="checkbox1"
-                    type="checkbox"
-                    class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
-                  />
-                  <label for="checkbox1" class="text-gray-700"
-                    >Hi-vacuum (diffusion pump)</label
-                  >
-                </div>
-                <div class="flex items-center space-x-2">
-                  <input
-                    id="checkbox2"
-                    type="checkbox"
-                    class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
-                  />
-                  <label for="checkbox2" class="text-gray-700"
-                    >Set of 12 flexible survey thermocouples</label
-                  >
-                </div>
-                <div class="flex items-center space-x-2">
-                  <input
-                    id="checkbox3"
-                    type="checkbox"
-                    class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
-                  />
-                  <label for="checkbox3" class="text-gray-700"
-                    >Gas-fired after burner</label
-                  >
-                </div>
-                <div class="flex items-center space-x-2">
-                  <input
-                    id="checkbox4"
-                    type="checkbox"
-                    class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
-                  />
-                  <label for="checkbox4" class="text-gray-700"
-                    >Additional TZM shelves</label
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="space-y-4">
-              <div class="space-y-2">
-                <h6   class="text-md font-medium leading-6 text-gray-900 uppercase"
-                      style="font-family: ITCFranklinGothicStd-Demi">
-                  name
-                </h6>
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  autocomplete="subject"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                />
-              </div>
-
-              <div class="space-y-2">
-                <h6   class="text-md font-medium leading-6 text-gray-900 uppercase"
-                      style="font-family: ITCFranklinGothicStd-Demi">
-                  company
-                </h6>
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  autocomplete="subject"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                />
-              </div>
-
-              <div class="space-y-2">
-                <h6   class="text-md font-medium leading-6 text-gray-900 uppercase"
-                      style="font-family: ITCFranklinGothicStd-Demi">
-                  Address
-                </h6>
-                <input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  autocomplete="subject"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                />
-              </div>
-
-              <div class="flex space-x-6">
-                <div class="w-1/3 space-y-2">
-                  <h6
-                    class="text-md font-medium leading-6 text-gray-900 uppercase"
-                    style="font-family: ITCFranklinGothicStd-Demi"
-                  >
-                    City
-                  </h6>
-                  <input
-                    type="text"
-                    name="subject"
-                    id="subject"
-                    autocomplete="subject"
-                    class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                  />
-                </div>
-
-                <div class="w-2/3 space-y-2">
-                  <h6  class="text-md font-medium leading-6 text-gray-900 uppercase"
-                       style="font-family: ITCFranklinGothicStd-Demi">
-                    State
-                  </h6>
-                  <form class="w-full">
-                    <select
-                      name="state"
-                      id="state"
-                      class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                    >
-                      <option v-for="state in states" :key="state.code">
-                        {{ state.name }}
-                      </option>
-                    </select>
-                  </form>
-                </div>
-              </div>
-              <div class="flex space-x-6">
-                <div class="w-1/3 space-y-2">
-                  <h6
-                    class="text-md font-medium leading-6 text-gray-900 uppercase"
-                    style="font-family: ITCFranklinGothicStd-Demi"
-                  >
-                    Zip Code
-                  </h6>
-                  <input
-                    type="text"
-                    name="subject"
-                    id="subject"
-                    autocomplete="subject"
-                    class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                  />
-                </div>
-
-                <div class="w-2/3 space-y-2">
-                  <h6  class="text-md font-medium leading-6 text-gray-900 uppercase"
-                       style="font-family: ITCFranklinGothicStd-Demi">
-                    Country
-                  </h6>
-                  <form class="w-full">
-                    <select
-                      name="country"
-                      id="country"
-                      class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
-                    >
-                      <option v-for="country in countries" :key="country.code" >
-                        {{ country.name }}
-                      </option>
-                    </select>
-                  </form>
-                </div>
-              </div>
-            </div>
+      <div class="space-y-4">
+        <h6
+          :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+          class="font-bold text-md uppercase mt-6"
+          style="font-family: ITCFranklinGothicStd-Demi"
+        >
+          Options (choose all that apply)
+        </h6>
+        <div class="space-y-2">
+          <div class="flex items-center space-x-2">
+            <input
+              id="checkbox1"
+              type="checkbox"
+              class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
+            />
+            <label
+              for="checkbox1"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              >Hi-vacuum (diffusion pump)</label
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <input
+              id="checkbox2"
+              type="checkbox"
+              class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
+            />
+            <label
+              for="checkbox2"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              >Set of 12 flexible survey thermocouples</label
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <input
+              id="checkbox3"
+              type="checkbox"
+              class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
+            />
+            <label
+              for="checkbox3"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              >Gas-fired after burner</label
+            >
+          </div>
+          <div class="flex items-center space-x-2">
+            <input
+              id="checkbox4"
+              type="checkbox"
+              class="form-checkbox text-indigo-600 border-gray-400 focus:ring-indigo-600"
+            />
+            <label
+              for="checkbox4"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              >Additional TZM shelves</label
+            >
           </div>
         </div>
-        <div class="flex justify-center mt-8">
-          <button class="mb-4">
-            <p
-              class="border-b-4 border-b-black uppercase"
+      </div>
+
+      <div class="space-y-4">
+        <div class="space-y-2">
+          <h6
+            :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+            class="text-md font-medium leading-6 uppercase mt-6"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            company
+          </h6>
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            autocomplete="subject"
+            class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <h6
+            :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+            class="text-md font-medium leading-6 uppercase"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            Address
+          </h6>
+          <input
+            type="text"
+            name="subject"
+            id="subject"
+            autocomplete="subject"
+            class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+          />
+        </div>
+
+        <div class="flex space-x-6">
+          <div class="w-1/3 space-y-2">
+            <h6
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              class="text-md font-medium leading-6 uppercase"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
-              Submit
-            </p>
-          </button>
+              City
+            </h6>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              autocomplete="subject"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+            />
+          </div>
+
+          <div class="w-2/3 space-y-2">
+            <h6
+              class="text-md font-medium leading-6 uppercase"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              style="font-family: ITCFranklinGothicStd-Demi"
+            >
+              State
+            </h6>
+            <form class="w-full">
+              <select
+                name="state"
+                id="state"
+                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+              >
+                <option v-for="state in states" :key="state.code">
+                  {{ state.name }}
+                </option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <div class="flex space-x-6">
+          <div class="w-1/3 space-y-2">
+            <h6
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              class="text-md font-medium leading-6 uppercase"
+              style="font-family: ITCFranklinGothicStd-Demi"
+            >
+              Zip Code
+            </h6>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              autocomplete="subject"
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+            />
+          </div>
+
+          <div class="w-2/3 space-y-2">
+            <h6
+              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              class="text-md font-medium leading-6 uppercase"
+              style="font-family: ITCFranklinGothicStd-Demi"
+            >
+              Country
+            </h6>
+            <form class="w-full">
+              <select
+                name="country"
+                id="country"
+                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+              >
+                <option v-for="country in countries" :key="country.code">
+                  {{ country.name }}
+                </option>
+              </select>
+            </form>
+          </div>
         </div>
       </div>
     </div>

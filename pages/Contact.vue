@@ -9,10 +9,10 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
     </div>
   </div>
   <div
-    class="w-full h-screen lg:flex items-center lg:flex-row md:flex-col sm:block justify-center hero-contact"
+    class="w-full h-screen flex items-center lg:flex-row md:flex-col justify-center hero-contact"
   >
     <div
-      class="flex flex-col lg:items-center md:items-center sm:items-center lg:w-1/2 backdrop-blur-lg text-slate-50"
+      class="flex flex-col justify-center items-center lg:w-1/2 space-y-6 backdrop-blur text-slate-50"
     >
       <h1
         class="text-5xl font-bold text-shadow-lg mb-10 mt-6"
@@ -21,7 +21,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
         CONTACT US
       </h1>
       <h5
-        class="text-2xl lg:w-3/4 md:w-1/4 sm:w-3/4 md:text-center sm:text-center text-shadow-lg"
+        class="text-2xl lg:w-3/4 md:w-1/4 sm:w-3/4 md:text-center sm:text-center text-shadow-lg text-center"
       >
         If you’d like to know more about Elnik’s products, are interested in a
         quote request, or simply want to learn about the applications of MIM,
@@ -29,23 +29,18 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
       </h5>
       <h6
         style="font-family: ITCFranklinGothicStd-Demi"
-        class="text-xl decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text text-shadow-lg mb-10 mt-6"
+        class="text-xl decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text text-center text-shadow-lg mb-10 mt-6"
       >
         Quality. Innovation. Excellence.
       </h6>
     </div>
-
   </div>
   <div class="flex lg:flex-row md:flex-col sm:flex-col justify-center">
-    <ContactUs class="w-full" />
-    <div
-      class="border-l-2 md:hidden sm:hidden lg:block min-h-32 border-slate-950"
-    ></div>
-    <RequestAFreeQuote class="w-full" />
+    <ContactUs />
   </div>
 
   <div class="border-t-2 w-full border-slate-950"></div>
-  <div>
+  <div class="flex justify-center">
     <div class="grid lg:grid-cols-2 w-full max-w-6xl">
       <div class="flex flex-row justify-center">
         <div class="w-1/2 flex justify-center items-center text-center">

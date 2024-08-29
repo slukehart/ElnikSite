@@ -25,13 +25,14 @@ const { scrollToSection } = scrollToTopComposable();
           <nav
             class="grid lg:grid-cols-3 lg:grid-rows-3 md:grid-cols-2 md:grid-rows-3 md:gap-2 text-center"
           >
-            <NuxtLink><a class="text-sm">HOME</a></NuxtLink>
-            <NuxtLink><a class="text-sm">ABOUT</a></NuxtLink>
-            <NuxtLink><a class="text-sm">PRODUCTS</a></NuxtLink>
-            <NuxtLink><a class="text-sm">APPLICATION</a></NuxtLink>
-            <NuxtLink><a class="text-sm">CAREERS</a></NuxtLink>
-            <NuxtLink><a class="text-sm">BLOG</a></NuxtLink>
-            <NuxtLink><a class="text-sm">DSH TECHNOLOGIES</a></NuxtLink>
+            <NuxtLink to="/"><a class="text-sm uppercase">HOME</a></NuxtLink>
+            <NuxtLink to="/About"><a class="text-sm uppercase">ABOUT</a></NuxtLink>
+            <NuxtLink to="/ProductPage" ><a class="text-sm uppercase">PRODUCTS</a></NuxtLink>
+            <NuxtLink to="Brochures"><a class="text-sm uppercase">Brochures</a></NuxtLink>
+            <NuxtLink to="/Careers"><a class="text-sm uppercase">CAREERS</a></NuxtLink>
+            <NuxtLink to="/blog"><a class="text-sm uppercase">BLOG</a></NuxtLink>
+            <a                 href="https://dshtech.com/"
+                               class="text-sm uppercase">DSH TECHNOLOGIES</a>
 
             <NuxtLink><a class="text-sm">CONTACT</a></NuxtLink>
             <NuxtLink><a class="text-sm"></a></NuxtLink>

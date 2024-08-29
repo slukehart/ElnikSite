@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import GeneralLayout from "../layout/GeneralLayout.vue";
-import Timeline from "primevue/timeline";
 
-const TimeLine = resolveComponent("TimeLine");
 
 const events = ref([
   {
@@ -125,20 +123,20 @@ const events = ref([
       <GeneralLayout />
     </div>
     <div
-      class="w-full h-screen lg:flex items-center lg:flex-row md:flex-col sm:block justify-center hero-about"
+      class="w-full lg:h-screen flex items-center lg:flex-row md:flex-col sm:block justify-center hero-about"
     >
       <div
-        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:mt-10 lg:w-full text-slate-50"
+        class="flex flex-col lg:justify-start md:justify-center max-sm:justify-center md:items-center sm:items-center max-sm:w-3/4 lg:mt-10 lg:w-full text-slate-50"
       >
-        <div class="w-3/4  backdrop-blur-lg">
+        <div class="lg:w-3/4 backdrop-blur-lg flex flex-col justify-center items-center">
           <h1
-            class="text-5xl text-shadow-lg font-bold md:mt-10 md:text-center sm:mt-10 sm:text-center mb-4"
+            class="text-5xl text-shadow-lg font-bold md:mt-10 md:text-center sm:mt-10 sm:text-center mb-4 text-center max-sm:mt-10"
             style="font-family: ITCFranklinGothicStd-Demi"
           >
             OUR PEOPLE MAKE ALL THE DIFFERENCE
           </h1>
           <h5
-            class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center sm:text-center pl-10 pr-10"
+            class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center max-sm:text-center pl-10 pr-10"
           >
             Elnik’s success is driven by the dedicated hands that help craft our
             equipment, the energetic service team helping customers, the detailed
