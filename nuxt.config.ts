@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  nitro: {
+    firebase: {
+      gen: 2,
+      nodeVersion: "18"
+    }
+  },
 
   modules: [
     "@nuxtjs/tailwindcss",
@@ -14,8 +20,7 @@ export default defineNuxtConfig({
   tiptap: {
     prefix: 'Tiptap',
   },
-
-  ssr: false,
+  ssr: true, // enable server-side rendering
   css: ["../assets/css/main.css"],
   plugins: ['../plugins/firebase.ts'],
   compatibilityDate: "2024-08-28",
