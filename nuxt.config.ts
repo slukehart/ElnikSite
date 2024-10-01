@@ -4,8 +4,20 @@ export default defineNuxtConfig({
   nitro: {
     firebase: {
       gen: 2,
-      nodeVersion: "18"
-    }
+      nodeVersion: "18",
+    },
+  },
+
+  app: {
+    head: {
+      script: [
+        {
+          src: "https://platform.linkedin.com/badges/js/profile.js",
+          type: "text/javascript",
+        },
+        // Add more scripts as needed
+      ],
+    },
   },
 
   modules: [
@@ -13,15 +25,15 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@vueuse/nuxt",
     "@pinia/nuxt",
-    '@nuxtjs/device',
+    "@nuxtjs/device",
     "nuxt-tiptap-editor",
   ],
 
   tiptap: {
-    prefix: 'Tiptap',
+    prefix: "Tiptap",
   },
   ssr: true, // enable server-side rendering
   css: ["../assets/css/main.css"],
-  plugins: ['../plugins/firebase.ts'],
+  plugins: ["../plugins/firebase.ts"],
   compatibilityDate: "2024-08-28",
 });

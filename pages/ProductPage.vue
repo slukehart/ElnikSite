@@ -3,12 +3,19 @@ import { ref } from "vue";
 import type { Products } from "../types";
 import { useProductStore } from "../stores/ProductStore";
 import GeneralLayout from "../layout/GeneralLayout.vue";
+import ApplicationDropDown from "../components/ApplicationDropDown.vue";
+import IndustryDropDown from "../components/IndustryDropDown.vue";
 
 const { getProducts } = useProductStore();
-const productList = await getProducts();
 
+const productList = ref();
 const productImages = ref<Products[] | undefined>();
-productImages.value = productList?.message;
+
+onMounted(async () => {
+  productList.value = await getProducts();
+  productImages.value = productList?.value.message;
+});
+
 const goToProduct = async (index: number) => {
   if (productImages.value && productImages.value[index]) {
     await navigateTo({ path: `/products/${productImages.value[index].id}` });
@@ -61,6 +68,10 @@ const goToProduct = async (index: number) => {
       </div>
     </div>
     <div class="flex flex-col justify-between items-center">
+      <div class="flex flex-row space-x-6 mt-10">
+        <ApplicationDropDown />
+        <IndustryDropDown />
+      </div>
       <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 w-auto mb-4">
         <div
           v-for="(product, index) in productImages"

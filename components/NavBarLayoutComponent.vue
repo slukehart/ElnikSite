@@ -15,11 +15,11 @@
             <a
               class="hover-line text-sm font-semibold leading-6 text-stone-300"
             >
-              <NuxtLink to="/"> <p class="hover:font-bold text-shadow-xl">HOME</p></NuxtLink>
+              <NuxtLink to="/Home"> <p class="hover:font-bold text-shadow-xl">HOME</p></NuxtLink>
             </a>
 
             <a
-              v-if="useRoute().path === '/'"
+              v-if="useRoute().path === '/Home'"
               href="#"
               @click.prevent="scrollToSection(props.about)"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
@@ -110,7 +110,7 @@
             </NuxtLink>
 
             <a
-              v-if="useRoute().path === '/'"
+              v-if="useRoute().path === '/Home'"
               href="#"
               @click.prevent="scrollToSection(props?.blogSlider)"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 text-shadow-xl"
@@ -199,7 +199,7 @@
               <a
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
               >
-                <NuxtLink to="/"> <p class="text-stone-900 uppercase">HOME</p></NuxtLink>
+                <NuxtLink to="/Home"> <p class="text-stone-900 uppercase">HOME</p></NuxtLink>
               </a>
               <a
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"

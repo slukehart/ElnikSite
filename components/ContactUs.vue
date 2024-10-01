@@ -10,12 +10,12 @@ const route = ref(useRoute().path);
   <div class="flex flex-col items-center justify-content-center">
     <div
       class=" overflow-hidden"
-      :class="route === '/' ? 'backdrop-blur-lg lg:w-1/2' : 'bg-white mt-10 w-full'"
+      :class="route === '/Home' ? 'backdrop-blur-lg lg:w-1/2' : 'bg-white mt-10 w-full'"
     >
       <div class="px-4 py-6">
         <h2
           class="font-bold text-5xl text-center mb-4"
-          :class="route === '/' ? 'text-slate-50' : 'text-slate-950np'"
+          :class="route === '/Home' ? 'text-slate-50' : 'text-slate-950np'"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           SEND US A MESSAGE
@@ -26,7 +26,7 @@ const route = ref(useRoute().path);
               <label
                 for="name"
                 class="block text-sm font-medium leading-6 uppercase"
-                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
                 style="font-family: ITCFranklinGothicStd-Demi"
                 >Name</label
               >
@@ -36,7 +36,7 @@ const route = ref(useRoute().path);
                   name="subject"
                   id="subject"
                   autocomplete="subject"
-                  :class="{ 'text-white': route === '/' }"
+                  :class="{ 'text-white': route === '/Home' }"
                   class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
               </div>
             </div>
@@ -44,7 +44,7 @@ const route = ref(useRoute().path);
               <label
                 for="phone"
                 class="block text-sm font-medium leading-6 uppercase"
-                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
                 style="font-family: ITCFranklinGothicStd-Demi"
                 >Phone Number</label
               >
@@ -54,7 +54,7 @@ const route = ref(useRoute().path);
                   name="subject"
                   id="subject"
                   autocomplete="subject"
-                  :class="{ 'text-white': route === '/' }"
+                  :class="{ 'text-white': route === '/Home' }"
                   class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
               </div>
             </div>
@@ -64,7 +64,7 @@ const route = ref(useRoute().path);
               <label
                 for="email"
                 class="block text-sm font-medium leading-6 uppercase"
-                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
                 style="font-family: ITCFranklinGothicStd-Demi"
                 >Email</label
               >
@@ -74,7 +74,7 @@ const route = ref(useRoute().path);
                   name="subject"
                   id="subject"
                   autocomplete="subject"
-                  :class="{ 'text-white': route === '/' }"
+                  :class="{ 'text-white': route === '/Home' }"
                   class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
               </div>
             </div>
@@ -82,7 +82,7 @@ const route = ref(useRoute().path);
               <label
                 for="subject"
                 class="block text-sm font-medium leading-6 uppercase"
-                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
                 style="font-family: ITCFranklinGothicStd-Demi"
                 >Subject</label
               >
@@ -92,7 +92,7 @@ const route = ref(useRoute().path);
                   name="subject"
                   id="subject"
                   autocomplete="subject"
-                  :class="{ 'text-white': route === '/' }"
+                  :class="{ 'text-white': route === '/Home' }"
                   class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
                 />
               </div>
@@ -113,7 +113,7 @@ const route = ref(useRoute().path);
                 id="message"
                 name="message"
                 rows="4"
-                :class="{ 'text-white': route === '/' }"
+                :class="{ 'text-white': route === '/Home' }"
                 class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm focus:outline-none sm:leading-6 shadow-md"
               ></textarea>
             </div>

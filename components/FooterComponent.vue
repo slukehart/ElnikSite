@@ -25,10 +25,10 @@ const { scrollToSection } = scrollToTopComposable();
           <nav
             class="grid lg:grid-cols-3 lg:grid-rows-3 md:grid-cols-2 md:grid-rows-3 md:gap-2 text-center"
           >
-            <NuxtLink to="/"><a class="text-sm uppercase">HOME</a></NuxtLink>
+            <NuxtLink to="/Home"><a class="text-sm uppercase">HOME</a></NuxtLink>
             <NuxtLink to="/About"><a class="text-sm uppercase">ABOUT</a></NuxtLink>
             <NuxtLink to="/ProductPage" ><a class="text-sm uppercase">PRODUCTS</a></NuxtLink>
-            <NuxtLink to="Brochures"><a class="text-sm uppercase">Brochures</a></NuxtLink>
+            <NuxtLink to="/Brochures"><a class="text-sm uppercase">Brochures</a></NuxtLink>
             <NuxtLink to="/Careers"><a class="text-sm uppercase">CAREERS</a></NuxtLink>
             <NuxtLink to="/blog"><a class="text-sm uppercase">BLOG</a></NuxtLink>
             <a                 href="https://dshtech.com/"
@@ -42,7 +42,7 @@ const { scrollToSection } = scrollToTopComposable();
         <div class="flex flex-col justify-center items-center w-1/3">
           <div id="footer-logo" class="px-6 py-4">
             <a
-              v-if="useRoute().path === '/'"
+              v-if="useRoute().path === '/Home'"
               href="#"
               @click.prevent="scrollToSection(props?.hero)"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 flex justify-center"
@@ -51,7 +51,7 @@ const { scrollToSection } = scrollToTopComposable();
             /></a>
             <NuxtLink
               v-else
-              to="/"
+              to="/Home"
               class="hover-line text-sm font-semibold leading-6 text-stone-300 flex justify-center"
               ><img class="w-3/4" src="/images/logo-10.png" alt="Elnik" />
             </NuxtLink>

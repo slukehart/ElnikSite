@@ -54,12 +54,12 @@ import { ref } from "vue";
 // Array of process options
 const processes = [
   "No Filter",
-  "Metal Injection Molding",
-  "Sinter Based Metal Additive Manufacturing",
-  "Annealing",
-  "Brazing",
-  "Aging",
-  "Tempering",
+  "Medical",
+  "Aerospace",
+  "Firearms",
+  "Fashion / Lifestyle",
+  "Electronics",
+  "Industrial / Automotive",
 ];
 
 // Track the dropdown state and selected option

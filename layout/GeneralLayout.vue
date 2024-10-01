@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NavBarLayoutComponent from "../components/NavBarLayoutComponent.vue";
-import type {PropType} from 'vue';
+import type { PropType } from "vue";
 
 const props = defineProps({
   about: {
@@ -18,15 +18,28 @@ const props = defineProps({
   blogSlider: {
     type: Object as PropType<HTMLElement | null | undefined>,
     required: false,
-  }
+  },
 });
 
-
+watch(
+  () => useRoute().path,
+  (newPath) => {
+    console.log(newPath);
+    if (newPath === "/") {
+      navigateTo("/Home");
+    }
+  },
+);
 </script>
 
 <template>
   <div style="width: 100%">
-    <NavBarLayoutComponent :about="props.about" :hero="props.hero" :products="props.products" :blogSlider="props.blogSlider"/>
+    <NavBarLayoutComponent
+      :about="props.about"
+      :hero="props.hero"
+      :products="props.products"
+      :blogSlider="props.blogSlider"
+    />
   </div>
 </template>
 

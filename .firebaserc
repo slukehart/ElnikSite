@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "default": "elnik-72224"
+  },
+  "targets": {
+    "elnik-72224": {
+      "hosting": {
+        "elnik-72224": [
+          "elnik-72224"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

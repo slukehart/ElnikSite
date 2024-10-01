@@ -201,7 +201,7 @@
             />
           </svg>
         </button>
-        <div class="grid lg:grid-cols-3  gap-x-12 w-3/4">
+        <div class="grid lg:grid-cols-3 gap-x-12 w-3/4">
           <div
             v-for="(product, index) in paginatedProducts"
             :key="index"
@@ -384,7 +384,9 @@
           <div class="flex justify-center items-center">
             <div class="border-l-2 h-full border-zinc-900"></div>
           </div>
-          <NuxtLink class="w-full flex justify-center items-center cursor-pointer">
+          <NuxtLink
+            class="w-full flex justify-center items-center cursor-pointer"
+          >
             <p
               class="uppercase text-decoration-line"
               style="
@@ -399,7 +401,9 @@
           <div class="flex justify-center items-center">
             <div class="border-l-2 h-full border-zinc-900"></div>
           </div>
-          <NuxtLink class="w-full flex justify-center items-center cursor-pointer">
+          <NuxtLink
+            class="w-full flex justify-center items-center cursor-pointer"
+          >
             <p
               class="uppercase text-decoration-line"
               style="
@@ -429,9 +433,9 @@ import type { ReturnType } from "birpc";
 import ContactUs from "../components/ContactUs.vue";
 import { useProductStore } from "../stores/ProductStore";
 import type { Products } from "../types";
-import { useWindowSize } from '@vueuse/core'
+import { useWindowSize } from "@vueuse/core";
 
-const { width, height } = useWindowSize()
+const { width, height } = useWindowSize();
 
 import type { BlogPost } from "../types";
 import { testBlogData } from "../objects/testObjects";
@@ -442,14 +446,10 @@ const { getProducts } = useProductStore();
 const productList = await getProducts();
 const heroProducts = ref<Products[] | undefined>(productList?.message);
 
-const hero = ref<HTMLElement | null | undefined>(
-  document.getElementById("hero"),
+const hero = ref<HTMLElement | null | undefined>(null);
+const about = ref<HTMLElement | null | undefined>(null
 );
-const about = ref<HTMLElement | null | undefined>(
-  document.getElementById("about"),
-);
-const products = ref<HTMLElement | null | undefined>(
-  document.getElementById("products"),
+const products = ref<HTMLElement | null | undefined>(null
 );
 const blogSlider = ref<HTMLElement | null | undefined>(null);
 
@@ -489,15 +489,14 @@ const currentProductIndex = ref(0);
 const currentProductPage = ref(0);
 const itemsProductsPerPage = ref(3);
 
-let countBlog = 0
+let countBlog = 0;
 const paginatedColumns = computed(() => {
   const start = currentPage.value * itemsPerPage.value;
-   console.log(width)
 
   if (width.value < 640) {
     countBlog++;
-    if (posts.value && (posts.value.length === countBlog)) {
-      countBlog = 0
+    if (posts.value && posts.value.length === countBlog) {
+      countBlog = 0;
     }
     return posts.value ? [posts.value[countBlog]] : [];
   }
@@ -505,15 +504,15 @@ const paginatedColumns = computed(() => {
   return posts.value?.slice(start, start + itemsPerPage.value);
 });
 
-let count = 0
+let count = 0;
 
 const paginatedProducts = computed(() => {
   const start = currentProductPage.value * itemsProductsPerPage.value;
 
   if (width.value < 640) {
     count++;
-    if (heroProducts.value && (heroProducts.value.length === count)) {
-     count = 0
+    if (heroProducts.value && heroProducts.value.length === count) {
+      count = 0;
     }
     return heroProducts.value ? [heroProducts.value[count]] : [];
   }
@@ -607,7 +606,10 @@ const goToBlog = async () => {
 
 onMounted(() => {
   startSlideShow();
-  blogSlider.value = document.getElementById("blog");
+  hero.value = document.getElementById("hero");
+  about.value =  document.getElementById("about")
+  products.value =  document.getElementById("products")
+    blogSlider.value = document.getElementById("blog");
 });
 
 onUnmounted(() => {
@@ -690,7 +692,6 @@ img {
   width: 480px;
   margin-right: 25px;
 }
-
 
 .hero-slider {
   width: 100%;
@@ -791,17 +792,14 @@ img {
     margin-left: 25px;
     width: 480px;
     text-align: left;
-
   }
+
   #products {
     background-size: cover;
-
   }
 
   #contact {
     background-size: cover;
-
-
   }
 }
 
