@@ -2,20 +2,23 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 
-
 const route = ref(useRoute().path);
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-content-center">
     <div
-      class=" overflow-hidden"
-      :class="route === '/Home' ? 'backdrop-blur-lg lg:w-1/2' : 'bg-white mt-10 w-full'"
+      class="overflow-hidden"
+      :class="
+        route === '/Home'
+          ? 'backdrop-blur-lg lg:w-1/2'
+          : 'bg-white mt-10 w-full'
+      "
     >
       <div class="px-4 py-6">
         <h2
           class="font-bold text-5xl text-center mb-4"
-          :class="route === '/Home' ? 'text-slate-50' : 'text-slate-950np'"
+          :class="route === '/Home' ? 'text-slate-50' : 'text-slate-950'"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
           SEND US A MESSAGE
@@ -37,7 +40,8 @@ const route = ref(useRoute().path);
                   id="subject"
                   autocomplete="subject"
                   :class="{ 'text-white': route === '/Home' }"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
+                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                />
               </div>
             </div>
             <div class="flex-1">
@@ -55,7 +59,8 @@ const route = ref(useRoute().path);
                   id="subject"
                   autocomplete="subject"
                   :class="{ 'text-white': route === '/Home' }"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
+                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                />
               </div>
             </div>
           </div>
@@ -75,7 +80,8 @@ const route = ref(useRoute().path);
                   id="subject"
                   autocomplete="subject"
                   :class="{ 'text-white': route === '/Home' }"
-                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none">
+                  class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                />
               </div>
             </div>
             <div class="flex-1">
@@ -104,7 +110,7 @@ const route = ref(useRoute().path);
             <label
               for="message"
               class="block text-sm font-medium leading-6 uppercase"
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               style="font-family: ITCFranklinGothicStd-Demi"
               >Message</label
             >
@@ -124,7 +130,7 @@ const route = ref(useRoute().path);
             <p
               class="border-b-4 border-b-black uppercase"
               :class="
-                route === '/'
+                route === '/Home'
                   ? ' text-slate-50 border-b-white'
                   : 'text-gray-800 border-b-black'
               "

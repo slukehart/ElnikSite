@@ -3,18 +3,23 @@ import signIn from "../composables/signIn";
 import { navigateTo } from "nuxt/app";
 import type { UserCredential } from "@firebase/auth";
 
-const { signInWithEmail, loading } = signIn();
-
+const { signInWithEmail, loading, signOutFirebase } = signIn();
+const userStore = useUserAuthStore();
+const linkedInPosts = useLinkedInPostStore();
+const { postsList } = storeToRefs(linkedInPosts);
+const { authStore } = storeToRefs(userStore);
 const email = ref("");
 const password = ref("");
-const errorMsg = ref<string | UserCredential>('');
+const errorMsg = ref<string | UserCredential>("");
 
 const login = async () => {
   errorMsg.value = "";
   const result = await signInWithEmail(email.value, password.value);
   switch (result.status) {
     case 200:
-      navigateTo("/blog");
+      navigateTo({
+        path: `/blog/${postsList.value ? postsList.value[0]?.id : ""}`,
+      });
       break;
     case 401:
       errorMsg.value = result.message;
@@ -27,6 +32,11 @@ const login = async () => {
       break;
   }
 };
+
+const logOut = async () => {
+  console.log("clickeddd");
+  // await signOutFirebase();
+};
 </script>
 
 <template>
@@ -35,12 +45,13 @@ const login = async () => {
       class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0"
     >
       <a
-        href="/"
+        href="/Home"
         class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
       >
         <img src="/images/ELNIK_SHADOW_LOGO_1_Edit.png" alt="logo" />
       </a>
       <div
+        v-if="authStore !== 'authed'"
         class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
       >
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -50,9 +61,7 @@ const login = async () => {
               class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
               role="alert"
             >
-              <span class="block sm:inline"
-                >{{errorMsg}}</span
-              >
+              <span class="block sm:inline">{{ errorMsg }}</span>
             </div>
             <h1
               class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white flex flex-col"
@@ -169,6 +178,11 @@ const login = async () => {
             </button>
           </form>
         </div>
+      </div>
+      <div v-else-if="authStore === 'authed'">
+        <button @submit.prevent="logOut">
+          <p class="text-slate-50">Log Off</p>
+        </button>
       </div>
     </div>
   </div>

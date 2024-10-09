@@ -270,7 +270,7 @@ shown, here's the revised code: vue Copy code
   <div class="mt-6">
     <div class="flex flex-col w-full">
       <div class="space-y-4">
-        <h6
+        <!-- <h6
           :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
           class="font-bold text-md uppercase"
           style="font-family: ITCFranklinGothicStd-Demi"
@@ -292,12 +292,12 @@ shown, here's the revised code: vue Copy code
               {{ binter.name }}
             </option>
           </select>
-        </form>
+        </form> -->
       </div>
 
       <div class="space-y-4">
-        <h6
-          :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+        <!-- <h6
+          :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
           class="font-bold text-md uppercase mt-6"
           style="font-family: ITCFranklinGothicStd-Demi"
         >
@@ -352,13 +352,13 @@ shown, here's the revised code: vue Copy code
               >Additional TZM shelves</label
             >
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="space-y-4">
         <div class="space-y-2">
           <h6
-            :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+            :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
             class="text-md font-medium leading-6 uppercase mt-6"
             style="font-family: ITCFranklinGothicStd-Demi"
           >
@@ -375,7 +375,7 @@ shown, here's the revised code: vue Copy code
 
         <div class="space-y-2">
           <h6
-            :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+            :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
             class="text-md font-medium leading-6 uppercase"
             style="font-family: ITCFranklinGothicStd-Demi"
           >
@@ -393,7 +393,7 @@ shown, here's the revised code: vue Copy code
         <div class="flex space-x-6">
           <div class="w-1/3 space-y-2">
             <h6
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               class="text-md font-medium leading-6 uppercase"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
@@ -404,7 +404,7 @@ shown, here's the revised code: vue Copy code
               name="subject"
               id="subject"
               autocomplete="subject"
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
             />
           </div>
@@ -412,7 +412,7 @@ shown, here's the revised code: vue Copy code
           <div class="w-2/3 space-y-2">
             <h6
               class="text-md font-medium leading-6 uppercase"
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
               State
@@ -421,7 +421,7 @@ shown, here's the revised code: vue Copy code
               <select
                 name="state"
                 id="state"
-                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
                 class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
               >
                 <option v-for="state in states" :key="state.code">
@@ -434,7 +434,7 @@ shown, here's the revised code: vue Copy code
         <div class="flex space-x-6">
           <div class="w-1/3 space-y-2">
             <h6
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               class="text-md font-medium leading-6 uppercase"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
@@ -445,14 +445,14 @@ shown, here's the revised code: vue Copy code
               name="subject"
               id="subject"
               autocomplete="subject"
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
             />
           </div>
 
           <div class="w-2/3 space-y-2">
             <h6
-              :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+              :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
               class="text-md font-medium leading-6 uppercase"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
@@ -462,7 +462,7 @@ shown, here's the revised code: vue Copy code
               <select
                 name="country"
                 id="country"
-                :class="route === '/' ? 'text-slate-50' : 'text-gray-800'"
+                :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
                 class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
               >
                 <option v-for="country in countries" :key="country.code">

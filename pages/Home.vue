@@ -33,7 +33,7 @@
           :key="index"
           :class="{ active: index === currentIndex }"
         >
-          <img :src="slide.image" :alt="slide.title" />
+          <img class="hero-home-img" :src="slide.image" :alt="slide.title" />
           <div class="caption tracking-normal w-1/2 content-center h-full">
             <!--            :class="-->
             <!--            index % 2 === 1 || index === 0-->
@@ -95,10 +95,11 @@
             GLOBAL LEADERS IN DEBIND & SINTER EQUIPMENT.
           </h2>
           <p class="text-center w-3/4">
-            We manufacture the most advanced MIM/AM Debind + Sinter Furnaces and
-            1st Stage Debind Ovens in the world. Our expertise is working with
-            premium metals, alloys and compsites, translating into a wide range
-            of top-notch solutions.
+            We manufacture the most advanced MIM/AM Debind &amp; Sinter furnaces
+            and 1 st stage debind ovens in the world. Our expertise reaches many
+            industries includes Aerospace, Defense, Medical, Fashion/Lifestyle,
+            Industrial and more, working with a large array of low and high
+            temperature alloys. We are more than just a furnace company.
           </p>
           <NuxtLink to="About">
             <button class="mt-4">
@@ -111,25 +112,50 @@
             </button>
           </NuxtLink>
         </div>
-        <div class="grid lg:grid-cols-2 gap-12 mt-12">
-          <div class="flex flex-col">
-            <NuxtLink to="/About" class="w-full" target="_blank">
+        <div class="flex flex-col space-y-12 mt-12 items-center">
+          <div class="flex flex-row justify-center space-x-7 w-full">
+            <NuxtLink to="/About" class="w-full lg:w-1/2" target="_blank">
               <img
                 src="/images/elnik_leadership.jpg"
                 alt="Elnik Systems Conference"
-                class="w-full lg:h-[380.22px] md:h-auto sm:h-full"
+                class="w-full lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
               />
             </NuxtLink>
-
-            <p class="text-lg font-bold mt-4">
+            <NuxtLink
+              to="https://dshtech.com/"
+              class="w-full lg:w-1/2"
+              target="_blank"
+            >
+              <img
+                src="/images/elnik_debind_furnace.png"
+                alt="Elnik Systems At Work"
+                class="w-full lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
+              />
+            </NuxtLink>
+          </div>
+          <div
+            class="w-full flex flex-col lg:flex-row justify-between lg:space-x-7 items-start text-center lg:text-left"
+          >
+            <p class="w-full text-md font-bold mt-4 text-center">
               A FAMILY OWNED BUSINESS, LEADING THE INDUSTRY WITH OVER 55 YEARS
               OF EXPERIENCE
             </p>
-            <div class="flex justify-center items-center w-full mt-8">
-              <div class="flex justify-center items-center w-1/2">
+            <p class="w-full text-md font-bold mt-4 text-center">
+              HASSLE FREE SERVICE AND MAINTENANCE NO MATTER THE PRODUCT, NO
+              MATTER THE LOCATION
+            </p>
+          </div>
+          <div
+            class="flex flex-col lg:flex-row w-full justify-center lg:space-x-7 mt-8"
+          >
+            <div class="flex justify-center items-center w-full lg:w-1/2">
+              <a
+                class="w-full flex justify-center"
+                href="https://firebasestorage.googleapis.com/v0/b/elnik-72224.appspot.com/o/elnik_core_values.pdf?alt=media&token=25d43c5c-5cd6-4281-85c6-c4dc5f856c91"
+                target="_blank"
+              >
                 <button
-                  class="h-auto mt-4 w-3/4 text-sm font-bold py-2 px-6 mb-6"
-                  style="border: 1px black solid"
+                  class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
                 >
                   <p
                     class="uppercase text-center text-black"
@@ -137,27 +163,17 @@
                   >
                     Core Values
                   </p>
-                </button>
-              </div>
+                </button></a
+              >
             </div>
-          </div>
-          <div class="flex flex-col">
-            <NuxtLink to="https://dshtech.com/" class="w-full" target="_blank">
-              <img
-                src="/images/elnik_furnace_work_1.png"
-                alt="Elnik Systems At Work"
-                class="w-full about-pic lg:h-[380.22px] md:h-[268.81px] sm:h-[180.05px]"
-              />
-            </NuxtLink>
-            <p class="text-lg font-bold mt-4">
-              HASSLE FREE SERVICE AND MAINTENANCE NO MATTER THE PRODUCT, NO
-              MATTER THE LOCATION
-            </p>
-            <div class="flex justify-center items-center w-full mt-8">
-              <div class="flex justify-center items-center w-1/2">
+            <div class="flex justify-center items-center w-full lg:w-1/2">
+              <a
+                class="w-full flex justify-center"
+                href="https://firebasestorage.googleapis.com/v0/b/elnik-72224.appspot.com/o/elnik_mission.pdf?alt=media&token=fe6c52cc-c644-4980-ad4e-b45c7027d681"
+                target="_blank"
+              >
                 <button
-                  class="h-auto mt-4 w-3/4 text-sm font-bold py-2 px-6 mb-6"
-                  style="border: 1px black solid"
+                  class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
                 >
                   <p
                     class="uppercase text-center text-black"
@@ -166,7 +182,7 @@
                     Our Mission
                   </p>
                 </button>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -256,8 +272,9 @@
       </div>
       <div class="flex justify-center items-center w-full mt-8">
         <div class="flex justify-center items-center w-1/4">
-          <button
+          <NuxtLink
             class="h-auto mt-4 btn-product-main w-3/4 text-sm text-white font-bold py-2 px-6 mb-6 backdrop-blur-2xl"
+            to="/ProductPage"
           >
             <p
               class="uppercase text-center"
@@ -265,7 +282,7 @@
             >
               view all products
             </p>
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -298,11 +315,11 @@
         </button>
         <div class="grid lg:grid-cols-3 grid-rows-1 gap-x-12 w-3/4">
           <div
-            v-for="(post, index) in paginatedColumns"
-            :key="index"
+            v-for="post in paginatedColumns"
+            :key="post.id"
             class="flex flex-col w-full justify-center items-center bg-gray-200 p-4 mb-4"
           >
-            <img :src="post.image" style="width: 125px" :alt="post.title" />
+            <img src="" style="width: 125px" :alt="post.title" />
             <div class="flex flex-col justify-items-start mt-4">
               <h6
                 class="text-lg font-bold text-slate-950 uppercase flex"
@@ -311,14 +328,14 @@
                 {{ post.title }}
               </h6>
               <p class="min-h-8 max-w-60 text-sm text-slate-950">
-                {{ post.description }}
+                {{ post.subject }}
               </p>
               <p class="text-gray-500 text-sm mb-4">
                 Written by {{ post.author }} on
                 {{ new Date(post.date).toLocaleDateString() }}
               </p>
             </div>
-            <button @click="goToBlog()">
+            <button @click="goToBlog(post)">
               <p
                 class="border-b-black border-b-2 uppercase"
                 style="font-family: ITCFranklinGothicStd-Demi"
@@ -346,11 +363,15 @@
           </svg>
         </button>
       </div>
-      <div class="w-full flex flex-row justify-center items-center mt-6">
-        <div class="grid grid-cols-7 grid-rows-1 text-center w-3/4">
-          <div class="flex justify-center items-center w-[175px]">
+      <div
+        class="w-full flex flex-col md:flex-row justify-center items-center mt-6"
+      >
+        <div
+          class="grid grid-cols-1 md:grid-cols-7 text-center w-full md:w-3/4"
+        >
+          <div class="flex justify-center items-center w-full">
             <NuxtLink
-              class="w-full flex justify-center items-center cursor-pointer"
+              class="w-full flex justify-center items-center cursor-pointer md:w-[175px]"
             >
               <p
                 class="uppercase"
@@ -364,14 +385,15 @@
             </NuxtLink>
           </div>
 
-          <div class="flex justify-center items-center">
+          <div class="hidden md:flex justify-center items-center">
             <div class="border-l-2 h-full border-zinc-900"></div>
           </div>
+
           <NuxtLink
             class="w-full flex justify-center items-center cursor-pointer"
           >
             <p
-              class="uppercase text-decoration-line"
+              class="uppercase"
               style="
                 font-family: ITCFranklinGothicStd-Demi;
                 text-decoration: underline;
@@ -381,14 +403,15 @@
             </p>
           </NuxtLink>
 
-          <div class="flex justify-center items-center">
+          <div class="hidden md:flex justify-center items-center">
             <div class="border-l-2 h-full border-zinc-900"></div>
           </div>
+
           <NuxtLink
             class="w-full flex justify-center items-center cursor-pointer"
           >
             <p
-              class="uppercase text-decoration-line"
+              class="uppercase"
               style="
                 font-family: ITCFranklinGothicStd-Demi;
                 text-decoration: underline;
@@ -398,14 +421,15 @@
             </p>
           </NuxtLink>
 
-          <div class="flex justify-center items-center">
+          <div class="hidden md:flex justify-center items-center">
             <div class="border-l-2 h-full border-zinc-900"></div>
           </div>
+
           <NuxtLink
             class="w-full flex justify-center items-center cursor-pointer"
           >
             <p
-              class="uppercase text-decoration-line"
+              class="uppercase"
               style="
                 font-family: ITCFranklinGothicStd-Demi;
                 text-decoration: underline;
@@ -432,7 +456,13 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
 import type { ReturnType } from "birpc";
 import ContactUs from "../components/ContactUs.vue";
 import { useProductStore } from "../stores/ProductStore";
-import type { Products } from "../types";
+import { useLinkedInPostStore } from "../stores/LinkedInPostStore";
+import type {
+  GetProducts,
+  LinkedInPost,
+  LinkedInPostResults,
+  Products,
+} from "../types";
 import { useWindowSize } from "@vueuse/core";
 
 const { width, height } = useWindowSize();
@@ -443,45 +473,56 @@ import { testBlogData } from "../objects/testObjects";
 const posts = ref<BlogPost[]>(testBlogData);
 
 const { getProducts } = useProductStore();
-const productList = await getProducts();
-const heroProducts = ref<Products[] | undefined>(productList?.message);
+const { getLinkedInPosts } = useLinkedInPostStore();
 
 const hero = ref<HTMLElement | null | undefined>(null);
-const about = ref<HTMLElement | null | undefined>(null
-);
-const products = ref<HTMLElement | null | undefined>(null
-);
+const about = ref<HTMLElement | null | undefined>(null);
+const products = ref<HTMLElement | null | undefined>(null);
 const blogSlider = ref<HTMLElement | null | undefined>(null);
+const heroProducts = ref<Products[] | undefined>(undefined);
+const heroPosts = ref<LinkedInPost[] | undefined>(undefined);
+const productImages = ref<Products[] | undefined>();
+
+onMounted(async () => {
+  startSlideShow();
+  hero.value = document.getElementById("hero");
+  about.value = document.getElementById("about");
+  products.value = document.getElementById("products");
+  blogSlider.value = document.getElementById("blog");
+  const productResult = await getProducts();
+  heroProducts.value = productResult?.message;
+
+  const result = await getLinkedInPosts();
+
+  heroPosts.value = result?.message as LinkedInPost[];
+});
 
 const slides = ref([
   {
-    title: "QUALITY. INNOVATION. EXCELLENCE.",
-    description: "LEADING THROUGH ACTION <br> AND SELFLESS SERVICE",
-    image: "/images/elnik_systems.jpeg",
+    title: "QUALITY FIRST. INNOVATION. EXCELLENCE.",
+    description: "",
+    image: "/images/sintering_elnik_black_white.png",
     redirect: "/Contact",
   },
   {
     title: "SPEARHEADING INNOVATION & ADVANCEMENT.",
     description: "FOR THE FUTURE OF TOMORROW",
     image: "/images/elnik_photography_1.png",
-    redirect: "/blog/",
   },
   {
     title: "PUTTING MINDS & IDEAS TOGETHER.",
     description: "TO CREATE INDUSTRY LEADING SOLUTIONS.",
-    image: "/images/Main-Picture-toward-top-min.jpg",
+    image: "/images/elnik_team_america_black_white.png",
     redirect: "/About",
   },
   {
     title: "HAND CRAFTED EXCELLENCE. AMERICAN MADE.",
     description: "HAND BUILT PRODUCTS, <br> CUSTOMIZED TO YOUR NEEDS",
-    image: "/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg",
+    image: "/images/elnik_america_factory.png",
     redirect: "/ProductPage",
   },
 ]);
 
-const productImages = ref<Products[] | undefined>();
-productImages.value = productList?.message;
 const currentIndex = ref(0);
 const currentPage = ref(0);
 const itemsPerPage = ref(3);
@@ -495,13 +536,13 @@ const paginatedColumns = computed(() => {
 
   if (width.value < 640) {
     countBlog++;
-    if (posts.value && posts.value.length === countBlog) {
+    if (heroPosts.value && heroPosts.value.length === countBlog) {
       countBlog = 0;
     }
-    return posts.value ? [posts.value[countBlog]] : [];
+    return heroPosts.value ? [heroPosts.value[countBlog]] : [];
   }
 
-  return posts.value?.slice(start, start + itemsPerPage.value);
+  return heroPosts.value?.slice(start, start + itemsPerPage.value);
 });
 
 let count = 0;
@@ -552,9 +593,10 @@ const prevSlide = () => {
 };
 
 function next() {
+  console.log("click");
   if (
-    productImages.value &&
-    (currentPage.value + 1) * itemsPerPage.value < productImages.value?.length
+    heroPosts.value &&
+    (currentPage.value + 1) * itemsPerPage.value < heroPosts.value?.length
   ) {
     currentPage.value++;
   } else {
@@ -566,17 +608,17 @@ function prev() {
   if (currentPage.value > 0) {
     currentPage.value--;
   } else {
-    if (productImages && productImages.value?.length)
+    if (heroPosts && heroPosts.value?.length)
       currentPage.value =
-        Math.ceil(productImages.value?.length / itemsPerPage.value) - 1;
+        Math.ceil(heroPosts.value?.length / itemsPerPage.value) - 1;
   }
 }
 
 function nextProduct() {
   if (
-    productImages.value &&
+    heroProducts.value &&
     (currentProductPage.value + 1) * itemsProductsPerPage.value <
-      productImages.value?.length
+      heroProducts.value?.length
   ) {
     currentProductPage.value++;
   } else {
@@ -588,29 +630,21 @@ function prevProduct() {
   if (currentProductPage.value > 0) {
     currentProductPage.value--;
   } else {
-    if (productImages && productImages.value?.length)
+    if (heroProducts && heroProducts.value?.length)
       currentProductPage.value =
-        Math.ceil(productImages.value?.length / itemsProductsPerPage.value) - 1;
+        Math.ceil(heroProducts.value?.length / itemsProductsPerPage.value) - 1;
   }
 }
 
 const goToProduct = async (index: number) => {
-  if (productImages.value && productImages.value[index]) {
-    await navigateTo({ path: `/products/${productImages.value[index].id}` });
+  if (heroProducts.value && heroProducts.value[index]) {
+    await navigateTo({ path: `/products/${heroProducts.value[index].id}` });
   }
 };
 
-const goToBlog = async () => {
-  await navigateTo({ path: `/blog/` });
+const goToBlog = async (post: LinkedInPost) => {
+  await navigateTo({ path: `blog/${post.id}` });
 };
-
-onMounted(() => {
-  startSlideShow();
-  hero.value = document.getElementById("hero");
-  about.value =  document.getElementById("about")
-  products.value =  document.getElementById("products")
-    blogSlider.value = document.getElementById("blog");
-});
 
 onUnmounted(() => {
   stopSlideShow();
@@ -646,7 +680,7 @@ onUnmounted(() => {
   opacity: 1;
 }
 
-img {
+.hero-home-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -799,7 +833,10 @@ img {
   }
 
   #contact {
-    background-size: cover;
+    object-fit: cover;
+
+    background-size: contain; /* Adjust if needed on very small screens */
+    padding: 20px; /* Add some padding if the content is squeezed */
   }
 }
 

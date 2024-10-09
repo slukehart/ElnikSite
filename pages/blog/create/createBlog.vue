@@ -1,14 +1,24 @@
 <script setup lang="ts">
-import GeneralLayout from "../../../layout/GeneralLayout";
-// import TipTapEditor from "../ElnikWebTest/components/TipTapEditor.vue";
+import GeneralLayout from "../../../layout/GeneralLayout.vue";
+
+import DatePicker from "primevue/datepicker";
 
 import { ref } from "vue";
+const currentTheme = ref("surface-50"); // lara-light-purple or lara-dark-purple (1st parameter)
 
 const route = useRoute();
 
 const iframeCode = ref("");
 const reportURL = ref<string | null>(null);
-
+const title = ref("");
+const author = ref("");
+const date = ref<Date>(new Date());
+const subject = ref("");
+const tag = ref("");
+const loading = ref(false);
+const success = ref("");
+const error = ref("");
+const warning = ref("");
 const catagories = computed(() => [
   { id: 1, title: "Why Manufacturing is Cool" },
   { id: 2, title: "All About Elnik" },
@@ -24,7 +34,7 @@ const extractSrc = () => {
   if (iframeSrcMatch && iframeSrcMatch[1]) {
     reportURL.value = iframeSrcMatch[1];
   } else {
-    console.warn("No valid iframe src found.");
+    reportURL.value = iframeCode.value;
   }
 };
 
@@ -35,8 +45,38 @@ watch(
   },
 );
 
-const submitIframe = () => {
-  console.log("Submitted iframe:", iframeCode.value);
+const submitIframe = async () => {
+  if (reportURL.value) {
+    try {
+      loading.value = true;
+      const postObject = {
+        postUrl: reportURL.value,
+        title: title.value,
+        author: author.value,
+        date: new Date(date.value),
+        subject: subject.value,
+        tag: tag.value,
+      };
+      await $fetch("/api/createLinkedInPost", {
+        method: "POST",
+        body: postObject,
+      });
+      reportURL.value = "";
+      iframeCode.value = "";
+      title.value = "";
+      author.value = "";
+      date.value = new Date();
+      subject.value = "";
+      tag.value = "";
+      loading.value = false;
+      success.value = "Post successfully added";
+    } catch (e) {
+      error.value = "There was an error adding your post";
+    }
+  } else {
+    warning.value = "Please fill all fields";
+    console.warn("no report url", typeof reportURL.value);
+  }
 };
 </script>
 
@@ -55,114 +95,13 @@ const submitIframe = () => {
           ADD A POST
         </h1>
       </div>
-
-      <!-- Blog Section -->
-      <!--      <div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-8">-->
-      <!--        <form @submit.prevent="submitForm">-->
-      <!--          &lt;!&ndash; Title &ndash;&gt;-->
-      <!--          <div class="mb-4">-->
-      <!--            <label-->
-      <!--              class="block text-gray-700 text-sm font-bold mb-2"-->
-      <!--              for="title"-->
-      <!--              >Title</label-->
-      <!--            >-->
-      <!--            <input-->
-      <!--              type="text"-->
-      <!--              id="title"-->
-      <!--              v-model="title"-->
-      <!--              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
-      <!--              placeholder="Enter blog title"-->
-      <!--            />-->
-      <!--          </div>-->
-
-      <!--          &lt;!&ndash; Thumbnail &ndash;&gt;-->
-      <!--          <div class="mb-4">-->
-      <!--            <label-->
-      <!--              class="block text-gray-700 text-sm font-bold mb-2"-->
-      <!--              for="thumbnail"-->
-      <!--              >Thumbnail</label-->
-      <!--            >-->
-      <!--            <input-->
-      <!--              type="file"-->
-      <!--              id="thumbnail"-->
-      <!--              @change="handleFileUpload"-->
-      <!--              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
-      <!--            />-->
-      <!--          </div>-->
-
-      <!--          &lt;!&ndash; Author &ndash;&gt;-->
-      <!--          <div class="mb-4">-->
-      <!--            <label-->
-      <!--              class="block text-gray-700 text-sm font-bold mb-2"-->
-      <!--              for="author"-->
-      <!--              >Author</label-->
-      <!--            >-->
-      <!--            <input-->
-      <!--              type="text"-->
-      <!--              id="author"-->
-      <!--              v-model="author"-->
-      <!--              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
-      <!--              placeholder="Enter author's name"-->
-      <!--            />-->
-      <!--          </div>-->
-
-      <!--          &lt;!&ndash; Subject &ndash;&gt;-->
-      <!--          <div class="mb-4">-->
-      <!--            <label-->
-      <!--              class="block text-gray-700 text-sm font-bold mb-2"-->
-      <!--              for="subject"-->
-      <!--              >Subject</label-->
-      <!--            >-->
-      <!--            <input-->
-      <!--              type="text"-->
-      <!--              id="subject"-->
-      <!--              v-model="subject"-->
-      <!--              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
-      <!--              placeholder="Enter blog subject"-->
-      <!--            />-->
-      <!--          </div>-->
-
-      <!--          &lt;!&ndash; Tag &ndash;&gt;-->
-      <!--          <div class="mb-4">-->
-      <!--            <label class="block text-gray-700 text-sm font-bold mb-2" for="tag"-->
-      <!--              >Tag</label-->
-      <!--            >-->
-      <!--            <input-->
-      <!--              type="text"-->
-      <!--              id="tag"-->
-      <!--              v-model="tag"-->
-      <!--              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"-->
-      <!--              placeholder="Enter blog tag"-->
-      <!--            />-->
-      <!--          </div>-->
-
-      <!--          &lt;!&ndash; Blog Post (Rich Text) &ndash;&gt;-->
-      <!--          <div class="mb-4">-->
-      <!--            <label-->
-      <!--              class="block text-gray-700 text-sm font-bold mb-2"-->
-      <!--              for="blogPost"-->
-      <!--              >Blog Post</label-->
-      <!--            >-->
-      <!--            <div class="mt-2">-->
-      <!--              <TipTapEditor/>-->
-
-      <!--            </div>-->
-      <!--          </div>-->
-
-      <!--          &lt;!&ndash; Submit Button &ndash;&gt;-->
-      <!--          <div class="flex items-center justify-between">-->
-      <!--            <button-->
-      <!--              type="submit"-->
-      <!--              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"-->
-      <!--            >-->
-      <!--              Add Post-->
-      <!--            </button>-->
-      <!--          </div>-->
-      <!--        </form>-->
-      <!--      </div>-->
+      <NuxtLoadingIndicator v-if="loading" />
+      <Message v-if="success" severity="success">{{ success }}</Message>
+      <Message v-if="warning" severity="warn">{{ warning }}</Message>
+      <Message v-if="error" severity="error">{{ error }}</Message>
 
       <div
-        class="w-full max-w-4xl bg-white shadow-md rounded-lg p-8 h-full flex flex-col items-center"
+        class="w-full max-w-4xl bg-white p-8 h-full flex flex-col items-center"
       >
         <!-- Textbox for iframe input -->
         <div class="w-full max-w-lg mb-4 h-full">
@@ -172,17 +111,35 @@ const submitIframe = () => {
             class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             rows="5"
           ></textarea>
-          <div class="flex flex-row">
-            <div>
-              <h4>catagories</h4>
-              <form class="w-1/2">
+          <div class="flex flex-row mb-4 justify-between">
+            <div class="space-y-4">
+              <label class="block text-gray-700 text-sm font-bold" for="title">
+                Title
+              </label>
+              <input
+                type="text"
+                id="title"
+                v-model="title"
+                class="h-[37px] shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter blog title"
+              />
+            </div>
+            <div class="space-y-4">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="catatgories"
+              >
+                Catagories
+              </label>
+              <form class="w-full">
                 <select
+                  v-model="tag"
                   name="binter"
                   id="binter"
                   :class="
                     route.path === '/' ? 'text-slate-50' : 'text-gray-800'
                   "
-                  class="h-[38px] block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+                  class="block h-[37px] w-full shadow border rounded bg-transparent py-1.5 pl-1 sm:text-sm sm:leading-6 focus:outline-none"
                 >
                   <option
                     v-for="catagory in catagories"
@@ -193,6 +150,47 @@ const submitIframe = () => {
                   </option>
                 </select>
               </form>
+            </div>
+          </div>
+          <div class="flex flex-row mb-4 justify-between">
+            <div class="space-y-4">
+              <label
+                class="block text-gray-700 text-sm font-bold"
+                for="subject"
+              >
+                Subject
+              </label>
+              <input
+                type="text"
+                id="title"
+                v-model="subject"
+                class="h-[37px] shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter subject title"
+              />
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700 text-sm font-bold" for="author">
+                Author
+              </label>
+              <input
+                type="text"
+                id="title"
+                v-model="author"
+                class="h-[37px] w-[162px] shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter Authors name"
+              />
+            </div>
+          </div>
+          <div class="flex flex-row mb-4 justify-between">
+            <div class="space-y-4">
+              <label class="block text-gray-700 text-sm font-bold" for="date">
+                Date
+              </label>
+              <DatePicker
+                v-model="date"
+                style="background-color: var(--p-datepicker-dropdow)"
+              >
+              </DatePicker>
             </div>
           </div>
         </div>
@@ -242,5 +240,9 @@ const submitIframe = () => {
 
 .p-editor-toolbar .p-editor-button:hover {
   background-color: #ddd; /* Change background on hover */
+}
+
+.p-datepicker-calendar {
+  background-color: #c2c4bb;
 }
 </style>

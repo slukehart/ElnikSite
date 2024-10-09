@@ -51,7 +51,7 @@ const goToProduct = async (index: number) => {
           style="font-family: ITCFranklinGothicStd-Demi"
           class="text-xl text-shadow-lg decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text text-center"
         >
-          Quality. Innovation. Excellence.
+          Quality First. Innovation. Excellence.
         </h6>
         <div class="flex justify-center">
           <NuxtLink to="/Brochures">
@@ -82,7 +82,8 @@ const goToProduct = async (index: number) => {
             :src="product['img']"
             style="width: 250px"
             :alt="product['name']"
-            class="rounded-lg"
+            class="rounded-lg cursor-pointer"
+            @click="goToProduct(index)"
           />
           <div class="flex flex-col justify-items-start mt-4">
             <h6

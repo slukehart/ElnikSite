@@ -32,12 +32,11 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
           style="font-family: ITCFranklinGothicStd-Demi"
           class="text-xl text-shadow-md decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mb-10 mt-6 text-center"
         >
-          Quality. Innovation. Excellence.
+          Quality First. Innovation. Excellence.
         </h6>
       </div>
-
     </div>
-    <div class="p-20 ">
+    <div class="p-20">
       ELNIK Systems provides equal employment opportunities (EEO) to all
       employees and applicants for employment without regard to race, color,
       religion, gender, sexual orientation, gender identity or expression,
@@ -59,30 +58,50 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
     </div>
     <div class="career-offer text-slate-50 flex flex-col p-10">
       <div class="lg:w-1/3 md:w-1/2 lg:ml-[60%] md:ml-[60%] sm:ml-[50%]">
-        <h3 class="uppercase text-4xl"   style="font-family: ITCFranklinGothicStd-Demi">Job Opportunities</h3>
-        <br>
-        <h5 class="text-xl uppercase" style="font-family: ITCFranklinGothicStd-Demi">Production Mechanic / Assembler <br> Assembler Position</h5>
-        <br>
+        <h3
+          class="uppercase text-4xl"
+          style="font-family: ITCFranklinGothicStd-Demi"
+        >
+          Job Opportunities
+        </h3>
+        <br />
+        <h5
+          class="text-xl uppercase"
+          style="font-family: ITCFranklinGothicStd-Demi"
+        >
+          Production Mechanic / Assembler <br />
+          Assembler Position
+        </h5>
+        <br />
 
-        <p class="text-lg">Candidate must be a self-motivated, detail-oriented individual with a strong work ethic and the ability to work independently and perform well under pressure.</p>
-        <br><br>
-        <h6 class="uppercase text-lg"   style="font-family: ITCFranklinGothicStd-Demi">Job Requirements:</h6>
-        <p class="text-lg">3-5 yrs electro-mechanical assembly experience
-        Must be able to read engineering blueprints
-        Experience in piping (copper, stainless steel, hose, etc) and mechanical assembly of complex electro-mechanical machinery and equipment
-        Experience assembling Vacuum System components a HUGE PLUS!
-        Must be a team player
-        Must be flexible in handling a wide range of assignments and have their own tools
-        Interaction with all departments and levels within the company
-        Effective communication skills are a must
-          <br> <br>
-
-        We offer a highly competitive salary and comprehensive benefits package. Qualified applicants should send resume including cover letter along with salary requirements.
+        <p class="text-lg">
+          Candidate must be a self-motivated, detail-oriented individual with a
+          strong work ethic and the ability to work independently and perform
+          well under pressure.
         </p>
+        <br /><br />
+        <h6
+          class="uppercase text-lg"
+          style="font-family: ITCFranklinGothicStd-Demi"
+        >
+          Job Requirements:
+        </h6>
+        <p class="text-lg">
+          3-5 yrs electro-mechanical assembly experience Must be able to read
+          engineering blueprints Experience in piping (copper, stainless steel,
+          hose, etc) and mechanical assembly of complex electro-mechanical
+          machinery and equipment Experience assembling Vacuum System components
+          a HUGE PLUS! Must be a team player Must be flexible in handling a wide
+          range of assignments and have their own tools Interaction with all
+          departments and levels within the company Effective communication
+          skills are a must <br />
+          <br />
 
+          We offer a highly competitive salary and comprehensive benefits
+          package. Qualified applicants should send resume including cover
+          letter along with salary requirements.
+        </p>
       </div>
-
-
     </div>
     <div id="footer" class="flex justify-center">
       <FooterComponent />
@@ -91,14 +110,15 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
 </template>
 
 <style scoped>
-.career-offer{
+.career-offer {
   background-image: url("/images/elnik-career-blueprint.jpg");
   background-size: 100%;
 }
 
 .career-hero {
   background-color: #d9d9d9;
-  background-image: url("/public/images/elnik_hq_1.jpg");
-  background-size: cover;
+  background-image: url("/public/images/elnik_headquarters.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 </style>

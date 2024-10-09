@@ -95,7 +95,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
 
 <style scoped>
 .hero-contact {
-  background-image: url("/public/images/2020-10-02-AZOTH-14259-1200x800-min-1024x683.jpg");
+  background-image: url("public/images/elnik_furnace_contact_us.png");
   background-size: cover;
 }
 </style>

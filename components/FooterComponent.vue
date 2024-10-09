@@ -4,12 +4,20 @@ import { useRoute } from "vue-router";
 
 const { isMobile, isDesktop, isMacOS } = useDevice();
 
-
 const props = defineProps({
   hero: {
     type: Object as PropType<HTMLElement | null | undefined>,
     required: false,
   },
+});
+
+const linkedInPosts = useLinkedInPostStore();
+const { postsList } = storeToRefs(linkedInPosts);
+const postsForNav = ref<any[]>();
+
+onMounted(async () => {
+  await linkedInPosts.getLinkedInPosts();
+  postsForNav.value = postsList.value;
 });
 
 import scrollToTopComposable from "../composables/scrollToTopComposable";
@@ -25,17 +33,30 @@ const { scrollToSection } = scrollToTopComposable();
           <nav
             class="grid lg:grid-cols-3 lg:grid-rows-3 md:grid-cols-2 md:grid-rows-3 md:gap-2 text-center"
           >
-            <NuxtLink to="/Home"><a class="text-sm uppercase">HOME</a></NuxtLink>
-            <NuxtLink to="/About"><a class="text-sm uppercase">ABOUT</a></NuxtLink>
-            <NuxtLink to="/ProductPage" ><a class="text-sm uppercase">PRODUCTS</a></NuxtLink>
-            <NuxtLink to="/Brochures"><a class="text-sm uppercase">Brochures</a></NuxtLink>
-            <NuxtLink to="/Careers"><a class="text-sm uppercase">CAREERS</a></NuxtLink>
-            <NuxtLink to="/blog"><a class="text-sm uppercase">BLOG</a></NuxtLink>
-            <a                 href="https://dshtech.com/"
-                               class="text-sm uppercase">DSH TECHNOLOGIES</a>
+            <NuxtLink to="/Home"
+              ><p class="text-sm uppercase">HOME</p></NuxtLink
+            >
+            <NuxtLink to="/About"
+              ><p class="text-sm uppercase">ABOUT</p></NuxtLink
+            >
+            <NuxtLink to="/ProductPage"
+              ><p class="text-sm uppercase">PRODUCTS</p></NuxtLink
+            >
+            <NuxtLink to="/Brochures"
+              ><p class="text-sm uppercase">Brochures</p></NuxtLink
+            >
+            <NuxtLink to="/Careers"
+              ><p class="text-sm uppercase">CAREERS</p></NuxtLink
+            >
+            <NuxtLink v-if="postsForNav" :to="`/blog/${postsForNav[0].id}`"
+              ><p class="text-sm uppercase">BLOG</p></NuxtLink
+            >
+            <p href="https://dshtech.com/" class="text-sm uppercase">
+              DSH TECHNOLOGIES
+            </p>
 
-            <NuxtLink><a class="text-sm">CONTACT</a></NuxtLink>
-            <NuxtLink><a class="text-sm"></a></NuxtLink>
+            <NuxtLink><p class="text-sm">CONTACT</p></NuxtLink>
+            <NuxtLink><p class="text-sm"></p></NuxtLink>
           </nav>
         </div>
         <div class="border-l-2 h-3/4 border-zinc-900 mt-6"></div>
@@ -64,46 +85,42 @@ const { scrollToSection } = scrollToTopComposable();
             <div>
               <div class="space-y-4"></div>
               <div class="grid lg:grid-cols-2 md:grid-cols-1 grid-rows-3 gap-3">
-
-                  <NuxtLink
-                    id="contact-button"
-                    class="w-full uppercase"
-                    style="font-family: ITCFranklinGothicStd-Demi"
-                    to="/Contact"
-                    ><h6 class="text-center mr-8">U.S. Contact</h6></NuxtLink
-                  >
+                <NuxtLink
+                  id="contact-button"
+                  class="w-full uppercase"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                  to="/Contact"
+                  ><h6 class="text-center mr-8">U.S. Contact</h6></NuxtLink
+                >
                 <NuxtLink
                   id="contact-button"
                   class="w-full uppercase flex justify-center"
                   style="font-family: ITCFranklinGothicStd-Demi"
                   to="/Contact"
-                ><h6>German Contact</h6></NuxtLink
+                  ><h6>German Contact</h6></NuxtLink
                 >
-                  <p class="flex flex-row gap-2">
-                    <b style="font-family: FranklinGothicBold"> p:</b>
-                    +1-973.239.6066
-                  </p>
-                <p class="flex flex-row gap-2 ">
+                <p class="flex flex-row gap-2">
+                  <b style="font-family: FranklinGothicBold"> p:</b>
+                  +1-973.239.6066
+                </p>
+                <p class="flex flex-row gap-2">
                   <b style="font-family: FranklinGothicBold"> p:</b>
                   +49 (0) 74585119990
                 </p>
-                  <p class="flex flex-row gap-2">
-                    <b style="font-family: FranklinGothicBold"> f:</b>
-                    +1-973.239.3272
-                  </p>
+                <p class="flex flex-row gap-2">
+                  <b style="font-family: FranklinGothicBold"> f:</b>
+                  +1-973.239.3272
+                </p>
 
-
-
-
-                  <p class="flex flex-row gap-2 ">
-                    <b style="font-family: FranklinGothicBold"> e:</b>
-                    elnikgmbh@elnik.com
-                  </p>
-                <p class="flex flex-row gap-2 ">
+                <p class="flex flex-row gap-2">
+                  <b style="font-family: FranklinGothicBold"> e:</b>
+                  elnikgmbh@elnik.com
+                </p>
+                <p class="flex flex-row gap-2">
                   <b style="font-family: FranklinGothicBold"> e:</b>
                   elnik@elnik.com
                 </p>
-                  <p></p>
+                <p></p>
               </div>
             </div>
           </div>

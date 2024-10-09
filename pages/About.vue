@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import GeneralLayout from "../layout/GeneralLayout.vue";
 
-
 const events = ref([
   {
     status: "Elnik Opens",
@@ -123,12 +122,14 @@ const events = ref([
       <GeneralLayout />
     </div>
     <div
-      class="w-full lg:h-screen flex items-center lg:flex-row md:flex-col sm:block justify-center hero-about"
+      class="w-full h-screen justify-center flex lg:flex-row md:flex-col items-center hero-about"
     >
       <div
-        class="flex flex-col lg:justify-start md:justify-center max-sm:justify-center md:items-center sm:items-center max-sm:w-3/4 lg:mt-10 lg:w-full text-slate-50"
+        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 space-y-6 backdrop-blur-lg text-slate-50"
       >
-        <div class="lg:w-3/4 backdrop-blur-lg flex flex-col justify-center items-center">
+        <div
+          class="lg:w-full backdrop-blur-lg flex flex-col justify-center items-center"
+        >
           <h1
             class="text-5xl text-shadow-lg font-bold md:mt-10 md:text-center sm:mt-10 sm:text-center mb-4 text-center max-sm:mt-10"
             style="font-family: ITCFranklinGothicStd-Demi"
@@ -139,19 +140,20 @@ const events = ref([
             class="text-2xl lg:w-full md:w-1/2 sm:w-3/4 md:text-center max-sm:text-center pl-10 pr-10"
           >
             Elnik’s success is driven by the dedicated hands that help craft our
-            equipment, the energetic service team helping customers, the detailed
-            engineers designing our state of the art systems, the support and
-            administrative staff running the day to day operations and our leaders
-            developing the vision and missions for our future.
+            equipment, the energetic service team helping customers, the
+            detailed engineers designing our state of the art systems, the
+            support and administrative staff running the day to day operations
+            and our leaders developing the vision and missions for our future.
           </h5>
           <h6
             class="text-xl text-shadow-lg decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text mt-10 mb-4 text-center"
             style="font-family: ITCFranklinGothicStd-Demi"
           >
-            Quality. Innovation. Excellence.          </h6>
+            Quality First. Innovation. Excellence.
+          </h6>
           <div class="flex justify-center">
             <NuxtLink to="/Contact">
-              <button class=" mb-10 shadow-xl">
+              <button class="mb-10 shadow-xl">
                 <p
                   class="border-l-white-black border-b-2 uppercase text-shadow-lg"
                   style="font-family: ITCFranklinGothicStd-Demi"
@@ -162,10 +164,14 @@ const events = ref([
             </NuxtLink>
           </div>
         </div>
-
       </div>
     </div>
-    <div class="relative">
+    <div>
+      <img src="/public/images/timeline_images/elnik_timeline_1.png" />
+      <img src="/public/images/timeline_images/elnik_timeline_2.png" />
+      <img src="/public/images/timeline_images/elnik_timeline_3.png" />
+    </div>
+    <!-- <div class="relative">
       <div
         class="border-l-2 border-gray-300 absolute left-1/2 transform -translate-x-1/2 h-full"
       ></div>
@@ -182,7 +188,12 @@ const events = ref([
         >
           <div class="bg-white p-4 lg:w-1/3 md:w-1/2 sm:w-1/2">
             <div class="flex justify-between items-center mb-2">
-              <h3 class="text-lg font-semibold uppercase" style="font-family: ITCFranklinGothicStd-Demi">{{ event.status }}</h3>
+              <h3
+                class="text-lg font-semibold uppercase"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
+                {{ event.status }}
+              </h3>
               <span class="text-gray-500">{{ event.date }}</span>
             </div>
             <div v-if="event.image" class="mb-2">
@@ -205,7 +216,7 @@ const events = ref([
           ></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div id="footer" class="flex justify-center">
       <FooterComponent />
     </div>
@@ -214,7 +225,9 @@ const events = ref([
 
 <style scoped>
 .hero-about {
-  background-image: url("/public/images/elnik_about_furance_hero.jpg");
+  background-image: url("/public/images/elnik_team_usa.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; /* Centers the image in the div */
 }
 </style>

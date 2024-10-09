@@ -24,7 +24,6 @@ const props = defineProps({
 watch(
   () => useRoute().path,
   (newPath) => {
-    console.log(newPath);
     if (newPath === "/") {
       navigateTo("/Home");
     }

@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import Aura from "@primevue/themes/aura";
+import accordion from "@primevue/themes/aura/accordion";
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   nitro: {
@@ -14,8 +17,15 @@ export default defineNuxtConfig({
         {
           src: "https://platform.linkedin.com/badges/js/profile.js",
           type: "text/javascript",
+          referrerpolicy: "no-referrer",
         },
         // Add more scripts as needed
+      ],
+      link: [
+        {
+          rel: "stylesheet",
+          href: "",
+        },
       ],
     },
   },
@@ -27,7 +37,21 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/device",
     "nuxt-tiptap-editor",
+    "@primevue/nuxt-module",
   ],
+  primevue: {
+    // options: {
+    //   ripple: true,
+    //   // theme: {
+    //   //   preset: Aura,
+    //   //   options: {
+    //   //     prefix: "p",
+    //   //     darkModeSelector: "system",
+    //   //     cssLayer: false,
+    //   //   },
+    //   // },
+    // },
+  },
 
   tiptap: {
     prefix: "Tiptap",

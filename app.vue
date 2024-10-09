@@ -1,20 +1,22 @@
 <template>
-<NuxtLayout>
+  <NuxtLayout>
     <NuxtPage class="w-full" />
-</NuxtLayout>
-
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import {useUserAuthStore} from "../ElnikWebTest/stores/UserAuthStore";
+import { useUserAuthStore } from "../ElnikWebTest/stores/UserAuthStore";
 import { useRoute } from "vue-router";
 
 onMounted(() => {
-  if (useRoute().path === '/') {
-    navigateTo('/Home')
+  if (useRoute().path === "/") {
+    navigateTo("/Home");
   }
-})
+});
 
 const userStore = useUserAuthStore();
-const {authStore} = storeToRefs(userStore);
+
+const { authStore } = storeToRefs(userStore);
+
+const linkedInPosts = useLinkedInPostStore();
 </script>
