@@ -4,7 +4,6 @@ import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 export async function addLinkedInPost(posts: LinkedInPost) {
   const db = admin.firestore();
-  const linkedInPostCollection = await db.collection("blog").doc();
 
   try {
     const result = await await db.collection("blog").add({});
@@ -19,6 +18,7 @@ export async function addLinkedInPost(posts: LinkedInPost) {
         tag: posts.tag,
         title: posts.title,
         postUrl: posts.postUrl,
+        image: posts.imageLink,
       });
 
     return result;

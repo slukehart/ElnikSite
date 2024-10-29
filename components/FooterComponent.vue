@@ -7,7 +7,6 @@ const { isMobile, isDesktop, isMacOS } = useDevice();
 const props = defineProps({
   hero: {
     type: Object as PropType<HTMLElement | null | undefined>,
-    required: false,
   },
 });
 
@@ -84,51 +83,73 @@ const { scrollToSection } = scrollToTopComposable();
           <div class="space-y-4 justify-center items-center">
             <div>
               <div class="space-y-4"></div>
-              <div class="grid lg:grid-cols-2 md:grid-cols-1 grid-rows-3 gap-3">
-                <NuxtLink
-                  id="contact-button"
-                  class="w-full uppercase"
-                  style="font-family: ITCFranklinGothicStd-Demi"
-                  to="/Contact"
-                  ><h6 class="text-center mr-8">U.S. Contact</h6></NuxtLink
-                >
-                <NuxtLink
-                  id="contact-button"
-                  class="w-full uppercase flex justify-center"
-                  style="font-family: ITCFranklinGothicStd-Demi"
-                  to="/Contact"
-                  ><h6>German Contact</h6></NuxtLink
-                >
-                <p class="flex flex-row gap-2">
-                  <b style="font-family: FranklinGothicBold"> p:</b>
-                  +1-973.239.6066
-                </p>
-                <p class="flex flex-row gap-2">
-                  <b style="font-family: FranklinGothicBold"> p:</b>
-                  +49 (0) 74585119990
-                </p>
-                <p class="flex flex-row gap-2">
-                  <b style="font-family: FranklinGothicBold"> f:</b>
-                  +1-973.239.3272
-                </p>
+              <div class="grid lg:grid-cols-2 md:grid-cols-1">
+                <!-- U.S. Contact Block -->
+                <div class="lg:space-y-2">
+                  <NuxtLink
+                    id="contact-button"
+                    class="w-full uppercase"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                    to="/Contact"
+                    ><h6 class="text-center md:text-left">
+                      U.S. Contact
+                    </h6></NuxtLink
+                  >
+                  <div class="contact-container">
+                    <p class="flex flex-row gap-2 text-size-smaller">
+                      <b style="font-family: FranklinGothicBold"> p:</b>
+                      +1-973-239-6066
+                    </p>
+                  </div>
+                  <div class="contact-container">
+                    <p class="flex flex-row gap-2 text-size-smaller">
+                      <b style="font-family: FranklinGothicBold"> f:</b>
+                      +1-973-239-3272
+                    </p>
+                  </div>
+                  <div class="contact-container">
+                    <p class="flex flex-row gap-2 text-size-smaller">
+                      <b style="font-family: FranklinGothicBold"> e:</b>
+                      elnik@elnik.com
+                    </p>
+                  </div>
+                </div>
 
-                <p class="flex flex-row gap-2">
-                  <b style="font-family: FranklinGothicBold"> e:</b>
-                  elnikgmbh@elnik.com
-                </p>
-                <p class="flex flex-row gap-2">
-                  <b style="font-family: FranklinGothicBold"> e:</b>
-                  elnik@elnik.com
-                </p>
-                <p></p>
+                <!-- German Contact Block -->
+                <div class="lg:space-y-2">
+                  <NuxtLink
+                    id="contact-button"
+                    class="lg:w-full md:w-1/2 sm:w-1/4 uppercase flex justify-center md:justify-start"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                    to="/Contact"
+                    ><h6 class="german-header-width">
+                      German Contact
+                    </h6></NuxtLink
+                  >
+                  <div class="contact-container">
+                    <p class="flex flex-row gap-2 text-size-smaller">
+                      <b style="font-family: FranklinGothicBold"> p:</b>
+                      +49 (0) 74585119990
+                    </p>
+                  </div>
+                  <div class="contact-container">
+                    <p class="flex flex-row gap-2 text-size-smaller">
+                      <b style="font-family: FranklinGothicBold"> e:</b>
+                      elnikgmbh@elnik.com
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="social" class="flex flex-row justify-between pr-4 pl-4">
-      <div>
+    <div
+      id="social"
+      class="w-full flex flex-row justify-between pr-4 pl-4 mt-4"
+    >
+      <div class="">
         <p class="text-gray-600 uppercase">
           © 2024 ELNIK SYSTEMS | managed by bomb marketing llc.
         </p>
@@ -179,6 +200,20 @@ const { scrollToSection } = scrollToTopComposable();
 
 <style scoped>
 .footer {
-  background-color: #d1d5db;
+  background-color: #0a0a0a;
+  color: #fafaf9;
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-container {
+    width: 100%;
+    padding-left: 10px;
+  }
+  .text-size-smaller {
+    font-size: 14px;
+  }
+  .german-header-width {
+    width: 75px;
+  }
 }
 </style>

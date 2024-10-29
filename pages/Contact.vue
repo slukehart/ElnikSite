@@ -1,11 +1,9 @@
-<script setup lang="ts">
-import GeneralLayout from "../layout/GeneralLayout.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="flex flex-col space-y-16 w-full">
     <div class="flex-shrink-0">
-      <GeneralLayout />
+      <NavBarLayoutComponent />
     </div>
   </div>
   <div
@@ -31,7 +29,7 @@ import GeneralLayout from "../layout/GeneralLayout.vue";
         style="font-family: ITCFranklinGothicStd-Demi"
         class="text-xl decoration-dashed bg-gradient-to-r from-black via-gray-400 to-black bg-clip-text text-center text-shadow-lg mb-10 mt-6"
       >
-        Quality. Innovation. Excellence.
+        Quality First. Innovation. Excellence.
       </h6>
     </div>
   </div>

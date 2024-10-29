@@ -23,6 +23,7 @@ export type LinkedInPost = {
   date: Date;
   subject: string;
   tag: string;
+  imageLink: string;
 };
 
 export interface BlogPost {
@@ -41,4 +42,15 @@ export type LinkedInPostResults = {
   message: LinkedInPost[];
   next_set?: DocumentData;
   failure?: string;
+};
+
+export type UpdatePostData = {
+  id: string;
+  title: string;
+  author: string;
+  subject: string;
+  tag: string;
+  image: Blob;
+  imageLink: string;
+  fileUpload: Blob;
 };

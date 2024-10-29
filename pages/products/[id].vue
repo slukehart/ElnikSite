@@ -10,25 +10,25 @@ const productFacts = ref([
     code: "some code",
     name: "some name",
     category: "some category",
-    quantity: "some quality",
+    quantity: "some quantity",
   },
   {
     code: "some code",
     name: "some name",
     category: "some category",
-    quantity: "some quality",
+    quantity: "some quantity",
   },
   {
     code: "some code",
     name: "some name",
     category: "some category",
-    quantity: "some quality",
+    quantity: "some quantity",
   },
   {
     code: "some code",
     name: "some name",
     category: "some category",
-    quantity: "some quality",
+    quantity: "some quantity",
   },
 ]);
 
@@ -38,6 +38,8 @@ type ProductMessage = {
   id: string;
   name: string;
   description: string;
+  brochure: string;
+  img: string;
 };
 
 const { getProducts } = useProductStore();
@@ -76,47 +78,64 @@ onMounted(async () => {
         </div>
       </div>
       <div
-        class="border-l-2 min-h-screen md:hidden sm:hidden lg:block min-h-64 border-slate-950"
+        class="border-l-2 min-h-screen md:hidden sm:hidden lg:block border-slate-950"
       ></div>
       <div class="w-1/2 flex flex-col justify-center">
         <h2
           class="text-4xl font-bold text-gray-800 uppercase"
-          style="font-family: ITCFranklinGothicStd-Demi"
+          style="font-family: Anton-Regular"
         >
           {{ product?.name }}
         </h2>
         <p class="text-sm text-gray-600">{{ product?.description }}</p>
-        <div>
+        <div></div>
+        <div class="flex items-center justify-center p-4 space-x-6">
+          <a :href="product?.brochure" target="_blank">
+            <button class="mt-10">
+              <p class="border-b-black border-b-2 uppercase">go to brochure</p>
+            </button>
+          </a>
           <NuxtLink to="/Contact">
             <button class="mt-10">
               <p class="border-b-black border-b-2 uppercase">get a quote</p>
             </button>
           </NuxtLink>
         </div>
+        <div class="flex items-center justify-center p-6">
+          <DataTable
+            :value="productFacts"
+            tableStyle="min-width: 35rem; border: 1px"
+            responsive-layout="scroll"
+          >
+            <Column
+              field="code"
+              header="Code"
+              sortable
+              style="width: 25%"
+            ></Column>
+            <Column
+              field="name"
+              header="Name"
+              sortable
+              style="width: 25%"
+            ></Column>
+            <Column
+              field="category"
+              header="Category"
+              sortable
+              style="width: 25%"
+            ></Column>
+            <Column
+              field="quantity"
+              header="Quantity"
+              sortable
+              style="width: 25%"
+            ></Column>
+          </DataTable>
+        </div>
       </div>
     </div>
-    <div class="flex items-center justify-center p-6">
-      <DataTable
-        :value="productFacts"
-        tableStyle="min-width: 35rem; border: 1px"
-        responsive-layout="scroll"
-      >
-        <Column field="code" header="Code" sortable style="width: 25%"></Column>
-        <Column field="name" header="Name" sortable style="width: 25%"></Column>
-        <Column
-          field="category"
-          header="Category"
-          sortable
-          style="width: 25%"
-        ></Column>
-        <Column
-          field="quantity"
-          header="Quantity"
-          sortable
-          style="width: 25%"
-        ></Column>
-      </DataTable>
-    </div>
+
     <div id="footer" class="flex justify-center">
       <FooterComponent />
     </div>

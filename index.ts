@@ -27,6 +27,7 @@ app.use(PrimeVue, {
 });
 useProductStore();
 useUserAuthStore();
+useLinkedInPostStore();
 
 // In your main Vue instance (main.js or similar)
 

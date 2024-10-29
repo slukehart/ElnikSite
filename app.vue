@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <NuxtPage class="w-full" />
+    <NuxtPage class="w-full background-color-page" />
   </NuxtLayout>
 </template>
 
@@ -19,4 +19,7 @@ const userStore = useUserAuthStore();
 const { authStore } = storeToRefs(userStore);
 
 const linkedInPosts = useLinkedInPostStore();
+const { postsList } = storeToRefs(linkedInPosts);
 </script>
+
+<style></style>

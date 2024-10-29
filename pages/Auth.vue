@@ -2,8 +2,10 @@
 import signIn from "../composables/signIn";
 import { navigateTo } from "nuxt/app";
 import type { UserCredential } from "@firebase/auth";
+import signOutUser from "../composables/signOut";
 
-const { signInWithEmail, loading, signOutFirebase } = signIn();
+const { signInWithEmail, loading } = signIn();
+const { signOutFirebase } = signOutUser();
 const userStore = useUserAuthStore();
 const linkedInPosts = useLinkedInPostStore();
 const { postsList } = storeToRefs(linkedInPosts);
@@ -34,8 +36,7 @@ const login = async () => {
 };
 
 const logOut = async () => {
-  console.log("clickeddd");
-  // await signOutFirebase();
+  await signOutFirebase();
 };
 </script>
 
@@ -163,13 +164,13 @@ const logOut = async () => {
                 required="true"
               />
             </div>
-            <div class="flex items-center justify-between">
+            <!-- <div class="flex items-center justify-between">
               <a
                 href="#"
                 class="text-sm font-medium text-slate-50 hover:underline dark:text-primary-500"
                 >Forgot password?</a
               >
-            </div>
+            </div> -->
             <button
               @click="login"
               class="w-full text-slate-50 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -180,7 +181,7 @@ const logOut = async () => {
         </div>
       </div>
       <div v-else-if="authStore === 'authed'">
-        <button @submit.prevent="logOut">
+        <button @click="logOut">
           <p class="text-slate-50">Log Off</p>
         </button>
       </div>

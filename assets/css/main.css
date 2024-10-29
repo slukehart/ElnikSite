@@ -1,41 +1,69 @@
 @font-face {
-    font-family: 'FranklinGothic';
-    src: local("TCFranklinGothicStd-BkCd"),
-    url('assets/franklin-gothic/ITCFranklinGothicStd-BkCd.ttf') format('truetype');
-
+  font-family: "FranklinGothic";
+  src: local("TCFranklinGothicStd-BkCd"),
+    url("assets/franklin-gothic/ITCFranklinGothicStd-BkCd.ttf"),
+    format("truetype");
 }
 @font-face {
-    font-family: 'ITCFranklinGothicStd-Demi';
-    src: local("ITCFranklinGothicStd-Demi"),
-    url('assets/franklin-gothic/ITCFranklinGothicStd-Demi.ttf') format('truetype');
-
+  font-family: "ITCFranklinGothicStd-Demi";
+  src: local("ITCFranklinGothicStd-Demi"),
+    url("assets/franklin-gothic/ITCFranklinGothicStd-Demi.ttf"),
+    format("truetype");
 }
 
-html{
-    font-family: "FranklinGothic";
+@font-face {
+  font-family: "Anton-Regular";
+  src: local("Anton-Regular"), url("assets/Anton/Anton-Regular.ttf"),
+    format("truetype");
+}
+
+html {
+  font-family: "FranklinGothic";
 }
 h1 h2 {
-    font-family: 'ITCFranklinGothicStd-Demi';
+  font-family: "ITCFranklinGothicStd-Demi";
 }
 
 .btn-product {
-    padding: 0.5rem;
-    font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-    border: solid black 1px;
-    color:  #1f2937;
+  padding: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  border: solid black 1px;
+  color: #1f2937;
 }
 
 .hero-div-offer {
-    background-color: #d9d9d9;
-    background-image: url("public/images/grey_gradient_bg.jpg");
-    background-size: cover;
+  background-color: #d9d9d9;
+  background-image: url("public/images/grey_gradient_bg.jpg");
+  background-size: cover;
+}
+
+.banner {
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 18px;
+  width: 50%;
+}
+.success {
+  background-color: #86efac;
+  color: #1c1917;
+}
+.error {
+  background-color: #f43f5e;
+  color: #1c1917;
+}
+.warning {
+  background-color: #fde68a;
+  color: #1c1917;
 }
 
 /*.btn-product:hover {*/
 /*    background-color: #2d7ad7;*/
 /*    color: black;*/
 /*}*/
-

@@ -2,9 +2,6 @@
 import { ref } from "vue";
 import type { Products } from "../types";
 import { useProductStore } from "../stores/ProductStore";
-import GeneralLayout from "../layout/GeneralLayout.vue";
-import ApplicationDropDown from "../components/ApplicationDropDown.vue";
-import IndustryDropDown from "../components/IndustryDropDown.vue";
 
 const { getProducts } = useProductStore();
 
@@ -24,9 +21,9 @@ const goToProduct = async (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col" style="background-color: #a6a6a6">
     <div class="flex-shrink-0">
-      <GeneralLayout />
+      <NavBarLayoutComponent />
     </div>
     <div
       class="w-full h-screen flex lg:flex-row md:flex-col justify-center items-center hero-product"
@@ -36,7 +33,7 @@ const goToProduct = async (index: number) => {
       >
         <h1
           class="text-5xl text-shadow-lg font-bold pt-10 text-center"
-          style="font-family: ITCFranklinGothicStd-Demi"
+          style="font-family: Anton-Regular"
         >
           PRODUCTS
         </h1>
@@ -69,8 +66,8 @@ const goToProduct = async (index: number) => {
     </div>
     <div class="flex flex-col justify-between items-center">
       <div class="flex flex-row space-x-6 mt-10">
-        <ApplicationDropDown />
-        <IndustryDropDown />
+        <!-- <ApplicationDropDown />
+        <IndustryDropDown /> -->
       </div>
       <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 w-auto mb-4">
         <div

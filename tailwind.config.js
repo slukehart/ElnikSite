@@ -11,6 +11,9 @@ export default {
         "spin-slow": "spin 20s linear infinite",
       },
     },
+    // screens: {
+    //   phone: "480px",
+    // },
   },
   plugins: [
     tailwindcss_textshadow,

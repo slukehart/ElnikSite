@@ -5,6 +5,7 @@ import serviceAccount from "../../elnik-72224-firebase-adminsdk-lvv3v-7c455af1db
 // Define the type of googleDevServiceAccount explicitly
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount as ServiceAccount),
+  storageBucket: "gs://elnik-72224.appspot.com",
 });
 
 // Now, you shouldn't encounter the TypeScript error

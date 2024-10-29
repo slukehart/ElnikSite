@@ -35,15 +35,10 @@
         >
           <img class="hero-home-img" :src="slide.image" :alt="slide.title" />
           <div class="caption tracking-normal w-1/2 content-center h-full">
-            <!--            :class="-->
-            <!--            index % 2 === 1 || index === 0-->
-            <!--            ? 'text-stone-300'-->
-            <!--            : 'text-neutral-950'-->
-            <!--            "-->
             <div class="max-sm:w-1/2 space-y-2 slide-up">
               <h1
-                class="text-5xl max-sm:text-4xl text-gray-300 font-bold text-shadow-xl"
-                style="font-family: ITCFranklinGothicStd-Demi"
+                class="text-7xl max-sm:text-4xl text-gray-300 font-bold text-shadow-xl"
+                style="font-family: Anton-Regular"
               >
                 {{ slide.title }}
               </h1>
@@ -52,8 +47,8 @@
                 v-html="slide.description"
               ></h4>
               <NuxtLink :to="slide.redirect">
-                <button class="mt-4 btn border-grey-300">
-                  <p class="text-gray-300">LEARN MORE</p>
+                <button class="mt-4 btn border-none">
+                  <p class="text-gray-300 text-xl">LEARN MORE</p>
                 </button>
               </NuxtLink>
             </div>
@@ -85,12 +80,13 @@
       ref="about"
       id="about"
       class="w-auto h-full items-center flex justify-center p-10"
+      style="background-color: #a6a6a6"
     >
       <div class="flex flex-col justify-center items-center">
         <div class="flex flex-col w-full items-center">
           <h2
-            class="font-bold text-4xl w-full text-center"
-            style="font-family: ITCFranklinGothicStd-Demi"
+            class="font-bold text-6xl w-full text-center mb-4"
+            style="font-family: Anton-Regular"
           >
             GLOBAL LEADERS IN DEBIND & SINTER EQUIPMENT.
           </h2>
@@ -101,7 +97,7 @@
             Industrial and more, working with a large array of low and high
             temperature alloys. We are more than just a furnace company.
           </p>
-          <NuxtLink to="About">
+          <NuxtLink to="About" class="cursor-pointer">
             <button class="mt-4">
               <p
                 class="border-b-black border-b-2 uppercase"
@@ -113,47 +109,34 @@
           </NuxtLink>
         </div>
         <div class="flex flex-col space-y-12 mt-12 items-center">
-          <div class="flex flex-row justify-center space-x-7 w-full">
-            <NuxtLink to="/About" class="w-full lg:w-1/2" target="_blank">
-              <img
-                src="/images/elnik_leadership.jpg"
-                alt="Elnik Systems Conference"
-                class="w-full lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
-              />
-            </NuxtLink>
-            <NuxtLink
-              to="https://dshtech.com/"
-              class="w-full lg:w-1/2"
-              target="_blank"
+          <!-- First Image, Text, and Button Block -->
+          <div
+            class="flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-7 w-full"
+          >
+            <div
+              class="w-full lg:w-1/2 flex flex-col items-center lg:items-start"
             >
-              <img
-                src="/images/elnik_debind_furnace.png"
-                alt="Elnik Systems At Work"
-                class="w-full lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
-              />
-            </NuxtLink>
-          </div>
-          <div
-            class="w-full flex flex-col lg:flex-row justify-between lg:space-x-7 items-start text-center lg:text-left"
-          >
-            <p class="w-full text-md font-bold mt-4 text-center">
-              A FAMILY OWNED BUSINESS, LEADING THE INDUSTRY WITH OVER 55 YEARS
-              OF EXPERIENCE
-            </p>
-            <p class="w-full text-md font-bold mt-4 text-center">
-              HASSLE FREE SERVICE AND MAINTENANCE NO MATTER THE PRODUCT, NO
-              MATTER THE LOCATION
-            </p>
-          </div>
-          <div
-            class="flex flex-col lg:flex-row w-full justify-center lg:space-x-7 mt-8"
-          >
-            <div class="flex justify-center items-center w-full lg:w-1/2">
-              <a
-                class="w-full flex justify-center"
-                href="https://firebasestorage.googleapis.com/v0/b/elnik-72224.appspot.com/o/elnik_core_values.pdf?alt=media&token=25d43c5c-5cd6-4281-85c6-c4dc5f856c91"
+              <NuxtLink
+                to="/About"
+                class="w-full lg:block md:flex md:justify-center md:items-center"
                 target="_blank"
               >
+                <img
+                  src="/images/elnik_leadership.jpg"
+                  alt="Elnik Systems Conference"
+                  class="lg:w-full w-auto lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
+                />
+              </NuxtLink>
+              <div class="lg:mb-[25px] flex justify-center w-full">
+                <p
+                  class="text-md font-bold mt-4 text-center lg:text-center h-50px"
+                >
+                  A FAMILY OWNED BUSINESS, LEADING THE INDUSTRY WITH OVER 55
+                  YEARS OF EXPERIENCE
+                </p>
+              </div>
+
+              <NuxtLink class="w-full flex justify-center" to="/CoreValues">
                 <button
                   class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
                 >
@@ -163,15 +146,35 @@
                   >
                     Core Values
                   </p>
-                </button></a
-              >
+                </button>
+              </NuxtLink>
             </div>
-            <div class="flex justify-center items-center w-full lg:w-1/2">
-              <a
-                class="w-full flex justify-center"
-                href="https://firebasestorage.googleapis.com/v0/b/elnik-72224.appspot.com/o/elnik_mission.pdf?alt=media&token=fe6c52cc-c644-4980-ad4e-b45c7027d681"
+
+            <!-- Second Image, Text, and Button Block -->
+            <div
+              class="w-full lg:w-1/2 flex flex-col items-center lg:items-start"
+            >
+              <NuxtLink
+                to="https://dshtech.com/"
+                class="w-full md:flex md:justify-center md:items-center"
                 target="_blank"
               >
+                <img
+                  src="/images/elnik_debind_furnace.png"
+                  alt="Elnik Systems At Work"
+                  class="lg:w-full w-auto lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
+                />
+              </NuxtLink>
+              <div class="flex justify-center w-full">
+                <p
+                  class="text-md font-bold mt-4 text-center lg:text-center h-[50px]"
+                >
+                  HASSLE FREE SERVICE AND MAINTENANCE NO MATTER THE PRODUCT, NO
+                  MATTER THE LOCATION
+                </p>
+              </div>
+
+              <NuxtLink class="w-full flex justify-center" to="/OurMission">
                 <button
                   class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
                 >
@@ -182,7 +185,7 @@
                     Our Mission
                   </p>
                 </button>
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -194,7 +197,7 @@
       >
         <h2
           class="text-5xl max-sm:text-3xl font-semibold text-slate-50"
-          style="font-family: ITCFranklinGothicStd-Demi"
+          style="font-family: Anton-Regular"
         >
           PRODUCTS IN DEMAND
         </h2>
@@ -271,13 +274,13 @@
         </button>
       </div>
       <div class="flex justify-center items-center w-full mt-8">
-        <div class="flex justify-center items-center w-1/4">
+        <div class="flex justify-center items-center lg:w-1/4 sm:w-[150px]">
           <NuxtLink
-            class="h-auto mt-4 btn-product-main w-3/4 text-sm text-white font-bold py-2 px-6 mb-6 backdrop-blur-2xl"
+            class="h-auto mt-4 btn-product-main w-3/4 text-sm text-white font-bold py-2 px-6 mb-6 backdrop-blur-2xl cursor-pointer"
             to="/ProductPage"
           >
             <p
-              class="uppercase text-center"
+              class="uppercase text-center w-auto"
               style="font-family: ITCFranklinGothicStd-Demi"
             >
               view all products
@@ -286,11 +289,16 @@
         </div>
       </div>
     </div>
-    <div ref="blogSlider" id="blog" class="p-4">
+    <div
+      ref="blogSlider"
+      id="blog"
+      class="p-4"
+      style="background-color: #a6a6a6"
+    >
       <div class="h-12 flex justify-center items-center content-center">
         <h2
-          class="text-5xl max-sm:text-3xl font-semibold text-slate-900"
-          style="font-family: ITCFranklinGothicStd-Demi"
+          class="font-bold text-5xl md:text-4xl sm:text-4xl xs:text-4xl w-full text-center p-10"
+          style="font-family: Anton-Regular"
         >
           OUR LATEST NEWS
         </h2>
@@ -313,13 +321,16 @@
             />
           </svg>
         </button>
-        <div class="grid lg:grid-cols-3 grid-rows-1 gap-x-12 w-3/4">
+        <div
+          class="grid lg:grid-cols-3 grid-rows-1 gap-x-12 w-3/4 mt-10"
+          style="background-color: #a6a6a6"
+        >
           <div
             v-for="post in paginatedColumns"
             :key="post.id"
             class="flex flex-col w-full justify-center items-center bg-gray-200 p-4 mb-4"
           >
-            <img src="" style="width: 125px" :alt="post.title" />
+            <img :src="post.imageLink" style="width: 125px" :alt="post.title" />
             <div class="flex flex-col justify-items-start mt-4">
               <h6
                 class="text-lg font-bold text-slate-950 uppercase flex"
@@ -372,6 +383,7 @@
           <div class="flex justify-center items-center w-full">
             <NuxtLink
               class="w-full flex justify-center items-center cursor-pointer md:w-[175px]"
+              @click="goToFilteredPosts('Why Manufacturing is Cool')"
             >
               <p
                 class="uppercase"
@@ -380,7 +392,7 @@
                   text-decoration: underline;
                 "
               >
-                Why Manufacturing is cool
+                Why Manufacturing is Cool
               </p>
             </NuxtLink>
           </div>
@@ -391,6 +403,7 @@
 
           <NuxtLink
             class="w-full flex justify-center items-center cursor-pointer"
+            @click="goToFilteredPosts('All About Elnik')"
           >
             <p
               class="uppercase"
@@ -399,7 +412,7 @@
                 text-decoration: underline;
               "
             >
-              All about Elnik
+              All About Elnik
             </p>
           </NuxtLink>
 
@@ -409,6 +422,7 @@
 
           <NuxtLink
             class="w-full flex justify-center items-center cursor-pointer"
+            @click="goToFilteredPosts('Education and Innovation')"
           >
             <p
               class="uppercase"
@@ -426,10 +440,12 @@
           </div>
 
           <NuxtLink
+            v-if="heroPosts"
             class="w-full flex justify-center items-center cursor-pointer"
+            :to="`blog/${heroPosts[0].id}`"
           >
             <p
-              class="uppercase"
+              class="uppercase w-auto"
               style="
                 font-family: ITCFranklinGothicStd-Demi;
                 text-decoration: underline;
@@ -550,7 +566,7 @@ let count = 0;
 const paginatedProducts = computed(() => {
   const start = currentProductPage.value * itemsProductsPerPage.value;
 
-  if (width.value < 640) {
+  if (width.value <= 1016) {
     count++;
     if (heroProducts.value && heroProducts.value.length === count) {
       count = 0;
@@ -593,7 +609,6 @@ const prevSlide = () => {
 };
 
 function next() {
-  console.log("click");
   if (
     heroPosts.value &&
     (currentPage.value + 1) * itemsPerPage.value < heroPosts.value?.length
@@ -649,6 +664,16 @@ const goToBlog = async (post: LinkedInPost) => {
 onUnmounted(() => {
   stopSlideShow();
 });
+
+const goToFilteredPosts = async (filter: string) => {
+  if (heroPosts.value) {
+    const post: LinkedInPost[] = heroPosts.value?.filter(
+      (blogPost) =>
+        blogPost.tag.trim().toLowerCase() === filter.trim().toLowerCase(),
+    );
+    await navigateTo({ path: `blog/${post[0].id}`, query: { filter } });
+  }
+};
 </script>
 
 <style scoped>
@@ -774,7 +799,7 @@ onUnmounted(() => {
   display: inline-block;
   transition: background-color 0.3s ease;
   color: #f8fafc;
-  border: solid white 1px;
+  border: none;
 }
 
 /*.btn:hover {
@@ -833,9 +858,7 @@ onUnmounted(() => {
   }
 
   #contact {
-    object-fit: cover;
-
-    background-size: contain; /* Adjust if needed on very small screens */
+    background-size: cover; /* Adjust if needed on very small screens */
     padding: 20px; /* Add some padding if the content is squeezed */
   }
 }

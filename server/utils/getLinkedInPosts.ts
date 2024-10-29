@@ -14,19 +14,14 @@ async function getProducts(
   nextPost?: DocumentData,
 ): Promise<LinkedInPostResults> {
   try {
-    console.log(nextPost);
     if (nextPost) {
-      console.log("getttttt next post");
-
       const posts = await db
         .collection("blog")
         .orderBy("date_added", "asc")
-        .limit(2)
         .startAfter(nextPost)
         .get();
       const linkedPosts: LinkedInPost[] = [];
       const lastPost = posts.docs[posts.docs.length - 1];
-      console.log(posts.docs);
 
       posts.forEach((doc) => {
         const data = doc.data();
@@ -41,17 +36,16 @@ async function getProducts(
           tag: data.tag,
           title: data.title,
           postUrl: data.postUrl,
+          imageLink: data.image,
         });
       });
 
       return { status: 200, message: linkedPosts, next_set: lastPost };
     }
-    console.log("getttttt allll post");
 
     const posts = await db
       .collection("blog")
       .orderBy("date_added", "desc")
-      .limit(5)
       .get();
     const linkedPosts: LinkedInPost[] = [];
     const lastPost = posts.docs[posts.docs.length - 1];
@@ -69,6 +63,7 @@ async function getProducts(
         tag: data.tag,
         title: data.title,
         postUrl: data.postUrl,
+        imageLink: data.image,
       });
     });
 

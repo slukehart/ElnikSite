@@ -369,7 +369,8 @@ shown, here's the revised code: vue Copy code
             name="subject"
             id="subject"
             autocomplete="subject"
-            class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+            :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
+            class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
           />
         </div>
 
@@ -386,7 +387,8 @@ shown, here's the revised code: vue Copy code
             name="subject"
             id="subject"
             autocomplete="subject"
-            class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
+            :class="route === '/Home' ? 'text-slate-50' : 'text-gray-800'"
+            class="block w-full border-0 border-b-2 bg-transparent py-1.5 pl-1] placeholder:text-gray-400 sm:text-sm sm:leading-6 border-b-gray-300 shadow-md focus:outline-none"
           />
         </div>
 

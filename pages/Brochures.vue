@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import type { GetProducts, Products } from "../types";
 import { useProductStore } from "../stores/ProductStore";
-import GeneralLayout from "../layout/GeneralLayout.vue";
 const { getProducts } = useProductStore();
 
 const productImages = ref<Products[] | undefined>();
@@ -20,9 +19,9 @@ const goToProduct = async (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col" style="background-color: #a6a6a6">
     <div class="flex-shrink-0">
-      <GeneralLayout />
+      <NavBarLayoutComponent />
     </div>
     <div
       class="w-full h-screen flex lg:flex-row md:flex-col justify-center items-center hero-brochures"
@@ -32,7 +31,7 @@ const goToProduct = async (index: number) => {
       >
         <h1
           class="text-5xl text-shadow-lg font-bold mt-10 text-center"
-          style="font-family: ITCFranklinGothicStd-Demi"
+          style="font-family: Anton-Regular"
         >
           BROCHURES
         </h1>

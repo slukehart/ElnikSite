@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import Aura from "@primevue/themes/aura";
-import accordion from "@primevue/themes/aura/accordion";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -36,7 +35,6 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@pinia/nuxt",
     "@nuxtjs/device",
-    "nuxt-tiptap-editor",
     "@primevue/nuxt-module",
   ],
   primevue: {
@@ -53,9 +51,6 @@ export default defineNuxtConfig({
     // },
   },
 
-  tiptap: {
-    prefix: "Tiptap",
-  },
   ssr: true, // enable server-side rendering
   css: ["../assets/css/main.css"],
   plugins: ["../plugins/firebase.ts"],
