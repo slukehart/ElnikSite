@@ -123,7 +123,7 @@ const events = ref([
       class="w-full h-screen justify-center flex lg:flex-row md:flex-col hero-about"
     >
       <div
-        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:h-[500px] md:h-[300px] sm:h-[450px] lg:w-1/2 md:w-3/4 space-y-6 backdrop-blur-lg text-slate-50"
+        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:h-[500px] md:h-[300px] sm:h-[450px] xs:h-[200px] lg:w-1/2 md:w-3/4 space-y-6 lg:backdrop-blur-lg text-slate-50"
       >
         <div
           class="lg:w-full backdrop-blur-lg flex flex-col justify-center sm:items-center md:items-center"

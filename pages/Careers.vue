@@ -9,7 +9,7 @@
       class="w-full h-screen justify-center flex lg:flex-row md:flex-col career-hero"
     >
       <div
-        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 lg:h-[400px] space-y-6 backdrop-blur-lg text-slate-50"
+        class="flex flex-col lg:justify-start md:items-center sm:items-center lg:w-1/2 lg:h-[400px] md:h-[300px] sm:h-[400px] xs:h-[100px] space-y-6 backdrop-blur-lg text-slate-50"
       >
         <h1
           class="text-5xl font-bold text-shadow-lg mb-2 mt-6 uppercase text-center"

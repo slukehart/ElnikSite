@@ -69,42 +69,66 @@ onMounted(async () => {
       <GeneralLayout />
     </div>
 
-    <div class="flex h-1/2 bg-white items-center justify-center space-x-6">
-      <div class="w-1/2 overflow-hidden">
+    <div
+      class="flex flex-col lg:flex-row h-auto lg:h-1/2 bg-white items-center justify-center lg:space-x-6 p-4"
+    >
+      <div class="w-full lg:w-1/2 overflow-hidden">
         <div class="relative pb-2/3">
           <a :href="product?.brochure" target="_blank">
-            <img :src="product?.img" :alt="product?.name" />
+            <img
+              class="w-full object-cover"
+              :src="product?.img"
+              :alt="product?.name"
+            />
           </a>
         </div>
       </div>
+
+      <!-- Divider: hidden on small screens -->
       <div
-        class="border-l-2 min-h-screen md:hidden sm:hidden lg:block border-slate-950"
+        class="border-l-2 hidden lg:block min-h-screen border-slate-950"
       ></div>
-      <div class="w-1/2 flex flex-col justify-center">
+
+      <div
+        class="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center mt-4 lg:mt-0"
+      >
         <h2
-          class="text-4xl font-bold text-gray-800 uppercase"
+          class="text-2xl lg:text-4xl font-bold text-gray-800 uppercase text-center lg:text-left"
           style="font-family: Anton-Regular"
         >
           {{ product?.name }}
         </h2>
-        <p class="text-sm text-gray-600">{{ product?.description }}</p>
-        <div></div>
-        <div class="flex items-center justify-center p-4 space-x-6">
+        <p class="text-xs lg:text-sm text-gray-600 text-center lg:text-left">
+          {{ product?.description }}
+        </p>
+
+        <!-- Buttons: centered on mobile -->
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-6 p-4"
+        >
           <a :href="product?.brochure" target="_blank">
-            <button class="mt-10">
-              <p class="border-b-black border-b-2 uppercase">go to brochure</p>
+            <button class="mt-4 lg:mt-10">
+              <p class="border-b-black border-b-2 uppercase text-center">
+                go to brochure
+              </p>
             </button>
           </a>
           <NuxtLink to="/Contact">
-            <button class="mt-10">
-              <p class="border-b-black border-b-2 uppercase">get a quote</p>
+            <button class="mt-4 lg:mt-10">
+              <p class="border-b-black border-b-2 uppercase text-center">
+                get a quote
+              </p>
             </button>
           </NuxtLink>
         </div>
-        <div class="flex items-center justify-center p-6">
+
+        <!-- DataTable: responsive on smaller screens -->
+        <div
+          class="w-full flex items-center justify-center p-6 overflow-x-auto"
+        >
           <DataTable
             :value="productFacts"
-            tableStyle="min-width: 35rem; border: 1px"
+            tableStyle="min-width: 20rem; lg:min-width: 35rem; border: 1px"
             responsive-layout="scroll"
           >
             <Column
