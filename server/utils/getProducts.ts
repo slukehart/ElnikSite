@@ -1,5 +1,5 @@
 import admin from "../utils/admin";
-import { GetProducts, Products } from "~/types";
+import { GetProducts, Products, ProductTableInfo } from "~/types";
 
 const db = admin.firestore();
 
@@ -11,8 +11,24 @@ async function getProducts(): Promise<{
     const productsCollection = await db.collection("products").get();
     const products: Products[] = [];
 
-    productsCollection.forEach((doc) => {
+    for (const doc of productsCollection.docs) {
+      // Assuming productsCollection is a QuerySnapshot
       const data = doc.data();
+      // const docRef = db.collection("products").doc(doc.id);
+      // let productTableInfo: ProductTableInfo | null = null;
+
+      // const snapshot = await docRef.collection("product_statistics").get();
+      // snapshot.forEach((doc) => {
+      //   const data = doc.data();
+      //   productTableInfo = {
+      //     alloyProccessing: data.alloy_processing,
+      //     atmospheres: data.atmospheres,
+      //     maxTempature: data.max_tempature,
+      //     processVolumes: data.process_volumes,
+      //     technicalInnovation: data.technical_innovation,
+      //   };
+      // });
+
       products.push({
         id: doc.id,
         name: data.name,
@@ -22,7 +38,7 @@ async function getProducts(): Promise<{
         brochure: data.brochure,
         brochureImage: data.brochureImage,
       });
-    });
+    }
 
     return { status: 200, message: products };
   } catch (error) {

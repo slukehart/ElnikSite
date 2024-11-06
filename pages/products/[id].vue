@@ -2,36 +2,13 @@
 import { useProductStore } from "../../stores/ProductStore";
 import { useRoute } from "vue-router";
 import GeneralLayout from "../../layout/GeneralLayout.vue";
+import type { ProductTableInfo } from "types";
 
-const showGridLine = ref(true);
-
-const productFacts = ref([
-  {
-    code: "some code",
-    name: "some name",
-    category: "some category",
-    quantity: "some quantity",
-  },
-  {
-    code: "some code",
-    name: "some name",
-    category: "some category",
-    quantity: "some quantity",
-  },
-  {
-    code: "some code",
-    name: "some name",
-    category: "some category",
-    quantity: "some quantity",
-  },
-  {
-    code: "some code",
-    name: "some name",
-    category: "some category",
-    quantity: "some quantity",
-  },
-]);
-
+const formatKey = (key: string) => {
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str.toUpperCase());
+};
 const routeId = useRoute().params.id;
 
 type ProductMessage = {
@@ -42,23 +19,37 @@ type ProductMessage = {
   img: string;
 };
 
-const { getProducts } = useProductStore();
+const getProductsFunction = useProductStore();
+const { products } = storeToRefs(getProductsFunction);
 const productList = ref<{
   status: number;
   message: ProductMessage[] | string;
 } | null>(null);
 const product = ref<ProductMessage | null>();
+const tableInfo = ref<ProductTableInfo | null>(null);
 
 onMounted(async () => {
-  const result:
-    | { status: number; message: ProductMessage[] | string }
-    | undefined = await getProducts();
-  if (result?.status === 200 && result?.message) {
-    productList.value = result;
-    if (Array.isArray(productList.value.message))
-      product.value = productList.value?.message.find(
-        (product: ProductMessage) => product.id === routeId,
-      );
+  if (Object.keys(products.value).length <= 0) {
+    const result:
+      | { status: number; message: ProductMessage[] | string }
+      | undefined = await getProductsFunction.getProducts();
+    if (result?.status === 200 && result?.message) {
+      productList.value = result;
+      if (Array.isArray(productList.value.message))
+        product.value = productList.value?.message.find(
+          (product: ProductMessage) => product.id === routeId,
+        );
+    }
+  } else {
+    product.value = products.value.find((p) => {
+      return p.id === useRoute().params.id;
+    });
+  }
+  if (product.value) {
+    const uuid = product.value.id;
+    const tableResult: { status: number; message: ProductTableInfo } =
+      await $fetch(`/api/getProductTableInfo/${uuid}`);
+    tableInfo.value = tableResult?.message;
   }
 });
 </script>
@@ -90,10 +81,10 @@ onMounted(async () => {
       ></div>
 
       <div
-        class="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center mt-4 lg:mt-0"
+        class="w-full lg:w-1/2 flex flex-col items-center justify-center mt-4 lg:mt-0"
       >
         <h2
-          class="text-2xl lg:text-4xl font-bold text-gray-800 uppercase text-center lg:text-left"
+          class="text-2xl text-center lg:text-4xl font-bold text-gray-800 uppercase mb-4"
           style="font-family: Anton-Regular"
         >
           {{ product?.name }}
@@ -104,16 +95,16 @@ onMounted(async () => {
 
         <!-- Buttons: centered on mobile -->
         <div
-          class="flex flex-col lg:flex-row items-center justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-6 p-4"
+          class="flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-y-0 lg:space-x-6 p-4"
         >
-          <a :href="product?.brochure" target="_blank">
+          <a :href="product?.brochure" target="_blank" class="cursor-pointer">
             <button class="mt-4 lg:mt-10">
               <p class="border-b-black border-b-2 uppercase text-center">
                 go to brochure
               </p>
             </button>
           </a>
-          <NuxtLink to="/Contact">
+          <NuxtLink to="/Contact" class="cursor-pointer">
             <button class="mt-4 lg:mt-10">
               <p class="border-b-black border-b-2 uppercase text-center">
                 get a quote
@@ -126,36 +117,39 @@ onMounted(async () => {
         <div
           class="w-full flex items-center justify-center p-6 overflow-x-auto"
         >
-          <DataTable
-            :value="productFacts"
-            tableStyle="min-width: 20rem; lg:min-width: 35rem; border: 1px"
-            responsive-layout="scroll"
-          >
-            <Column
-              field="code"
-              header="Code"
-              sortable
-              style="width: 25%"
-            ></Column>
-            <Column
-              field="name"
-              header="Name"
-              sortable
-              style="width: 25%"
-            ></Column>
-            <Column
-              field="category"
-              header="Category"
-              sortable
-              style="width: 25%"
-            ></Column>
-            <Column
-              field="quantity"
-              header="Quantity"
-              sortable
-              style="width: 25%"
-            ></Column>
-          </DataTable>
+          <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+              <tr>
+                <th
+                  class="px-4 py-2 text-left text-slate-950 font-medium border-b bg-sky-300"
+                >
+                  <p class="font-extrabold">Attribute</p>
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-slate-950 font-medium border-b border-l"
+                >
+                  <p class="font-extrabold">Details</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(value, key) in tableInfo" :key="key" class="border-b">
+                <td class="px-4 py-2 font-medium text-gray-700 bg-sky-300">
+                  {{ formatKey(key) }}
+                </td>
+                <td class="px-4 py-2 text-gray-600 border-l">
+                  <div v-if="Array.isArray(value)">
+                    {{ value.join(", ") }}
+                  </div>
+                  <div v-else>
+                    <p>
+                      {{ key === "maxTempature" ? `${value}°C` : value }}
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

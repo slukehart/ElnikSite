@@ -54,3 +54,11 @@ export type UpdatePostData = {
   imageLink: string;
   fileUpload: Blob;
 };
+
+export type ProductTableInfo = {
+  alloyProccessing: string[];
+  atmospheres: string;
+  maxTempature: number;
+  processVolumes: string;
+  technicalInnovation: string[];
+};

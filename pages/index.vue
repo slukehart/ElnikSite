@@ -2,6 +2,8 @@
   <Home />
 </template>
 
-<script setup></script>
+<script setup>
+onMounted(() => {});
+</script>
 
 <style></style>

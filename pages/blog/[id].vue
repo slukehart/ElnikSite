@@ -121,7 +121,7 @@ async function onLoadMore() {
 <!-- <template></template> -->
 
 <template>
-  <div class="flex flex-col space-y-8" style="background-color: #a6a6a6">
+  <div class="flex flex-col space-y-8" style="background-color: #d9d9d9">
     <div class="flex-shrink-0">
       <GeneralLayout />
     </div>

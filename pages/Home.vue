@@ -80,7 +80,7 @@
       ref="about"
       id="about"
       class="w-auto h-full items-center flex justify-center p-10"
-      style="background-color: #a6a6a6"
+      style="background-color: #d9d9d9"
     >
       <div class="flex flex-col justify-center items-center">
         <div class="flex flex-col w-full items-center">
@@ -293,7 +293,7 @@
       ref="blogSlider"
       id="blog"
       class="p-4"
-      style="background-color: #a6a6a6"
+      style="background-color: #d9d9d9"
     >
       <div class="h-12 flex justify-center items-center content-center">
         <h2
@@ -323,7 +323,7 @@
         </button>
         <div
           class="grid lg:grid-cols-3 grid-rows-1 gap-x-12 w-3/4 mt-10"
-          style="background-color: #a6a6a6"
+          style="background-color: #d9d9d9"
         >
           <div
             v-for="post in paginatedColumns"

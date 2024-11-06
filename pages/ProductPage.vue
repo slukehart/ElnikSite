@@ -21,7 +21,7 @@ const goToProduct = async (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col" style="background-color: #a6a6a6">
+  <div class="flex flex-col" style="background-color: #d9d9d9">
     <div class="flex-shrink-0">
       <NavBarLayoutComponent />
     </div>

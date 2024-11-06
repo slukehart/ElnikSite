@@ -13,13 +13,13 @@
       class="flex flex-col justify-center items-center lg:w-1/2 space-y-6 backdrop-blur text-slate-50"
     >
       <h1
-        class="text-5xl font-bold text-shadow-lg mb-10 mt-6"
+        class="text-5xl font-bold text-shadow-lg lg:mb-10 mt-6"
         style="font-family: ITCFranklinGothicStd-Demi"
       >
         CONTACT US
       </h1>
       <h5
-        class="text-2xl lg:w-3/4 md:w-1/4 sm:w-3/4 md:text-center sm:text-center text-shadow-lg text-center"
+        class="text-2xl lg:w-3/4 md:w-3/4 sm:w-3/4 md:text-center sm:text-center text-shadow-lg text-center"
       >
         If you’d like to know more about Elnik’s products, are interested in a
         quote request, or simply want to learn about the applications of MIM,
@@ -95,5 +95,6 @@
 .hero-contact {
   background-image: url("public/images/elnik_furnace_contact_us.png");
   background-size: cover;
+  background-position: center; /* Centers the image in the div */
 }
 </style>
