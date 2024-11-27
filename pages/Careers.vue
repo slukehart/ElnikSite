@@ -32,6 +32,18 @@
         >
           Quality First. Innovation. Excellence.
         </h6>
+        <div class="flex justify-center mb-10">
+          <NuxtLink to="/Contact" class="cursor-pointer">
+            <button class="shadow-xl">
+              <p
+                class="border-l-white-black border-b-2 uppercase text-shadow-lg"
+                style="font-family: ITCFranklinGothicStd-Demi"
+              >
+                contact us
+              </p>
+            </button>
+          </NuxtLink>
+        </div>
       </div>
     </div>
     <div class="p-20">
@@ -54,7 +66,7 @@
       employees to perform their expected job duties is absolutely not
       tolerated.
     </div>
-    <div class="career-offer text-slate-50 flex flex-col p-10">
+    <!-- <div class="career-offer text-slate-50 flex flex-col p-10">
       <div class="lg:w-1/3 md:w-1/2 lg:ml-[60%] md:ml-[60%] sm:ml-[50%]">
         <h3
           class="uppercase text-4xl"
@@ -100,7 +112,7 @@
           letter along with salary requirements.
         </p>
       </div>
-    </div>
+    </div> -->
     <div id="footer" class="flex justify-center">
       <FooterComponent />
     </div>

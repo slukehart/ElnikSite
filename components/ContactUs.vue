@@ -9,15 +9,11 @@ const route = ref(useRoute().path);
   <div class="flex flex-col items-center justify-content-center">
     <div
       class="overflow-hidden"
-      :class="
-        route === '/Home'
-          ? 'backdrop-blur-lg lg:w-1/2'
-          : 'bg-white mt-10 w-full'
-      "
+      :class="route === '/Home' ? 'backdrop-blur-lg lg:w-1/2' : ' mt-10 w-full'"
     >
-      <div class="px-4 py-6">
+      <div class="px-4">
         <h2
-          class="font-bold text-5xl text-center mb-4"
+          class="font-bold text-5xl text-center mb-4 mt-4"
           :class="route === '/Home' ? 'text-slate-50' : 'text-slate-950'"
           style="font-family: ITCFranklinGothicStd-Demi"
         >

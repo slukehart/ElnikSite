@@ -1,8 +1,11 @@
-import type { DocumentData } from "firebase-admin/firestore";
-
 export interface GetProducts {
   status: number;
   message: Products[];
+}
+
+export interface GetBrochures {
+  status: number;
+  message: Brochure[];
 }
 
 export type Products = {
@@ -13,6 +16,14 @@ export type Products = {
   img: string;
   brochure: string;
   brochureImage: string;
+  type: string;
+};
+
+export type Brochure = {
+  name: string;
+  group: string;
+  text: string;
+  brochure: string;
 };
 
 export type LinkedInPost = {

@@ -124,7 +124,7 @@
                 <img
                   src="/images/elnik_leadership.jpg"
                   alt="Elnik Systems Conference"
-                  class="lg:w-full w-auto lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
+                  class="lg:w-full w-auto lg:h-[25rem] md:h-[15rem]"
                 />
               </NuxtLink>
               <div class="lg:mb-[25px] flex justify-center w-full">
@@ -135,24 +135,11 @@
                   YEARS OF EXPERIENCE
                 </p>
               </div>
-
-              <NuxtLink class="w-full flex justify-center" to="/CoreValues">
-                <button
-                  class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
-                >
-                  <p
-                    class="uppercase text-center text-black"
-                    style="font-family: ITCFranklinGothicStd-Demi"
-                  >
-                    Core Values
-                  </p>
-                </button>
-              </NuxtLink>
             </div>
 
             <!-- Second Image, Text, and Button Block -->
             <div
-              class="w-full lg:w-1/2 flex flex-col items-center lg:items-start"
+              class="w-full lg:w-1/2 flex flex-col items-center lg:items-start sm:items-center md:items-center xs:items-center"
             >
               <NuxtLink
                 to="https://dshtech.com/"
@@ -162,7 +149,7 @@
                 <img
                   src="/images/elnik_debind_furnace.png"
                   alt="Elnik Systems At Work"
-                  class="lg:w-full w-auto lg:h-[25rem] md:h-[15rem] sm:h-[11rem]"
+                  class="lg:w-full w-auto lg:h-[25rem] md:h-[15rem]"
                 />
               </NuxtLink>
               <div class="flex justify-center w-full">
@@ -173,20 +160,33 @@
                   MATTER THE LOCATION
                 </p>
               </div>
-
-              <NuxtLink class="w-full flex justify-center" to="/OurMission">
-                <button
-                  class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
-                >
-                  <p
-                    class="uppercase text-center text-black"
-                    style="font-family: ITCFranklinGothicStd-Demi"
-                  >
-                    Our Mission
-                  </p>
-                </button>
-              </NuxtLink>
             </div>
+          </div>
+          <div class="flex flex-row w-full">
+            <NuxtLink class="w-full flex justify-center" to="/CoreValues">
+              <button
+                class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
+              >
+                <p
+                  class="uppercase text-center text-black"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                >
+                  Core Values
+                </p>
+              </button>
+            </NuxtLink>
+            <NuxtLink class="w-full flex justify-center" to="/OurMission">
+              <button
+                class="w-1/2 text-sm font-bold py-2 px-6 mb-6 border border-black"
+              >
+                <p
+                  class="uppercase text-center text-black"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                >
+                  Our Mission
+                </p>
+              </button>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -297,7 +297,7 @@
     >
       <div class="h-12 flex justify-center items-center content-center">
         <h2
-          class="font-bold text-5xl md:text-4xl sm:text-4xl xs:text-4xl w-full text-center p-10"
+          class="font-bold text-5xl md:text-4xl sm:text-4xl xs:text-4xl w-full text-center"
           style="font-family: Anton-Regular"
         >
           OUR LATEST NEWS
@@ -534,7 +534,7 @@ const slides = ref([
   {
     title: "HAND CRAFTED EXCELLENCE. AMERICAN MADE.",
     description: "HAND BUILT PRODUCTS, <br> CUSTOMIZED TO YOUR NEEDS",
-    image: "/images/elnik_america_factory.png",
+    image: "/images/ELNIK_AMERICAN_FLAG_PRODUCT.png",
     redirect: "/ProductPage",
   },
 ]);
@@ -652,6 +652,7 @@ function prevProduct() {
 }
 
 const goToProduct = async (index: number) => {
+  console.log(heroProducts.value);
   if (heroProducts.value && heroProducts.value[index]) {
     await navigateTo({ path: `/products/${heroProducts.value[index].id}` });
   }
@@ -837,10 +838,10 @@ const goToFilteredPosts = async (filter: string) => {
 }
 
 #contact {
-  background-image: url("public/images/contact_background.jpg");
+  background-image: url("public/images/elnik_contact_home_page.png");
   object-fit: cover;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 
 @media (max-width: 640px) {

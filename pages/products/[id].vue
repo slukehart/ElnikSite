@@ -97,7 +97,12 @@ onMounted(async () => {
         <div
           class="flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-y-0 lg:space-x-6 p-4"
         >
-          <a :href="product?.brochure" target="_blank" class="cursor-pointer">
+          <a
+            v-if="product?.brochure"
+            :href="product?.brochure"
+            target="_blank"
+            class="cursor-pointer"
+          >
             <button class="mt-4 lg:mt-10">
               <p class="border-b-black border-b-2 uppercase text-center">
                 go to brochure

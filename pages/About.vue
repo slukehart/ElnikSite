@@ -35,17 +35,31 @@
           >
             Quality First. Innovation. Excellence.
           </h6>
-          <div class="flex justify-center">
-            <NuxtLink to="/Contact" class="cursor-pointer">
-              <button class="mb-10 shadow-xl">
-                <p
-                  class="border-l-white-black border-b-2 uppercase text-shadow-lg"
-                  style="font-family: ITCFranklinGothicStd-Demi"
-                >
-                  contact us
-                </p>
-              </button>
-            </NuxtLink>
+          <div class="flex justify-around w-3/4">
+            <div>
+              <NuxtLink to="/CoreValues" class="cursor-pointer">
+                <button class="mb-10 shadow-xl">
+                  <p
+                    class="border-l-white-black border-b-2 uppercase text-shadow-lg"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                  >
+                    core values
+                  </p>
+                </button>
+              </NuxtLink>
+            </div>
+            <div>
+              <NuxtLink to="/OurMission" class="cursor-pointer">
+                <button class="mb-10 shadow-xl">
+                  <p
+                    class="border-l-white-black border-b-2 uppercase text-shadow-lg"
+                    style="font-family: ITCFranklinGothicStd-Demi"
+                  >
+                    mission statement
+                  </p>
+                </button>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>

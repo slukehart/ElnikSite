@@ -50,11 +50,11 @@ const { scrollToSection } = scrollToTopComposable();
             <NuxtLink v-if="postsForNav" :to="`/blog/${postsForNav[0].id}`"
               ><p class="text-sm uppercase">BLOG</p></NuxtLink
             >
-            <p href="https://dshtech.com/" class="text-sm uppercase">
+            <a href="https://dshtech.com/" class="text-sm uppercase">
               DSH TECHNOLOGIES
-            </p>
+            </a>
 
-            <NuxtLink><p class="text-sm">CONTACT</p></NuxtLink>
+            <NuxtLink to="/Contact"><p class="text-sm">CONTACT</p></NuxtLink>
             <NuxtLink><p class="text-sm"></p></NuxtLink>
           </nav>
         </div>
@@ -108,10 +108,14 @@ const { scrollToSection } = scrollToTopComposable();
                     </p>
                   </div>
                   <div class="contact-container">
-                    <p class="flex flex-row gap-2 text-size-smaller">
+                    <a
+                      href="mailto:elnik@elnik.com"
+                      class="flex flex-row items-center gap-2 text-size-smaller"
+                      style="font-family: FranklinGothicBold"
+                    >
                       <b style="font-family: FranklinGothicBold"> e:</b>
                       elnik@elnik.com
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -134,8 +138,17 @@ const { scrollToSection } = scrollToTopComposable();
                   </div>
                   <div class="contact-container">
                     <p class="flex flex-row gap-2 text-size-smaller">
-                      <b style="font-family: FranklinGothicBold"> e:</b>
-                      elnikgmbh@elnik.com
+                      <b
+                        class="flex flex-row items-center"
+                        style="font-family: FranklinGothicBold"
+                      >
+                        e:</b
+                      >
+                      <a
+                        class="flex flex-row items-center mt-1"
+                        href="mailto:elnikgmbh@elnik.com"
+                        >elnikgmbh@elnik.com</a
+                      >
                     </p>
                   </div>
                 </div>

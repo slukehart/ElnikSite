@@ -180,9 +180,9 @@ async function onLoadMore() {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
           <div
             id="blog-post-view"
-            class="bg-white p-6 overflow-auto overflow-y-scroll flex items-center"
+            class="bg-white w-full p-6 overflow-auto overflow-y-scroll flex items-center"
           >
-            <div v-if="selectedPost && !loading" class="h-full mt-20">
+            <div v-if="selectedPost && !loading" class="h-full w-full">
               <h2
                 class="text-3xl font-bold text-gray-800 mb-4 uppercase"
                 style="font-family: ITCFranklinGothicStd-Demi"

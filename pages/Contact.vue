@@ -33,12 +33,15 @@
       </h6>
     </div>
   </div>
-  <div class="flex lg:flex-row md:flex-col sm:flex-col justify-center">
+  <div
+    class="flex lg:flex-row md:flex-col sm:flex-col justify-center"
+    style="background-color: #d9d9d9"
+  >
     <ContactUs />
   </div>
 
   <div class="border-t-2 w-full border-slate-950"></div>
-  <div class="flex justify-center">
+  <div class="flex justify-center" style="background-color: #d9d9d9">
     <div class="grid lg:grid-cols-2 w-full max-w-6xl">
       <div class="flex flex-row justify-center">
         <div class="w-1/2 flex justify-center items-center text-center">
@@ -62,14 +65,14 @@
       </div>
       <div class="flex flex-row">
         <div class="w-full flex justify-center items-center text-center m-6">
-          <p>
-            <b style="font-family: ITCFranklinGothicStd-Demi">Phone:</b>
-            +1-973-239-6066 <br />
-            <b style="font-family: ITCFranklinGothicStd-Demi">Fax:</b>
-            +1-973-239-3272 <br />
+          <b style="font-family: ITCFranklinGothicStd-Demi">Phone:</b>
+          +1-973-239-6066 <br />
+          <b style="font-family: ITCFranklinGothicStd-Demi">Fax:</b>
+          +1-973-239-3272 <br />
+          <div class="flex flex-row">
             <b style="font-family: ITCFranklinGothicStd-Demi">Email:</b>
-            elnik@elnik.com
-          </p>
+            <a href="mailto:elnik@elnik.com">elnik@elnik.com</a>
+          </div>
         </div>
       </div>
       <div class="flex flex-row">
@@ -79,7 +82,7 @@
             74585119990 <br />
 
             <b style="font-family: ITCFranklinGothicStd-Demi">Email:</b>
-            elnikgmbh@elnik.com
+            <a href="mailto:elnikgmbh@elnik.com">elnikgmbh@elnik.com</a>
           </p>
         </div>
       </div>

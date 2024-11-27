@@ -8,12 +8,25 @@ async function getProducts(): Promise<{
   status: number;
 }> {
   try {
+    const customOrder: { [key: string]: number } = {
+      FSD: 1,
+      TDS: 2,
+      CF: 3,
+      AE: 4,
+    };
+
     const productsCollection = await db.collection("products").get();
     const products: Products[] = [];
+    const sortedData = productsCollection.docs
+      .map((doc) => ({
+        ...(doc.data() as Products),
+        id: doc.id,
+      }))
+      .sort((a, b) => customOrder[a.type] - customOrder[b.type]) as Products[];
 
-    for (const doc of productsCollection.docs) {
+    for (const doc of sortedData) {
       // Assuming productsCollection is a QuerySnapshot
-      const data = doc.data();
+
       // const docRef = db.collection("products").doc(doc.id);
       // let productTableInfo: ProductTableInfo | null = null;
 
@@ -31,12 +44,13 @@ async function getProducts(): Promise<{
 
       products.push({
         id: doc.id,
-        name: data.name,
-        description: data.description,
-        shortDescription: data.shortDescription,
-        img: data.img,
-        brochure: data.brochure,
-        brochureImage: data.brochureImage,
+        name: doc.name,
+        description: doc.description,
+        shortDescription: doc.shortDescription,
+        img: doc.img,
+        brochure: doc.brochure,
+        brochureImage: doc.brochureImage,
+        type: doc.type,
       });
     }
 

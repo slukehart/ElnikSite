@@ -13,7 +13,7 @@
       </div>
 
       <!-- Center Column: Navbar Items -->
-      <div class="flex flex-col items-center justify-center w-full">
+      <div class="flex flex-col items-center justify-center w-full lg:pl-10">
         <PopoverGroup class="hidden lg:flex lg:gap-x-5">
           <NuxtLink
             to="/Home"
@@ -150,21 +150,6 @@
             alt="Elnik"
           />
         </div>
-
-        <NuxtLink to="/Auth" class="flex items-end">
-          <svg
-            class="mr-2"
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="#D6D3D1"
-              d="M11.5 14c4.14 0 7.5 1.57 7.5 3.5V20H4v-2.5c0-1.93 3.36-3.5 7.5-3.5m6.5 3.5c0-1.38-2.91-2.5-6.5-2.5S5 16.12 5 17.5V19h13zM11.5 5A3.5 3.5 0 0 1 15 8.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8 8.5A3.5 3.5 0 0 1 11.5 5m0 2A1.5 1.5 0 0 0 10 8.5A1.5 1.5 0 0 0 11.5 10A1.5 1.5 0 0 0 13 8.5A1.5 1.5 0 0 0 11.5 7Z"
-            />
-          </svg>
-        </NuxtLink>
       </div>
       <button v-show="width < 1024" class="mr-4" @click="mobileMenuOpen = true">
         <svg

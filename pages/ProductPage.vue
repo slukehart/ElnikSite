@@ -7,10 +7,35 @@ const { getProducts } = useProductStore();
 
 const productList = ref();
 const productImages = ref<Products[] | undefined>();
+const firstStage = ref<Products[] | undefined>([]);
+const thermalDebind = ref<Products[] | undefined>([]);
+const customFurnace = ref<Products[] | undefined>([]);
+const ancillaryEquipment = ref<Products[] | undefined>([]);
 
 onMounted(async () => {
-  productList.value = await getProducts();
-  productImages.value = productList?.value.message;
+  const products = await getProducts();
+  productImages.value = products?.message;
+
+  firstStage.value = productImages.value?.filter(
+    (product) => product.type === "FSD",
+  );
+  thermalDebind.value = productImages.value?.filter(
+    (product) => product.type === "TDS",
+  );
+  customFurnace.value = productImages.value?.filter(
+    (product) => product.type === "CF",
+  );
+  ancillaryEquipment.value = productImages.value?.filter(
+    (product) => product.type === "AE",
+  );
+});
+
+// Map sections to their titles
+const productSections = ref({
+  "First Stage Debinding": firstStage,
+  "Thermal Debind and Sinter": thermalDebind,
+  "Custom Furnace": customFurnace,
+  "Ancillary Equipment": ancillaryEquipment,
 });
 
 const goToProduct = async (index: number) => {
@@ -29,7 +54,7 @@ const goToProduct = async (index: number) => {
       class="w-full h-screen flex lg:flex-row md:flex-col justify-center items-center hero-product"
     >
       <div
-        class="flex flex-col justify-center items-center lg:w-1/2 space-y-6 backdrop-blur text-slate-50"
+        class="flex flex-col lg:justify-center md:items-center sm:items-center lg:w-1/2 text-slate-50 backdrop-blur-lg space-y-6"
       >
         <h1
           class="text-5xl text-shadow-lg font-bold pt-10 text-center"
@@ -65,46 +90,60 @@ const goToProduct = async (index: number) => {
       </div>
     </div>
     <div class="flex flex-col justify-between items-center">
-      <div class="flex flex-row space-x-6 mt-10">
-        <!-- <ApplicationDropDown />
-        <IndustryDropDown /> -->
-      </div>
-      <div class="grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 w-auto mb-4">
+      <!-- Section Loop -->
+      <div>
         <div
-          v-for="(product, index) in productImages"
-          :key="index"
-          class="flex flex-col w-full justify-center items-center p-4 mb-4"
+          v-for="(products, type) in productSections"
+          :key="type"
+          class="mb-8 col"
         >
-          <img
-            :src="product['img']"
-            style="width: 250px"
-            :alt="product['name']"
-            class="rounded-lg cursor-pointer"
-            @click="goToProduct(index)"
-          />
-          <div class="flex flex-col justify-items-start mt-4">
-            <h6
-              class="text-lg font-bold uppercase"
-              style="font-family: ITCFranklinGothicStd-Demi"
+          <!-- Section Title -->
+          <h2
+            class="text-2xl md:text-3xl font-bold uppercase mb-4 text-center"
+            style="font-family: ITCFranklinGothicStd-Demi"
+          >
+            {{ type }}
+          </h2>
+
+          <!-- Product Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div
+              v-for="(product, index) in products"
+              :key="index"
+              class="flex flex-col w-full justify-center items-center p-4 bg-white shadow-md"
             >
-              {{ product["name"] }}
-            </h6>
-            <p class="max-w-60 text-sm text-gray-600">
-              {{ product["shortDescription"] }}...
-            </p>
+              <img
+                :src="product.img"
+                style="width: 250px; height: 250px"
+                :alt="product.name"
+                class="rounded-lg cursor-pointer"
+                @click="goToProduct(index)"
+              />
+              <div class="flex flex-col items-start mt-4">
+                <h6
+                  class="text-lg font-bold uppercase"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                >
+                  {{ product.name }}
+                </h6>
+                <p class="text-sm text-gray-600">
+                  {{ product.shortDescription }}...
+                </p>
+              </div>
+              <button class="mt-6" @click="goToProduct(index)">
+                <p
+                  class="border-b-4 border-b-black uppercase"
+                  style="font-family: ITCFranklinGothicStd-Demi"
+                >
+                  Learn More
+                </p>
+              </button>
+            </div>
           </div>
-          <button class="mt-6" @click="goToProduct(index)">
-            <p
-              class="border-b-4 border-b-black uppercase"
-              style="font-family: ITCFranklinGothicStd-Demi"
-            >
-              learn more
-            </p>
-          </button>
         </div>
       </div>
-      <!--        <button @click="next"><svg class="bg-zinc-950 rounded-xl mr-2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M4 12h12.25L11 6.75l.66-.75l6.5 6.5l-6.5 6.5l-.66-.75L16.25 13H4z"/></svg></button>-->
     </div>
+
     <div id="footer" class="flex justify-center">
       <FooterComponent />
     </div>
